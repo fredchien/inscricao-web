@@ -1,0 +1,9 @@
+.menu{position: fixed; width: 100%;z-index: 2;}
+.menu ul li{margin-left: 70px;}
+.menu ul li a{font-size: 20px; color: #FFF;}
+.menu ul li a:hover{color: rgb(255, 172, 45);}
+.menu ul li:last-child{background-color: rgb(15, 43, 146); padding: 0 40px;border-radius: 35px;transition: 0.7s;}
+.menu ul li:last-child:hover{background-color: rgb(255, 97, 30);}
+.menu ul li:last-child:hover a{color: #FFF;}
+.menu ul li:last-child a{color: rgb(255, 172, 45);}
+.logo img{width: 50%;}

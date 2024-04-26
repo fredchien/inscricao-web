@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-// import "../pages/style.css";
+import "../pages/style.css";
 import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
@@ -8,6 +8,7 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Título do site</title>
+        <script src="https://kit.fontawesome.com/48a5a2c166.js"></script>
       </Head>
       <Component {...pageProps} />
     </>

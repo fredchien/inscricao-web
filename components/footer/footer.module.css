@@ -1,0 +1,12 @@
+.footer .content {width: 100vw; background-color: #00145D; display: flex; flex-direction: column; align-items: center; justify-content: center;}
+.boxtop { position: relative; margin-top: -1rem;}
+.boxtop .triangleOne {position: absolute; right: 0; bottom: 0; z-index: 1;}
+.boxtop .triangleTwo {z-index: 2; margin-top: 5px;}
+.footer .content figure {display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 5rem;}
+.footer .content figure img {width: 90px;}
+.footer .content figure div {display: flex; gap: 0.7rem; margin-top: 3rem;}
+.footer .content figure div svg {font-size: 40px; color: #D6E1FF;}
+.footer .content .imagePactual {width: 200px; margin: 2rem 0;}
+.footer .content .gridImages {display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;}
+.footer .content .gridImages img {width: 90px;}
+.footer .content p {margin-bottom: 0; color: #fff; font-size: 15px; font-weight: 300; padding: 3rem 0;}

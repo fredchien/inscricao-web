@@ -1,0 +1,6 @@
+.content {display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 2rem; width: 100%;}
+.content h2 {color: orangered;}
+.content div {display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #122F97; border-radius: 10px; overflow: hidden; width: 100%;}
+.content div img {width: 100% ;}
+.content div span {background-color: #122F97; width: 100%; text-align: center; font-weight: 700; color: #FFE79F; padding: 20px 10px;}
+.content div span p {margin-bottom: 0; color: #fff; font-weight: 300;}

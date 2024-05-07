@@ -1,0 +1,5 @@
+.content {text-align: start; margin-top: 3rem;}
+.content div {display: flex; align-items: flex-start; justify-content: flex-start;}
+.content h2 {font-size: 1.6em; font-weight: 700; color: #122F97; margin-bottom: 1rem;}
+.content h3 {font-size: 0.9em; color: #122F97;}
+.content p {font-size: 0.9em; color: #1F2127;}

@@ -1,6 +1,0 @@
-.banner_home {min-height: 792px;background: #162A46;background-size: cover;display: flex;justify-content: center;align-items: center;padding-top: 0;position: relative;}
-.banner_home video { width: 100%;  }
-.banner_home .content_play { position: absolute; }
-.banner_home .content_play .banner_content{ text-align: center; }
-.banner_home .content_play .banner_content i{ color: #FFF; font-size: 100px; }
-.banner_home .content_play .banner_content h2{ color: #FFF; }

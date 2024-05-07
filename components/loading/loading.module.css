@@ -1,0 +1,4 @@
+.content { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; background-image: linear-gradient(0deg, #000d3d, #01145d);}
+.content .boxImages {width: 20rem; height: 20rem; position: relative; display: flex; align-items: center; justify-content: center;}
+.content .boxImages .loadingGif {width: 100%; height: 100%; position: absolute; top: 0; left: 0;}
+.content .boxImages .iconVnW {width: 8rem;}

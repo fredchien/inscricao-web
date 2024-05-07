@@ -1,5 +1,6 @@
 import styles from './menu.module.css';
 
+
 export default function MenuComponent() {
     return (
         <div className={styles.menu}>

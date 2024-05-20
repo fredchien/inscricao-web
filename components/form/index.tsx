@@ -222,7 +222,7 @@ export default function Form() {
             <div className={styles.box_input}>
               <label>CPF</label>
               <input type="number" placeholder="000.000.000-00" {...register("cpf", {pattern: {value: /^\d{14}$/, message: 'Precisa ter 11 numeros'}})} required />
-              <p style={{color: "red", fontSize: "14px"}}>{errors?.cpf?.message}</p>
+              <p style={{color: "red", fontSize: "14px"}}>{errors?.cpf?.message as any}</p>
             </div>
             <div style={{display: "flex", gap: "1rem", marginTop: "2rem"}}>
               <button className={styles.button_submit}>Enviar</button>

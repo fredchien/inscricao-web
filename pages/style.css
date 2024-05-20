@@ -24,4 +24,5 @@ img { max-width: 100%; height: auto; }
 
 .navbar-nav .nav-link.active, .navbar-nav .nav-link.show,.nav-link:focus{color: rgb(255, 172, 45);}
 
-main {padding: 0 1rem; display: flex; flex-direction: column; align-items: center; justify-content: center;}
+main {display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;}
+main .box-main {max-width: 1000px; width: 95vw; display: flex; flex-direction: column; align-items: center; padding: 0 1rem;}

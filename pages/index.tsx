@@ -10,6 +10,9 @@ import Apprenticeship from '../components/apprenticeship';
 import SoftSkillsComponent from '../components/softSkils';
 import Footer from '../components/footer';
 import DoubtsComponents from '../components/doubts';
+import Depositions from '../components/depositions';
+import Requeriments from '../components/requirements';
+import Form from '../components/form';
 
 export default function Page() {
   const [isLoading, setIsLoading] = useState(true);
@@ -27,20 +30,25 @@ export default function Page() {
       {isLoading ? (
         <Loading />
       ) : (
-        <>
+        <div>
           <MenuComponent />
           <Home />
           <main>
-          <Paterns />
-          <CardComponent />
-          <InfoCourse />
-          {/* <SliderButtons /> */}
-          <Apprenticeship />
-          <SoftSkillsComponent />
-          <DoubtsComponents />
+            <div className='box-main'>
+              {/* <Paterns />
+              <CardComponent />
+              <InfoCourse /> */}
+              {/* <SliderButtons /> */}
+              {/* <Apprenticeship />
+              <SoftSkillsComponent />
+              <Depositions />
+              <Requeriments />
+              <Form /> */}
+              <DoubtsComponents />
+            </div>
           </main>
           <Footer />
-        </>
+        </div>
       )}
     </>
   );

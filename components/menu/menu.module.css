@@ -2,8 +2,12 @@
 .menu ul li{margin-left: 70px;}
 .menu ul li a{font-size: 20px; color: #FFF;}
 .menu ul li a:hover{color: rgb(255, 172, 45);}
-.menu ul li:last-child{background-color: rgb(15, 43, 146); padding: 0 40px;border-radius: 35px;transition: 0.7s;}
+.menu ul li:last-child{background: linear-gradient(90deg, #E6571B 1.68%, #E69B29 96.56%); padding: 0 40px;border-radius: 35px;transition: 0.7s;}
 .menu ul li:last-child:hover{background-color: rgb(255, 97, 30);}
 .menu ul li:last-child:hover a{color: #FFF;}
-.menu ul li:last-child a{color: rgb(255, 172, 45);}
+.menu ul li:last-child a{color: #fff;}
 .logo img{width: 100px; padding: 4px 12px;}
+
+.menu .collapse:not(.show) {
+  display: flex !important;
+}

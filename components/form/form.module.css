@@ -26,5 +26,5 @@ form .content_form {width: 100%;}
 .content .content_error .boxList span {display: flex; gap: 1rem; align-items: center; text-align: start;}
 .content .content_error h3 {background: linear-gradient(to right, #FF611E 29%, #FFAC2D 30%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; width: 100%; text-align: center;}
 
-.button_submit {border: none; background-color: #F3631E; color: #fff; border-radius: 5px; padding: 0 1rem; height: 3rem;}
-.button_remember {border: 1px solid #F3631E; background-color: #fff; color: #F3631E; border-radius: 5px; padding: 0 1rem; height: 3rem;}
+.button_submit {border: none; background: linear-gradient(90deg, #E6571B 1.68%, #E69B29 96.56%); color: #fff; border-radius: 30px; padding: 10px 30px;}
+.button_remember {border: 1px solid #F3631E; background-color: #fff; color: #F3631E; border-radius: 30px; padding: 10px 30px;}

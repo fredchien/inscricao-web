@@ -381,7 +381,7 @@ export default function Form() {
               </div>  
             </span>
           </div>
-          {haveComputer == "true" && 
+          {haveComputer as any == "true" && 
           <div className={styles.box_input}>
             <label>
               <p>Se sim, que tipo possui?</p>
@@ -494,7 +494,7 @@ export default function Form() {
           </div>
         </span>
       </div>
-        {havePDW == "true" &&
+        {havePDW as any == "true" &&
         <div className={styles.box_input}>
           <label>Se sim, qual tipo de deficiência possui?</label>
           <input
@@ -542,7 +542,7 @@ export default function Form() {
           </div>
         </span>
       </div>
-        {haveInternet == "true" &&
+        {haveInternet as any == "true" &&
           <div className={styles.box_input}>
           <label>
             <p>Se sim, qual é a velocidade?</p>

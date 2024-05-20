@@ -523,7 +523,7 @@ export default function Form() {
               type="radio"
               id="simIntenet"
               name="possuiInternet"
-              value={true}
+              value={true as any}
               {...register("student_tecnology.have_internet")}
               required
             />
@@ -534,7 +534,7 @@ export default function Form() {
               type="radio"
               id="naoInternet"
               name="possuiInternet"
-              value={false}
+              value={false as any}
               {...register("student_tecnology.have_internet")}
               required
             />

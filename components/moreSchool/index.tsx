@@ -6,7 +6,7 @@ import TitleGradient from '../title-gradient';
 
 export default function MoreSchool() {
     return (
-        <section className={styles.content}>
+        <section className={styles.content} id='sobre'>
           <TitleGradient Children="Escola Vai na Web" />  
           <div className={styles.card}>
             <Image 

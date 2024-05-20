@@ -5,7 +5,7 @@ import AstronautaImage from "../../assets/home-astronauta.png"
 
 export default function Home() {
     return (
-        <section className={styles.content}>
+        <section className={styles.content} id='home'>
            <div className={styles.box_title}>
             <h1>
             Desenvolva Novos<br />
@@ -15,7 +15,7 @@ export default function Home() {
             <Image src={Playicon} alt=''/>
             <p>ASSISTA AO VIDEO E ENTENDA</p>
             </button>
-            <a href=''>Increva-se</a>
+            <a href="#formulario">Inscreva-se</a>
            </div>
            <div className={styles.box_end}>
             <Image src={AstronautaImage} alt="" />

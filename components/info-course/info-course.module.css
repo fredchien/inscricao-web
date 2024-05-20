@@ -3,3 +3,5 @@
 .content h2 {font-size: 1.6em; font-weight: 700; color: #122F97; margin-bottom: 1rem;}
 .content h3 {font-size: 0.9em; color: #122F97;}
 .content p {font-size: 0.9em; color: #1F2127;}
+.content p b {color: #fff; background-color: #122F97;}
+.content ul {font-size: 0.9rem; color: #1F2127; margin: 0; padding: 0 1rem; margin-bottom: 2rem;}

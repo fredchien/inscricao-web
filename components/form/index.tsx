@@ -68,6 +68,8 @@ export default function Form() {
   const havePDW = watch("student_socioeconomic_data.live_with_pwd");
   const haveInternet = watch("student_tecnology.have_internet");
   const State = watch("student_address.address.state");
+  const isCommunity = watch("student_address.community");
+
 
 
 
@@ -225,7 +227,7 @@ export default function Form() {
               <p style={{color: "red", fontSize: "14px"}}>{errors?.cpf?.message as any}</p>
             </div>
             <div style={{display: "flex", gap: "1rem", marginTop: "2rem"}}>
-              <button className={styles.button_submit}>Enviar</button>
+              <button className={styles.button_submit}>Proxíma</button>
               <button className={styles.button_remember} onClick={() => setSeason(6)}>Já foi nosso aluno?</button>
             </div>
             {
@@ -233,7 +235,7 @@ export default function Form() {
                 <p style={{ color: "red", marginTop: "1rem" }}>Preencha todos os campos antes de enviar.</p>
               )
             }
-            <p style={{ marginTop: "6rem" }}>Ao <b>Iniciar</b> a etapa de inscrição você declara que possui no mínimo 16 anos de idade e concorda em compartilhar informações pessoais para efetuar a sua inscrição de acordo com os padrões legais de compartilhamento de dados (LGPD; Lei n° 13.709/2018).</p>
+            <p style={{ marginTop: "6rem" }}>Ao <b>Iniciar</b> a etapa de inscrição você declara que possui no mínimo 16 anos de idade e concorda em compartilhar informações pessoais para efetuar a sua inscrição de acordo com os padrões legais de compartilhamento de dados (LGPD; Lei n° 13.709/2018).</p>
           </div>
         </>
       ) : season === 1 ? (
@@ -266,30 +268,8 @@ export default function Form() {
                 <p style={{ fontSize: "1rem", fontWeight: "600", display: "flex", alignItems: "center", justifyContent: "flex-start", gap: "0.7rem", marginTop: "2rem" }}>
                     A sua idade é: <span style={{ fontSize: "2rem", display: "flex", fontWeight: "700" }}>{idade !== null ? idade : '-'}</span>
                 </p>
-        </div>
-            <div className={styles.box_buttons}>
-              <button  className={styles.button_submit}>Enviar</button>
-              <button className={styles.button_remember} onClick={() => setSeason(season - 1)}>Voltar</button>
-            </div>
-          </div>
-        </>
-      ) : season === 2 ? (
-        <>
-          <div className={styles.box_titleForm}>
-            <div className={styles.circleEtaps}>
-              <span></span>
-              <span style={{ background: "#F3631E" }}></span>
-              <p>2/5</p>
-              <span></span>
-              <span></span>
-            </div>
-            <div>
-              <h3>Cadastrando o seu perfil</h3>
-              <p>Dados Pessoais</p>
-            </div>
-          </div>
-          <div className={styles.content_form}>
-          <div className={styles.box_input}>
+              </div>
+              <div className={styles.box_input}>
             <label>
               <p>Qual é o seu gênero? (?)</p>
             </label>
@@ -342,6 +322,99 @@ export default function Form() {
                 {...register("sexuality")}
               />
               <label htmlFor="naoBinario">Mulher Trans</label>
+            </div>
+          </div>
+            <div className={styles.box_buttons}>
+              <button className={styles.button_remember} onClick={() => setSeason(season - 1)}>Voltar</button>
+              <button  className={styles.button_submit}>Proxíma</button>
+
+            </div>
+          </div>
+        </>
+      ) : season === 2 ? (
+        <>
+          <div className={styles.box_titleForm}>
+            <div className={styles.circleEtaps}>
+              <span></span>
+              <span style={{ background: "#F3631E" }}></span>
+              <p>2/5</p>
+              <span></span>
+              <span></span>
+            </div>
+            <div>
+              <h3>Cadastrando o seu perfil</h3>
+              <p>Dados Pessoais</p>
+            </div>
+          </div>
+          <div className={styles.content_form}>
+
+          <div className={styles.box_input}>
+            <label>
+              <p>Orientação Sexual</p>
+            </label>
+            <div className={styles.boxOptions} style={{ width: 'auto' }}>
+              <input
+                required
+                type="radio"
+                id="heterossexual"
+                name="orientacao_sexual"
+                value="heterossexual"
+              />
+              <label htmlFor="heterossexual">Heterossexual</label>
+            </div>
+            <div className={styles.boxOptions} style={{ width: 'auto' }}>
+              <input
+                required
+                type="radio"
+                id="lesbica_ou_gay"
+                name="orientacao_sexual"
+                value="lesbica_ou_gay"
+              />
+              <label htmlFor="lesbica_ou_gay">Lésbica/Gay</label>
+            </div>
+
+            <div className={styles.boxOptions} style={{ width: 'auto' }}>
+              <input
+                required
+                type="radio"
+                id="bissexual_pansexual"
+                name="orientacao_sexual"
+                value="bissexual_pansexual"
+              />
+              <label htmlFor="bissexual_pansexual">Bissexual/Pansexual</label>
+            </div>
+
+            <div className={styles.boxOptions} style={{ width: 'auto' }}>
+              <input
+                required
+                type="radio"
+                id="assexual"
+                name="orientacao_sexual"
+                value="assexual"
+              />
+              <label htmlFor="assexual">Assexual</label>
+            </div>
+
+            <div className={styles.boxOptions} style={{ width: 'auto' }}>
+              <input
+                required
+                type="radio"
+                id="prefiro_nao_dizer"
+                name="orientacao_sexual"
+                value="prefiro_nao_dizer"
+              />
+              <label htmlFor="prefiro_nao_dizer">Prefiro não dizer</label>
+            </div>
+
+            <div className={styles.boxOptions} style={{ width: 'auto' }}>
+              <input
+                required
+                type="radio"
+                id="outro"
+                name="orientacao_sexual"
+                value="outro"
+              />
+              <label htmlFor="outro">Outro</label>
             </div>
           </div>
           <div className={styles.box_input}>
@@ -432,11 +505,11 @@ export default function Form() {
           </div>
           }
           <div className={styles.box_buttons}>
-            <button className={styles.button_submit}>
-              Enviar
-            </button>
-            <button className={styles.button_remember} onClick={() => setSeason(season - 1)}>
+          <button className={styles.button_remember} onClick={() => setSeason(season - 1)}>
               Voltar
+            </button>
+            <button className={styles.button_submit}>
+              Proxíma
             </button>
           </div>
         </div>
@@ -550,44 +623,55 @@ export default function Form() {
           <div className={styles.boxOptions}>
             <input
               type="radio"
-              id="typeProprio"
+              id="Através de um provedor oficial (NET, Vivo, Claro, Tim...)"
               name="velocidadeInternet"
-              value="3G/4G"
+              value="Através de um provedor oficial (NET, Vivo, Claro, Tim...)"
               {...register("student_tecnology.internet_type")}
               required
             />
-            <label htmlFor="typeProprio">3G/4G</label>
+            <label htmlFor="Através de um provedor oficial (NET, Vivo, Claro, Tim...)">Através de um provedor oficial (NET, Vivo, Claro, Tim...)</label>
           </div>
           <div className={styles.boxOptions}>
             <input
               type="radio"
-              id="typeCompartilhado"
+              id="Através de uma rede comunitária"
               name="velocidadeInternet"
-              value="ate15MB"
+              value="Através de uma rede comunitária"
               {...register("student_tecnology.internet_type")}
               required
             />
-            <label htmlFor="typeCompartilhado">Até 15MB</label>
+            <label htmlFor="Através de uma rede comunitária">Através de uma rede comunitária</label>
           </div>
           <div className={styles.boxOptions}>
             <input
               type="radio"
-              id="typeEmprestado"
+              id="Através do celular (3G, 4G ou 5G)"
               name="velocidadeInternet"
-              value="outro"
+              value="Através do celular (3G, 4G ou 5G)"
               {...register("student_tecnology.internet_type")}
               required
             />
-            <label htmlFor="typeEmprestado">Outro</label>
+            <label htmlFor="Através do celular (3G, 4G ou 5G)">Através do celular (3G, 4G ou 5G)</label>
+          </div>
+          <div className={styles.boxOptions}>
+            <input
+              type="radio"
+              id="nao_tenho acesso"
+              name="velocidadeInternet"
+              value="Não tenho acesso"
+              {...register("student_tecnology.internet_type")}
+              required
+            />
+            <label htmlFor="nao_tenho acesso">Não tenho acesso</label>
           </div>
         </div>
         }
       <div className={styles.box_buttons}>
-        <button className={styles.button_submit} >
-          Enviar
-        </button>
-        <button className={styles.button_remember} onClick={() => setSeason(season - 1)}>
+      <button className={styles.button_remember} onClick={() => setSeason(season - 1)}>
           Voltar
+        </button>
+        <button className={styles.button_submit} >
+          Proxíma
         </button>
       </div>
     </div>
@@ -670,11 +754,11 @@ export default function Form() {
         </div>
       </div>
       <div className={styles.box_buttons}>
-        <button className={styles.button_submit}>
-          Enviar
-        </button>
-        <button className={styles.button_remember} onClick={() => setSeason(season - 1)}>
+      <button className={styles.button_remember} onClick={() => setSeason(season - 1)}>
           Voltar
+        </button>
+        <button className={styles.button_submit}>
+          Proxíma
         </button>
       </div>
     </div>
@@ -696,31 +780,13 @@ export default function Form() {
           </div>
           <div style={{width: "100%"}}>
           <div className={styles.box_input}>
-            <label htmlFor="typeCidade">Qual é o seu estado?</label>
-            <select {...register("student_address.address.state")} required>
-              {states?.map((item) => (
-                 <option key={item}>
-                  {item}
-                 </option>
-              ))}
-            </select>
-          </div>
-          <div className={styles.box_input}>
-            <label htmlFor="typeEstado">Qual é a sua cidade?</label>
-            <select {...register("student_address.address.city")} disabled={State === undefined} required>
-              {citys.map((item) => (
-                <option key={item}>{item}</option>
-              ))}
-            </select>
-          </div>
-            <div className={styles.box_input}>
               <label><p>É um morador de comunidade?</p></label>
               <span style={{display: "flex", width: "100%", alignItems: "flex-start", justifyContent: "flex-start", gap: "2rem"}}>
                 <div className={styles.boxOptions} style={{width: "auto"}}>
                   <input
                     type="radio"
                     id="simComunidade"
-                    value="Sim"
+                    value={true as any}
                 {...register("student_address.community")}
                 required
                   />
@@ -731,7 +797,7 @@ export default function Form() {
                   <input
                     type="radio"
                     id="naoComunidade"
-                    value="Não"
+                    value={false as any}
                     {...register("student_address.community")}
                     required
                   />
@@ -739,9 +805,37 @@ export default function Form() {
                 </div>  
               </span>
             </div>
+            {isCommunity as any == "true" &&
+              <div className={styles.box_input} style={{marginBottom: "1rem"}}>
+                <label>Qual comunidade?</label>
+                <input
+                  type="text"
+                  placeholder="Digite o nome da sua comunidade"
+                  required
+                />
+              </div>
+              }
+          <div className={styles.box_input} style={{marginBottom: "1rem"}}>
+            <label htmlFor="typeCidade">Qual é o seu estado?</label>
+            <select {...register("student_address.address.state")} required>
+              {states?.map((item) => (
+                 <option key={item}>
+                  {item}
+                 </option>
+              ))}
+            </select>
+          </div>
+          <div className={styles.box_input} style={{marginBottom: "1rem"}}>
+            <label htmlFor="typeEstado">Qual é a sua cidade?</label>
+            <select {...register("student_address.address.city")} disabled={State === undefined} required>
+              {citys.map((item) => (
+                <option key={item}>{item}</option>
+              ))}
+            </select>
+          </div>
           <div className={styles.box_buttons}>
-            <button className={styles.button_submit} type="submit">Enviar</button>
             <button className={styles.button_remember} onClick={() => setSeason(season - 1)}>Voltar</button>
+            <button className={styles.button_submit} type="submit">Enviar</button>
           </div>
           </div>
         </>
@@ -803,7 +897,7 @@ export default function Form() {
               />
             </div>
             <div className={styles.box_buttons}>
-              <button onClick={() => setSeason(8)} className={styles.button_submit}>Enviar</button>
+              <button onClick={() => setSeason(8)} className={styles.button_submit}>Proxíma</button>
               <button className={styles.button_remember} onClick={() => setSeason(0)}>Voltar</button>
             </div>
           </div>

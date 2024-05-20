@@ -35,15 +35,15 @@ export default function Page() {
           <Home />
           <main>
             <div className='box-main'>
-              {/* <Paterns />
-              <CardComponent />
-              <InfoCourse /> */}
+                <Paterns />
+                <CardComponent />
+                <InfoCourse />
               {/* <SliderButtons /> */}
-              {/* <Apprenticeship />
+              <Apprenticeship />
               <SoftSkillsComponent />
               <Depositions />
               <Requeriments />
-              <Form /> */}
+              <Form />
               <DoubtsComponents />
             </div>
           </main>

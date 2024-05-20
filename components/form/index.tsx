@@ -472,7 +472,7 @@ export default function Form() {
         >
           <div className={styles.boxOptions} style={{ width: 'auto' }}>
             <input
-              value={true}
+              value={true as any}
               type="radio"
               id="simDeficiencia"
               name="possuiDeficiencia"
@@ -487,7 +487,7 @@ export default function Form() {
               id="naoDeficiencia"
               name="possuiDeficiencia"
               {...register("student_socioeconomic_data.live_with_pwd")}
-              value={false}
+              value={false as any}
               required
             />
             <label htmlFor="naoDeficiencia">Não</label>

@@ -7,7 +7,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import imageParterBTg from '../../assets/btg.png';
 
 export default function Paterns() {
-  const [slidesToShow, setSlidesToShow] = useState();
+  const [slidesToShow, setSlidesToShow] = useState<number>();
 
   useEffect(() => {
     const handleResize = () => {

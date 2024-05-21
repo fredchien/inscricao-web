@@ -52,8 +52,8 @@ export default function Requeriments() {
             {notReally}</li>
         ))}
       </ul>
-      </div>
       <Questions />
+      </div>
     </section>
   );
 }

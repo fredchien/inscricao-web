@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Slider from "react-slick";
 import Image from "next/image";
 import "slick-carousel/slick/slick.css";
@@ -6,48 +6,124 @@ import "slick-carousel/slick/slick-theme.css";
 import styles from "./depositions.module.css";
 
 import IconDepositions from "../../assets/icon-depositions.png";
-import PlayIcon from "../../assets/play-icon-two.png";
-import Aluno from "../../assets/image-student.png"
 
-// import video1 from "../../assets/videos/gabriel.mp4";
-// import video2 from "../../assets/videos/gabriel.mp4";
-// import video3 from "../../assets/videos/gabriel.mp4";
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", background: "red" }}
+      onClick={onClick}
+    />
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", background: "green" }}
+      onClick={onClick}
+    />
+  );
+}
 
 export default function Depositions() {
+  const settings = {
+    className: "center",
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    responsive: [
+
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+    ]
+  };
 
   return (
     <section className={styles.content}>
-      <Image src={IconDepositions} alt="" />
+      <Image src={IconDepositions} alt="Depoimentos" />
       <h2>Depoimentos</h2>
-      <div className={styles.content} style={{ width: "100%", margin: "0 auto" }}>
-        <div style={{border: "solid 1px  #D9D9D9", borderRadius: "5px", padding: "2rem", fontSize: "12px"}}>
-          <p>Ser um aluno Vai na Web foi uma experiência transformadora para mim. Durante o curso de back-end em Java, pude mergulhar em um universo de conhecimento rico e desafiador. As aulas ao vivo proporcionaram não apenas aprendizado prático, mas também uma conexão única com os professores e colegas de classe.</p>
-          <p>A cada nova aula, eu sentia a minha compreensão e habilidades em Java se expandindo. Era incrível ver como os conceitos complexos se tornavam claros e aplicáveis através das explicações e exemplos dos professores. A interatividade das aulas ao vivo permitiu que eu tirasse dúvidas imediatamente e assimilasse o conteúdo de forma mais eficiente.</p>
-          <p>A felicidade que senti ao concluir o curso foi indescritível. Saber que adquiri habilidades sólidas em back-end Java e que estou preparado para enfrentar desafios no mercado de trabalho é uma sensação gratificante. Agradeço imensamente à equipe Vai na Web por proporcionar essa jornada de aprendizado enriquecedora e por me preparar para um futuro promissor na área de desenvolvimento de software. Estou animado para colocar em prática tudo o que aprendi e continuar evoluindo como profissional. 😊✨</p>
-          <figure style={{display: "flex", alignItems: "center", justifyContent: "flex-start", gap: "1rem", marginBottom: "0  "}}>
-            <div style={{width: "5rem", height: "5rem", background: "#D9D9D9", borderRadius: "50%", paddingBottom: "0"}}></div>
-            <p>Thalia, aluna Back-end</p>
-          </figure>
+      <Slider {...settings} className={styles.slider}>
+        <div className={styles.slide}>
+          <div className={styles.content}>
+            <div className={styles.box_texts}>
+              <p>Olá, meu nome é Lyslen Miranda e há alguns meses atrás decidi me inscrever para tentar entrar no curso da carreira de desenvolvedor 
+                front-end na escola de tecnologia Vai na Web, e felizmente consegui uma vaga nesse curso maravilhoso. Ao entrar no curso eu não sabia 
+                nada sobre desenvolvimento front-end e fiquei muito surpresa ao ver como aprendi rápido sobre os assuntos, e tudo isso devido a metodologia 
+                de ensino aplicada neste projeto, que equilibra perfeitamente teoria e prática, além de passar desafios de projetos reais para aplicarmos os 
+                conhecimentos aprendidos. A cada dia que passa sinto que estou mais perto dos meus objetivos e a Vai na Web está me ensinando não só o que eu 
+                queria saber ao me inscrever no curso, mas muito mais, e isso me motiva a continuar estudar mais a cada dia</p>
+              <figure style={{ display: "flex", alignItems: "center", justifyContent: "flex-start", gap: "1rem", marginBottom: "0" }}>
+                <div style={{ width: "5rem", height: "5rem", background: "#D9D9D9", borderRadius: "50%", paddingBottom: "0" }}></div>
+                <p>Lyslen Miranda</p>
+              </figure>
+            </div>
+          </div>
         </div>
-        <div className={styles.box_aluno}>
-        <figure style={{width: "150px", height: "150px", position: "relative"}}>
-          <Image src={Aluno} alt="" style={{width: "100%", height: "100%", position: "static"}} />
-          <Image src={PlayIcon} className={styles.play_icon} alt="" />
-        </figure>
-        <p>Felipe Xavier</p>
-
+        <div className={styles.slide}>
+        <div className={styles.videoContainer}>
+          <video width="100%" controls autoPlay={false}>
+            <source src="../assets/video/gabriel.mp4" type="video/mp4" />
+          </video>  
         </div>
-        <div style={{border: "solid 1px  #D9D9D9", borderRadius: "5px", padding: "2rem", fontSize: "12px"}}>
-          <p>Só tenho a agradecer a oportunidade de ter vivenciado essa experiência e ter tido contato com pessoas incríveis, e também  ter tido acesso à todo esse conhecimento que foi proporcionado de todas as áreas e conhecimentos que foram abordados.</p>
-          <p>Admiro a capacidade de estarem sempre (claro dentro do possível) bem humorados, alto astral e motivados para assim nos motivar também.</p>
-          <p>Minha gratidão é sincera por todas as oportunidades que tive de aprender, seja algo direto de vocês ou de parceiros e convidados. É uma vivência enriquecedora que somente o dia a dia pode nos proporcionar.</p>
-          <p>Vocês são nota 1.000!!</p>
-          <figure style={{display: "flex", alignItems: "center", justifyContent: "flex-start", gap: "1rem"}}>
-            <div style={{width: "5rem", height: "5rem", background: "#D9D9D9", borderRadius: "50%", paddingBottom: "0"}}></div>
-            <p>Alexandre, aluno Back-end</p>
-          </figure>
         </div>
-      </div>
+        <div className={styles.slide}>
+          <div className={styles.box_texts}>
+            <p>Eu acredito que ter encontrado o vai na Web com curso de Java foi uma chance única pra mim, eu queria muito focar meu estudos com essa linguagem e não 
+              tinha condições de pagar nenhum curso, e também não sabia por onde começar, fiquei muito feliz com o curso, e o quanto os instrutores e facilitadores 
+              fazem a gente se sentir a vontade e não ter medo de perguntar e de participar, hoje me formo na turma T1 de back end em java muito feliz e grata por tudo.</p>
+            <figure style={{ display: "flex", alignItems: "center", justifyContent: "flex-start", gap: "1rem" }}>
+              <div style={{ width: "5rem", height: "5rem", background: "#D9D9D9", borderRadius: "50%", paddingBottom: "0" }}></div>
+              <p>Deise</p>
+            </figure>
+          </div>
+        </div>
+        <div className={styles.slide}>
+        <div className={styles.videoContainer}>
+          <video width="100%" controls autoPlay={false}>
+            <source src="../assets/video/Isael.mp4" type="video/mp4" />
+          </video>  
+        </div>
+        </div>
+        <div className={styles.slide}>
+          <div className={styles.box_texts}>
+            <p>Eu estou muito satisfeita com o ensino da VNW. Uma única sugestão que eu dei em relação ao método de ensino é que deveriam construir um site do zero e nele ir 
+              utilizando tudo o que foi sendo ensinado. I nclusive, eu mesma comecei a fazer isso e estou conseguindo ter um progresso muito melhor em relação ao meu aprendizado. 
+              Eu, em particular, tenho um pouco de dificuldade às vezes em entender algumas coisas que meu instrutor ensina, mas acredito que isso seja mais da minha parte do que 
+              da parte dele, pois isso acontece com uma boa parte das pessoas que eu assisto em cursos, por exemplo.
+              <br />
+              <br />
+              Apesar dessas coisas, eu gosto da minha turma no geral e sinto um carinho muito grande por parte de toda a equipe com todos os alunos, um carinho individual 
+              por todos nós. Quero muito agradecer a todos vocês da VNW por me ajudarem nessa jornada, e quando eu chegar onde eu quero, jamais me esquecerei de vocês. Obrigada 
+              por tudo.</p>
+            <figure style={{ display: "flex", alignItems: "center", justifyContent: "flex-start", gap: "1rem" }}>
+              <div style={{ width: "5rem", height: "5rem", background: "#D9D9D9", borderRadius: "50%", paddingBottom: "0" }}></div>
+              <p>Beatriz Vieira</p>
+            </figure>
+          </div>
+        </div>
+        <div className={styles.slide}>
+        <div className={styles.videoContainer}>
+          <video width="100%" controls autoPlay={false}>
+            <source src="../assets/video/Tricia.mp4" type="video/mp4" />
+          </video>  
+        </div>
+        </div>
+      </Slider>
     </section>
   );
 }

@@ -37,7 +37,7 @@ export default function Depositions() {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 5000,
     responsive: [
 
@@ -66,7 +66,7 @@ export default function Depositions() {
                 nada sobre desenvolvimento front-end e fiquei muito surpresa ao ver como aprendi rápido sobre os assuntos, e tudo isso devido a metodologia 
                 de ensino aplicada neste projeto, que equilibra perfeitamente teoria e prática, além de passar desafios de projetos reais para aplicarmos os 
                 conhecimentos aprendidos. A cada dia que passa sinto que estou mais perto dos meus objetivos e a Vai na Web está me ensinando não só o que eu 
-                queria saber ao me inscrever no curso, mas muito mais, e isso me motiva a continuar estudar mais a cada dia.</p>
+                queria saber ao me inscrever no curso, mas muito mais, e isso me motiva a continuar estudar mais a cada dia</p>
               <figure style={{ display: "flex", alignItems: "center", justifyContent: "flex-start", gap: "1rem", marginBottom: "0" }}>
                 <div style={{ width: "5rem", height: "5rem", background: "#D9D9D9", borderRadius: "50%", paddingBottom: "0" }}></div>
                 <p>Lyslen Miranda</p>
@@ -76,7 +76,7 @@ export default function Depositions() {
         </div>
         <div className={styles.slide}>
         <div className={styles.videoContainer}>
-          <video width="100%" controls autoPlay={false}>
+          <video controls style={{maxWidth: "100%"}} autoPlay={false}>
             <source src="../assets/video/gabriel.mp4" type="video/mp4" />
           </video>  
         </div>
@@ -94,7 +94,7 @@ export default function Depositions() {
         </div>
         <div className={styles.slide}>
         <div className={styles.videoContainer}>
-          <video width="100%" controls autoPlay={false}>
+          <video controls style={{maxWidth: "100%"}} autoPlay={false}>
             <source src="../assets/video/Isael.mp4" type="video/mp4" />
           </video>  
         </div>
@@ -118,7 +118,7 @@ export default function Depositions() {
         </div>
         <div className={styles.slide}>
         <div className={styles.videoContainer}>
-          <video width="100%" controls autoPlay={false}>
+          <video controls style={{maxWidth: "100%"}} autoPlay={false}>
             <source src="../assets/video/Tricia.mp4" type="video/mp4" />
           </video>  
         </div>

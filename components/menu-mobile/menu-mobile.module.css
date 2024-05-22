@@ -1,0 +1,6 @@
+.menu_mobile { background: #fff; max-width: 250px; width: 70%; display: none; position: fixed; height: 30%; right: -1000px; top: 0; z-index: 9; padding: 5rem 4rem 40px 4rem; transition: ease-in-out 0.5s; -moz-transition: ease-in-out 0.5s; -webkit-transition: ease-in-out 0.5s; -o-transition: ease-in-out 0.5s; border-radius: 0 0 0 12px; text-align: end;}
+.menu_mobile ul {display: flex; width: 100%; color: #000B33}
+
+@media (max-width: 991px) {
+  .menu_mobile {display: flex;}
+}

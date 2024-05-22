@@ -1,4 +1,4 @@
-.content {min-height: 95vh; width: 100vw; background: #000B33;background-size: cover;display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start;padding-top: 0;position: relative;}
+.content {min-height: 95vh; width: 100%; background: #000B33;background-size: cover;display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start;padding-top: 0;position: relative; overflow: hidden;}
 .content .box_title { width: 100%; padding-top: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center;}
 .content .box_title h1 { background: linear-gradient(to right, #FF611E 40%, #FFAC2D 10%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-align: center;}
 .content .box_title button { display: flex; align-items: center; justify-content: flex-start; gap: 1rem; border: 0; background-color: transparent;}

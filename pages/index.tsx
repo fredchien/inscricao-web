@@ -3,7 +3,7 @@ import MenuComponent from "../components/menu";
 import Home from "../components/home";
 import Loading from '../components/loading/indes';
 import Paterns from '../components/partners';
-import CardComponent from "../components/moreSchool";
+// import CardComponent from "../components/moreSchool";
 import InfoCourse from '../components/info-course';
 // import SliderButtons from '../components/slider-button';
 import Apprenticeship from '../components/apprenticeship';
@@ -13,6 +13,8 @@ import DoubtsComponents from '../components/doubts';
 import Depositions from '../components/depositions';
 import Requeriments from '../components/requirements';
 import Form from '../components/form';
+import NewPaterns from '../components/newParterns';
+import ContentYellow from '../components/content-yellow';
 
 export default function Page() {
   const [isLoading, setIsLoading] = useState(true);
@@ -35,12 +37,14 @@ export default function Page() {
           <Home />
           <main>
             <div className='box-main'>
-                <Paterns />
-                <CardComponent />
+              <NewPaterns />
+                {/* <Paterns /> */}
+                {/* <CardComponent /> */}
                 <InfoCourse />
               {/* <SliderButtons /> */}
-              <Apprenticeship />
-              <SoftSkillsComponent />
+              {/* <Apprenticeship />
+              <SoftSkillsComponent /> */}
+              <ContentYellow />
               <Depositions />
               <Requeriments />
               <Form />

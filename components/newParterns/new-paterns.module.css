@@ -1,0 +1,8 @@
+.content {width: 100%; display: flex; justify-content: space-between; padding: 5rem;}
+.content div {display: flex; align-items: center; justify-content: center; gap: 1rem;}
+.content div p {font-size: 14px;}
+
+
+@media (max-width: 868px) {
+  .content {flex-direction: column; align-items: center; justify-content: center; margin-bottom: 0rem; padding: 3rem 0; }
+}

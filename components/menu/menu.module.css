@@ -1,6 +1,6 @@
-.menu{position: fixed; width: 100%; z-index: 9;}
+.menu{position: fixed; width: 100vw; z-index: 9; display: flex; align-items: center; justify-content: center; padding: 0; backdrop-filter: blur(2px);}
 .menu ul li{margin-left: 70px;}
-.menu ul li a{font-size: 20px; color: #FFF;}
+.menu ul li a{font-size: 20px; color: #E6571B;}
 .menu ul li a:hover{color: rgb(255, 172, 45);}
 .menu ul li:last-child{background: linear-gradient(90deg, #E6571B 1.68%, #E69B29 96.56%); padding: 0 40px;border-radius: 35px;transition: 0.7s;}
 .menu ul li:last-child:hover{background-color: rgb(255, 97, 30);}
@@ -10,4 +10,8 @@
 
 .menu .collapse:not(.show) {
   display: flex !important;
+}
+
+@media (max-width: 868px) {
+  .menu {padding: 0 1rem; backdrop-filter: blur(0);}
 }

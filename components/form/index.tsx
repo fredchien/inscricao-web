@@ -45,6 +45,7 @@ export default function Form() {
       skin_color: null,
       course_enrolled: null,
       year_enrolled: null,
+      concordarDados: null,
       student_responsible: {
         fullname: null,
         relation: null,

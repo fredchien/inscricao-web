@@ -124,6 +124,16 @@ export default function Form() {
     fatchCity()
   }, [State])
 
+  function formatCPF(cpf) {
+      cpf = cpf.replace(/\D/g, '');
+      
+      cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+      cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+      cpf = cpf.replace(/(\d{3})(\d{2})$/, "$1-$2");
+
+      return cpf;
+  }
+
 
   const onSubmit = async(data) => {
     if(data.student_tecnology.have_computer === "false" )
@@ -305,7 +315,16 @@ export default function Form() {
             
             <div className={styles.box_input}>
               <label>CPF</label>
-              <input type="number" placeholder="000.000.000-00" {...register("cpf", {pattern: {value: /^\d{14}$/, message: 'Precisa ter 11 numeros'}})} required />
+              <input 
+                type="text" 
+                maxLength={11} 
+                placeholder="Digite seu CPF (somente números)" 
+                {...register("cpf")} 
+                onBlur={(e) => {
+                  let value = formatCPF(e.target.value);
+                  setValue("cpf", value);
+              }}
+                required />
               <p style={{color: "red", fontSize: "14px"}}>{errors?.cpf?.message as any}</p>
             </div>
             <div style={{display: "flex", gap: "1rem", marginTop: "2rem"}}>

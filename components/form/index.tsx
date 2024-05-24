@@ -8,6 +8,7 @@ import ImgIncorrect from "../../assets/incorrect-icon.png"
 import Emojiicon from "../../assets/emoji.png"
 import Image from "next/image";
 import { Session } from "inspector";
+import InfoComponent from "../info-component";
 
 
 export default function Form() {
@@ -297,7 +298,6 @@ export default function Form() {
   return (
     <section className={styles.content} id="formulario">
       <form onSubmit={handleSubmit(onSubmit)}>
-
       {season === 0 ? (
         <>
           <TitleGradient Children="Inscreva-se no Vai na Web!" />
@@ -456,47 +456,47 @@ export default function Form() {
             </label>
             <div className={styles.boxOptions} style={{ width: 'auto' }}>
               <input
-                required
                 type="radio"
                 id="pretopardo"
                 name="racaouetnia"
                 value="pretopardo"
                 {...register("skin_color")}
+                required
               />
               <label htmlFor="pretopardo">Preto(a) ou pardo(a)</label>
             </div>
             <div className={styles.boxOptions} style={{ width: 'auto' }}>
               <input
-                required
                 type="radio"
                 id="Branco(a)"
                 name="racaouetnia"
                 value="Branco(a)"
                 {...register("skin_color")}
+                required
               />
               <label htmlFor="Branco(a)">Branco(a)</label>
             </div>
 
             <div className={styles.boxOptions} style={{ width: 'auto' }}>
               <input
-                required
                 type="radio"
                 id="Amarelo(a)"
                 name="racaouetnia"
                 value="Amarelo(a)"
                 {...register("skin_color")}
+                required
               />
               <label htmlFor="Amarelo(a)">Amarelo(a)</label>
             </div>
 
             <div className={styles.boxOptions} style={{ width: 'auto' }}>
               <input
-                required
                 type="radio"
                 id="Indígena"
                 name="racaouetnia"
                 value="Indígena"
                 {...register("skin_color")}
+                required
               />
               <label htmlFor="Indígena">Indígena</label>
             </div>
@@ -509,7 +509,8 @@ export default function Form() {
 
           <div className={styles.box_input}>
                 <label>
-                  <p>Qual é o seu gênero? (?)</p>
+                  <p>Qual é o seu gênero? <InfoComponent Children={"Qual é o seu gênero?"} /></p>
+
                 </label>
                 <div className={styles.boxOptions}>
                   <input
@@ -567,7 +568,7 @@ export default function Form() {
           <button className={styles.button_remember} onClick={() => setSeason( season - 2)}>
               Voltar
             </button>
-            <button className={styles.button_submit} onClick={() => setSeason( season + 1)}>
+            <button className={styles.button_submit} >
               Proxíma
             </button>
           </div>
@@ -591,7 +592,7 @@ export default function Form() {
         <div className={styles.content_form}>
           <div className={styles.box_input}>
             <label>
-              <p>Orientação Sexual</p>
+              <p>Qual é a sua orientação sexual? <InfoComponent Children={"Qual é a sua orientação sexual?"} /></p>
             </label>
             <div className={styles.boxOptions} style={{ width: 'auto' }}>
               <input
@@ -919,7 +920,7 @@ export default function Form() {
       <button className={styles.button_remember} onClick={() => setSeason(season - 1)}>
           Voltar
         </button>
-        <button className={styles.button_submit} onClick={() => setSeason(season + 1)}>
+        <button className={styles.button_submit}>
           Proxíma
         </button>
       </div>
@@ -943,7 +944,7 @@ export default function Form() {
           <div style={{width: "100%"}}>
 
             <div className={styles.box_input}>
-        <label>Somando você, quantas pessoas moram na mesma residência?</label>
+        <label>Somando você, quantas pessoas moram na mesma residência? <InfoComponent Children="Somando você, quantas pessoas moram na mesma residência?" /></label>
         <input
           type="number"
           placeholder="Digite apenas números"

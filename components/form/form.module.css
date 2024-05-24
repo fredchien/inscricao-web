@@ -2,8 +2,12 @@
 .content h2 {width: 260px; text-align: center;}
 .content form {display: flex; flex-direction: column; justify-content: flex-start; align-items: center; width: 100%; gap: 1rem; margin-top: 2rem; position: relative; height: 90vh;  }
 .content form .box_input {display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; width: 100%;}
-.content form .box_input label {font-weight: 600; color: #000000; font-size: 13px;}
-.content form .box_input input {width: 100%; height: 40px; border-radius: 5px; border: 1px solid #B3B3B3; background-color: #FAFAFA; padding: 0 0.7rem; color: #B3B3B3; font-size: 1rem;}
+.content form .box_input label {font-weight: 600; color: #000000; font-size: 13px; display: flex; gap: 1rem;}
+.content form .box_input input {width: 100%; height: 40px; border-radius: 5px; border: 1px solid #B3B3B3; background-color: #FAFAFA; padding: 0 0.7rem; color: #000; font-weight: 500; font-size: 1rem;}
+.content form .box_input input::placeholder {color: #888888; font-size: 16px;
+}
+
+
 .content form .box_buttons {display: flex; gap: 1.2rem; margin-top: 1rem; position: absolute; bottom: 0;}
 .content p {text-align: center;}
 
@@ -16,10 +20,24 @@
 
 form .content_form {width: 100%;}
 .content form .box_input .boxOptions { display: flex; align-items: center; justify-content: flex-start; width: 100%; margin-bottom: 1rem;}
-.content form .box_input label p {margin-top: 1rem; font-weight: 600;}
+.content form .box_input label p {margin-top: 1rem; font-weight: 600; display: flex; gap: 1rem;}
 .content form .box_input .boxOptions label { display: flex; width: auto; margin: 0; font-weight: 500;}
 .content form .box_input .boxOptions input { width: 20px; height: 20px; margin-right: 1rem;}
 .content form .box_input select {width: 100%; height: 40px; border-radius: 5px; border: 1px solid #B3B3B3; background-color: #FAFAFA; padding: 0 0.7rem; color: #B3B3B3; font-size: 1rem;}
+.content form .box_input .dateComponent {width: 117px !important;}
+.content form .box_input .dateComponent[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 110px !important;
+}
+
 
 .content .content_error {text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;}
 .content .content_error .boxList { display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 1.3rem; margin-bottom: 2rem;}

@@ -5,40 +5,54 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./depositions.module.css";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+
+
 import IconDepositions from "../../assets/icon-depositions.png";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
+  document.querySelectorAll('video').forEach(vid => vid.pause());
   return (
     <div
-      className={className}
-      style={{ ...style, display: "block", background: "red" }}
+      className={className.arrowButton}
+      style={{ ...style, width: "2rem", height: "2rem", display: "flex", alignItems: "center", justifyContent: "center", position: "absolute", right: "-2rem", top: "50%", cursor: "pointer", color: "#F6A528"}}
+      
       onClick={onClick}
-    />
+    >
+      <FontAwesomeIcon icon={faChevronRight} style={{color: "#F6A528", fontSize: "29px", fontWeight: "600"}} />
+    </div>
   );
 }
 
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
+  document.querySelectorAll('video').forEach(vid => vid.pause());
   return (
     <div
-      className={className}
-      style={{ ...style, display: "block", background: "green" }}
+      className={className.arrowButton}
+      style={{ ...style, width: "2rem", height: "2rem", display: "flex", alignItems: "center", justifyContent: "center", position: "absolute", left: "-2.2rem", top: "50%", cursor: "pointer"}}
       onClick={onClick}
-    />
+    >
+      <FontAwesomeIcon icon={faChevronLeft} style={{color: "#F6A528", fontSize: "29px", fontWeight: "600"}} />
+    </div>
   );
 }
 
 export default function Depositions() {
   const settings = {
     className: "center",
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: false,
     autoplaySpeed: 5000,
+    draggable: false,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
     responsive: [
 
       {
@@ -47,13 +61,15 @@ export default function Depositions() {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
-          dots: true
+          dots: false,
+          draggable: true,
         }
       },
     ]
   };
 
   return (
+    <div className={styles.boxSection}>
     <section className={styles.content}>
       <Image src={IconDepositions} alt="Depoimentos" />
       <h2>Depoimentos</h2>
@@ -125,5 +141,6 @@ export default function Depositions() {
         </div>
       </Slider>
     </section>
+    </div>
   );
 }

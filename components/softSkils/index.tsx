@@ -1,41 +1,49 @@
 import styles from "./softskils.module.css";
 import TitleGradient from "../title-gradient";
 import Image from 'next/image'
-import Logo from "../../assets/icon-privacy.png"
+import LogoInteligence from "../../assets/ia-icon.png"
+import LogStydyo from "../../assets/stydy-icon.png"
+import LogoComunication from "../../assets/comunication-icon.png"
+import LogoCode from "../../assets/alem-docodigo-icon.png"
+import LogoPrivacity from "../../assets/privacity-icon.png"
+import LogoFocus from "../../assets/focus-icon.png"
+import LogoCriativy from "../../assets/criativy-icon.png"
+import LogoTecnic from "../../assets/tecnic-auto-icon.png"
+
 
 export default function SoftSkillsComponent() {
 
   const data = [
     {
-      image: Logo,
+      image: LogoInteligence,
       name: "Inteligência Artificial como ferramenta de estudo",
     },
     {
-      image: Logo,
+      image: LogStydyo,
       name: "Aprendendo a Aprender",
     },
     {
-      image: Logo,
+      image: LogoFocus,
       name: "Determinação e foco",
     },
     {
-      image: Logo,
+      image: LogoComunication,
       name: "Comunicação não-violenta",
     },
     {
-      image: Logo,
+      image: LogoCode,
       name: "O código além do código",
     },
     {
-      image: Logo,
+      image: LogoPrivacity,
       name: "Ética e privacidade digital",
     },
     {
-      image: Logo,
+      image: LogoCriativy,
       name: "Programação Criativa",
     },
     {
-      image: Logo,
+      image: LogoTecnic,
       name: "Técnicas autodidatas",
     },
   ];

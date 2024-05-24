@@ -1,4 +1,5 @@
-.content {overflow: hidden; width: 100%; margin-bottom: 8rem; margin-top: 5rem;}
+.boxSection { display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%;}
+.content { width: 100%; max-width: 1000px; margin-bottom: 8rem; margin-top: 5rem;}
 .content h2 {color: #FF611E; margin-top: 1rem;}
 .content .content_slide {width: 100%; display: flex !important; align-items: center; justify-content: center; flex-direction: column;}
 .content .box_texts {padding: 0.7rem; border: 1px solid #D9D9D9; border-radius: 12px; margin: 0; justify-content: space-between;}
@@ -8,9 +9,16 @@
 .content div div div div {display: flex !important; flex-direction: column; align-items: center; justify-content: center; height: 560px; margin: 0;}
 .content div div div div p {font-size: 12px;}
 .content div div div {display: flex; gap: 1rem;}  
+.content div div div ul {background-color: red !important;}
 
 
 /* @media (max-width: 868px) {
 .content div div div div {height: auto;}
 .content div div div div div div .video {width: 40% !important; height: auto !important;}
 } */
+
+@media (max-width: 868px) {
+  .boxSection {padding: 0 1rem;}
+}
+
+.boxSection .content .slick-dots {display: none !important;}

@@ -27,6 +27,7 @@
   0% { opacity: 0; transform: translateY(-10px); }
   100% { opacity: 1; transform: translateY(0); }
 }
+.dropdownContent p {font-size: 1rem;}
 
 @media (min-width: 868px) {
   .content .boxDoubts_desktop {width: 40%; margin-top: 0}

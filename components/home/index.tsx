@@ -13,7 +13,7 @@ export default function Home() {
             </h1>
             <button>
             <Image src={Playicon} alt=''/>
-            <p>ASSISTA AO VIDEO E ENTENDA</p>
+            <p>ASSISTA AO VÍDEO E<br /> ENTENDA COMO PARTICIPAR</p>
             </button>
             <a href="#formulario">Inscreva-se</a>
            </div>

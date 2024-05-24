@@ -13,6 +13,7 @@ import IconDepositions from "../../assets/icon-depositions.png";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
+  document.querySelectorAll('video').forEach(vid => vid.pause());
   return (
     <div
       className={className.arrowButton}
@@ -27,6 +28,7 @@ function SampleNextArrow(props) {
 
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
+  document.querySelectorAll('video').forEach(vid => vid.pause());
   return (
     <div
       className={className.arrowButton}

@@ -2,6 +2,10 @@ import Questions from "../questions";
 import TitleGradient from "../title-gradient";
 import styles from "./requeriments.module.css";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleCheck, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+
+
 export default function Requeriments() {
   const data = [
     {
@@ -27,13 +31,9 @@ export default function Requeriments() {
       <h3>Confira os pré-requisitos</h3>
       <ul>
         {data[0].prerequisites.map((prerequisite, index) => (
-          <li key={index}>
-            <input 
-              type="checkbox"
-              className={styles.checkbox}
-              checked={true}
-              disabled
-            /> {prerequisite}
+          <li key={index} className={styles.listCorrect}>
+            <FontAwesomeIcon icon={faCircleCheck} />
+            {prerequisite}
             </li>
         ))}
       </ul>
@@ -43,13 +43,9 @@ export default function Requeriments() {
       <ul>
         {data[0].notReally.map((notReally, index) => (
           <li key={index}>
-            <input 
-               type="checkbox"
-               className={styles.checkbox}
-               checked={false}
-               disabled
-            /> 
-            {notReally}</li>
+            <FontAwesomeIcon icon={faCircleXmark} />
+            {notReally}
+            </li>
         ))}
       </ul>
       <Questions />

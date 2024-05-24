@@ -45,6 +45,8 @@ export default function Form() {
       skin_color: null,
       course_enrolled: null,
       year_enrolled: null,
+      concordarDados: null,
+      phone: null,
       student_responsible: {
         fullname: null,
         relation: null,
@@ -70,6 +72,7 @@ export default function Form() {
         cid: null,
         housemates: null,
         income_range: null,
+        live_in_community: null,
       },
     }});
 
@@ -82,7 +85,7 @@ export default function Form() {
   const havePDW = watch("student_socioeconomic_data.live_with_pwd");
   const haveInternet = watch("student_tecnology.have_internet");
   const State = watch("student_address.address.state");
-  const isCommunity = watch("student_address.community");
+  const isCommunity = watch("student_socioeconomic_data.live_in_community");
 
   const concordarDadosValue = watch('concordarDados');
 
@@ -123,6 +126,16 @@ export default function Form() {
   useEffect(() => {
     fatchCity()
   }, [State])
+
+  function formatCPF(cpf) {
+      cpf = cpf.replace(/\D/g, '');
+      
+      cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+      cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+      cpf = cpf.replace(/(\d{3})(\d{2})$/, "$1-$2");
+
+      return cpf;
+  }
 
 
   const onSubmit = async(data) => {
@@ -194,7 +207,7 @@ export default function Form() {
               console.log(err)
               return setSeason(9)
               }
-      }
+          }
   };
 
   const watchOptions = watch(["student_tecnology.have_computer", "student_tecnology.have_internet", 'student_socioeconomic_data.live_with_pwd']); // Assista aos valores dos campos "option"
@@ -305,7 +318,16 @@ export default function Form() {
             
             <div className={styles.box_input}>
               <label>CPF</label>
-              <input type="number" placeholder="000.000.000-00" {...register("cpf", {pattern: {value: /^\d{14}$/, message: 'Precisa ter 11 numeros'}})} required />
+              <input 
+                type="text" 
+                maxLength={11} 
+                placeholder="Digite seu CPF (somente números)" 
+                {...register("cpf")} 
+                onBlur={(e) => {
+                  let value = formatCPF(e.target.value);
+                  setValue("cpf", value);
+              }}
+                required />
               <p style={{color: "red", fontSize: "14px"}}>{errors?.cpf?.message as any}</p>
             </div>
             <div style={{display: "flex", gap: "1rem", marginTop: "2rem"}}>
@@ -482,7 +504,7 @@ export default function Form() {
 
           <div className={styles.box_input}>
               <label>Telefone de contato<br /> (preferência para número que tenha conta no WhatsApp)</label>
-              <input type="number" placeholder="Digite o DDD e o número" required />
+              <input type="number" placeholder="Digite o DDD e o número" {...register("phone")} required />
             </div>
 
           <div className={styles.box_input}>
@@ -1015,7 +1037,7 @@ export default function Form() {
                   type="radio"
                   id="simComunidade"
                   value={true as any}
-              {...register("student_address.community")}
+              {...register("student_socioeconomic_data.live_in_community")}
               required
                 />
                 <label htmlFor="simComunidade"
@@ -1026,7 +1048,7 @@ export default function Form() {
                   type="radio"
                   id="naoComunidade"
                   value={false as any}
-                  {...register("student_address.community")}
+                  {...register("student_socioeconomic_data.live_in_community")}
                   required
                 />
                 <label htmlFor="naoComunidade">Não</label>
@@ -1039,6 +1061,7 @@ export default function Form() {
               <input
                 type="text"
                 placeholder="Digite o nome da sua comunidade"
+                {...register("student_address.community")}
                 required
               />
             </div>

@@ -21,7 +21,7 @@ export default function Requeriments() {
   ];
 
   return (
-    <section className={styles.content}>
+    <section className={styles.content} >
       <TitleGradient Children="Deseja se tornar um Desenvolvedor Front-end?" />
       <div>
       <h3>Confira os pré-requisitos</h3>

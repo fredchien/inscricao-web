@@ -1,3 +1,4 @@
+import InfoComponent from '../info-component';
 import MenuMobile from '../menu-mobile';
 import styles from './menu.module.css';
 
@@ -32,7 +33,7 @@ export default function MenuComponent() {
                                 <a className="nav-link" href="#formulario">Inscrição</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#faq">Inscreva-se</a>
+                                <a className="nav-link" href="#faq">FAQ</a>
                             </li>
                         </ul>
                     </div>

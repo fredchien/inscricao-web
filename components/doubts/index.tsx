@@ -18,56 +18,36 @@ export default function DoubtsComponents() {
       ]
     },
     {
+      title: "Por que a minha inscrição não foi aprovada?",
+      studies: ["Porque estamos priorizando a inscrição de novos alunos ou você não cumpriu um ou mais dos requisitos  obrigatórios."]
+    },
+    {
       title: "Será oferecido certificado?",
+      studies: ["Sim! Todos os nosso cursos emitem certificados para todos os alunos que demonstram dedicação e excelência técnica.",]
+    },
+    {
+      title: "Quais são os dias e horários do curso?",
       studies: [
         "Segundas, quartas, quintas e sextas",
         "Segunda, quarta e sexta - Aulas técnicas",
         "Quinta-feira - Aulas de Soft Skill",
         "Manhã: 09:00 às 10:30",
         "Noite: 18:00 às 19:30",
-      ],
-    },
-    {
-      title: "Quais são os dias e horários do curso?",
-      studies: ["Biblioteca x Framework",]
+      ]
     },
     {
       title: "Qual é o tempo de duração do curso?",
-      studies: ["O Curso tem duração de 6 meses.",]
+      studies: [
+        "O Curso tem duração de 6 meses.",
+      ]
     },
     {
       title: "As aulas ficam gravadas?",
-      studies: ["Não, nossas aulas são sempre ao vivo e nenhuma gravação é feita",]
+      studies: ["Não, nossas aulas são sempre ao vivo e nenhuma gravação é feita."],
     },
     {
-      title: "Avaliações do curso",
-      studies: [
-        "A avaliação do curso é um combo das atividades em sala de aula e desafios práticos que são enviados via google classroom. Presença e interações durante a aula também são levados em consideração.",
-      ]
-    },
-    {
-      title: "Por que minha inscrição não foi aprovada?",
-      studies: [
-        "Porque estamos priorizando a inscrição de novos alunos ou você não cumpriu um ou mais dos requisitos  obrigatórios. Sendo esses:",
-        "ㅤ• Ter pelo entre 15 anos a 35 anos",
-        "ㅤ• Ter renda de até 3 salários mínimos",
-        "ㅤ• Possuir computador ou notebook ",
-        "ㅤ• Possuir acesso a internet",
-        "ㅤ• Possuir 2h por dias disponíveis para estudar",
-      ],
-    },
-    {
-      title: "Será oferecido certificado?",
-      studies: [
-        "Sim! Ao final do curso você receberá um certificado, indicando que você concluiu o programa e a quantidade de horas investidas para atingir isto.",
-      ]
-    },
-    {
-      title: "Será oferecido certificado?",
-      studies: [
-        "Sim! Ao final do curso você receberá um certificado, indicando que você concluiu o programa e a quantidade de horas investidas para atingir isto.",
-         " ", 
-         "Atenção:Para receber o certificado, o(a) aluno(a) deverá ter todos os desafios entregues e no mínimo 75% de presença ."  ]
+      title: "Como são feitas as avaliações do curso?",
+      studies: ["A avaliação do curso é um combo das atividades em sala de aula e desafios práticos que são enviados via Google Classroom. Presença e interações durante a aula também são levados em consideração."]
     },
 
   ];
@@ -96,31 +76,19 @@ export default function DoubtsComponents() {
     </div>
   ))}
   </div>
-  <button className={styles.boxDoubts}>
-    <Image src={IconWpp} className={styles.iconWpp} alt="" />
+ <div className={styles.boxDoubts}>
+  <span className={styles.doubtsEmail}>
+    <h3>Possui mais alguma dúvida?</h3>
+    <p>Fale conosco através do Email <a href="mailto:escola@vainaweb.com.br" >escola@vainaweb.com.br</a></p>
+  </span>
+  <span className={styles.doubtsWpp}>
+    <Image src={IconWpp} alt="" />
     <span>
-      <h3>Possui mais dúvidas?</h3>
-      <p>Fale com Astro, a assistente virtual da Escola Vai na Web.</p>
+      <p><b>Possui mais dúvidas?</b></p>
+      <p>Fale com <b>Astro</b>, a assistente virtual da Escola Vai na Web.</p>
     </span>
-  </button>
-  <div className={styles.boxDoubts_desktop}>
-    <h3>Possui mais alguma dúvida? Envie-nos uma mensagem.</h3>
-    <form>
-      <div className={styles.box_input}>
-        <label>Nome</label>
-        <input type="text" placeholder="Digite o seu nome completo" />
-      </div>
-      <div className={styles.box_input}>
-        <label>Email</label>
-        <input type="text" placeholder="Digite o seu melhor email"  />
-      </div>
-      <div className={styles.box_input}>
-        <label>Recado</label>
-        <textarea placeholder="Digite a sua mensagem" />
-      </div>
-      <button>Enviar</button>
-    </form>
-  </div>
+  </span>
+ </div>
 </section>
 
   );

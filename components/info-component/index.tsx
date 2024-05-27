@@ -8,7 +8,7 @@ export default function InfoComponent({ Children }) {
       <a className="my-anchor-element">
         <FontAwesomeIcon icon={faCircleQuestion} className="fa-regular fa-circle-question" style={{color: "#000", textDecoration: "none", fontSize: "1.2rem"}}/>
       </a>
-      <Tooltip anchorSelect=".my-anchor-element" place="top">
+      <Tooltip anchorSelect=".my-anchor-element" place="top" openOnClick={true}>
         {Children}
       </Tooltip>
     </div>

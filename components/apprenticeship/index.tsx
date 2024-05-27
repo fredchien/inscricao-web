@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import styles from "./apprenticeship.module.css";
 import TitleGradient from "../title-gradient";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
 export default function Apprenticeship() {
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -16,28 +16,28 @@ export default function Apprenticeship() {
         "• Semântica e acessibilidade",
         "• Git e Github",
         "• Responsividade",
-      ]
+      ],
     },
     {
       title: "Lógica de Programação",
       studies: [
         "• Algoritmos",
-        "• Sintaxe",
         "• Tipo de dados",
         "• Estruturas de dados",
         "• JavaScript",
+        "ﾠ• Sintaxe",
         "ﾠ• Variáveis",
         "ﾠ• Operadores",
         "ﾠ• Métodos",
         "ﾠ• Condições",
-        "ﾠ• Condições",
+        "ﾠ• Função",
         "ﾠ• Interatividade",
-      ]
+      ],
     },
     {
       title: "Desenvolvimento Front-end",
       studies: [
-        "• Biblioteca x Framework",
+        " Biblioteca x Framework",
         "ﾠ• React",
         "ﾠ• JSX",
         "ﾠ• Componentização",
@@ -47,8 +47,8 @@ export default function Apprenticeship() {
         "ﾠ• Rotas",
         "ﾠ• Consumo de API",
         "ﾠ• Introdução à Vue.js",
-      ]
-    }
+      ],
+    },
   ];
 
   const handleDropdown = (index) => {
@@ -60,8 +60,14 @@ export default function Apprenticeship() {
       <TitleGradient Children="Você aprenderá nas aulas técnicas" />
       {data.map((item, index) => (
         <div key={index} className={styles.dropdown}>
-          <button className={styles.dropdownToggle} onClick={() => handleDropdown(index)}>
-            {item.title} <span className={openDropdown === index ? styles.rotateArrow : ''}><FontAwesomeIcon icon={faCaretDown} /></span>
+          <button
+            className={styles.dropdownToggle}
+            onClick={() => handleDropdown(index)}
+          >
+            {item.title}{" "}
+            <span className={openDropdown === index ? styles.rotateArrow : ""}>
+              <FontAwesomeIcon icon={faCaretDown} />
+            </span>
           </button>
           {openDropdown === index && (
             <ul className={styles.dropdownContent}>

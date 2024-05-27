@@ -1,5 +1,5 @@
+.footer {position: relative;}
 .footer .content {width: 100vw; background-color: #00145D; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 1rem;}
-.boxtop { position: relative; margin-top: -1rem;}
 .boxtop .triangleOne {position: absolute; right: 0; bottom: 0; z-index: 1;}
 .boxtop .triangleTwo {z-index: 2; margin-top: 5px;}
 .footer .content figure {display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 5rem;}
@@ -10,3 +10,31 @@
 .footer .content .gridImages {display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;}
 .footer .content .gridImages img {width: 90px;}
 .footer .content p {margin-bottom: 0; color: #fff; font-size: 15px; font-weight: 300; padding: 3rem 0;}
+
+.footer .triangule_right_bottom {
+  width: 0;
+  height: 0;
+  border-top: 40px solid transparent;
+  border-right: 50vw solid #f3631e;
+  border-bottom: 10px solid transparent;
+  position: absolute; 
+  transform: rotate(0);
+  top: -2.5rem;
+  right: 0;
+  z-index: 2;
+  margin: 0;
+}
+
+.footer .triangule_left_bottom {
+  width: 0;
+  height: 0;
+  border-top: 40px solid transparent;
+  border-left: 50vw solid #FFF;
+  border-bottom: 10px solid transparent;
+  position: absolute;
+  top: -2.5rem;
+  transform: rotate(0);
+  left: 0;
+  z-index: 1;
+  margin: 0;
+}

@@ -1,4 +1,4 @@
-.content {background-color: #FFF; border: 1px solid #F0F0F0; width: 100%; padding: 1rem 1.5rem 1.5rem 1.5rem; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-direction: column; margin-top: 2rem;}
+.content {background-color: #FFF; border: 1px solid #FFD3AC; width: 100%; padding: 1rem 1.5rem 1.5rem 1.5rem; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-direction: column; margin-top: 2rem;}
 .content figure {display: flex; gap: 0.3rem; align-items: flex-start; justify-content: flex-start; width: 100%; margin-bottom: 1rem;}
 .content figure span {width: 10px; height: 10px; border-radius: 50%; background-color: #D9D9D9;}
 .content h3 {font-size: 19px; color: #1F2127; margin: 0 0 1rem 0!important; padding: 0;}

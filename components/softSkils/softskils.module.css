@@ -1,5 +1,6 @@
 .content {display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; margin-bottom: 5rem;}
 .content h2 {text-align: start;}
-.content div {width: 45%; max-width: 200px; margin-bottom: 1rem; border: 1px solid #FFD3AC; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; flex-direction: column; padding: 12px;}
-.content div img {max-width: 60px; margin-top: 1rem; }
+.content div {width: 45%; max-width: 200px; margin-bottom: 1rem; border: 1px solid #FFD3AC; border-radius: 12px; display: flex; align-items: center; flex-direction: column; padding: 12px; gap: 1rem;}
+.content div img { width: 60px; }
+.content div:nth-child(5) img { width: 104px; height: 60px; }
 .content div p {font-size: 15px; font-weight: 400; height: 96px; margin-bottom: 0; text-align: center;}

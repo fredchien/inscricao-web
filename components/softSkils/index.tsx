@@ -1,14 +1,14 @@
 import styles from "./softskils.module.css";
 import TitleGradient from "../title-gradient";
 import Image from "next/image";
-import LogoInteligence from "../../assets/ia-icon.png";
-import LogStydyo from "../../assets/stydy-icon.png";
-import LogoComunication from "../../assets/comunication-icon.png";
-import LogoCode from "../../assets/alem-docodigo-icon.png";
-import LogoPrivacity from "../../assets/privacity-icon.png";
-import LogoFocus from "../../assets/focus-icon.png";
-import LogoCriativy from "../../assets/criativy-icon.png";
-import LogoTecnic from "../../assets/tecnic-auto-icon.png";
+import LogoInteligence from "../../assets/SSia.png";
+import LogStudy from "../../assets/SSaprender.png";
+import LogoComunication from "../../assets/SScnv.png";
+import LogoCode from "../../assets/SSalem.png";
+import LogoPrivacity from "../../assets/SSetica.png";
+import LogoFocus from "../../assets/SSfoco.png";
+import LogoCriativy from "../../assets/SScriativa.png";
+import LogoTecnic from "../../assets/SSauto.png";
 
 export default function SoftSkillsComponent() {
   const data = [
@@ -17,7 +17,7 @@ export default function SoftSkillsComponent() {
       name: "Inteligência Artificial como ferramenta de estudo",
     },
     {
-      image: LogStydyo,
+      image: LogStudy,
       name: "Aprendendo a Aprender",
     },
     {
@@ -51,13 +51,7 @@ export default function SoftSkillsComponent() {
       <TitleGradient Children="Receberá aulas sobre Soft skills" />
       {data.map((item, index) => (
         <div key={index} className={styles.card}>
-          <Image
-            src={item.image}
-            alt=""
-            width={300}
-            height={200}
-            className={styles.loadingGif}
-          />
+          <Image src={item.image} alt="" className={styles.loadingGif} />
 
           <p>{item.name}</p>
         </div>

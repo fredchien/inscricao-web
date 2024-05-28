@@ -1,15 +1,17 @@
-import styles from "./questions.module.css"
+import styles from "./questions.module.css";
 
 export default function Questions() {
-  return(
+  return (
     <div className={styles.content}>
-        {/* <figure>
+      {/* <figure>
           <span></span>
           <span></span>
           <span></span>
         </figure> */}
-        <h3>Ficou com alguma dúvida?</h3>
+      <h3>Ficou com alguma dúvida?</h3>
+      <a href="#faq">
         <button>Tenho dúvidas</button>
-      </div>
-  )
+      </a>
+    </div>
+  );
 }

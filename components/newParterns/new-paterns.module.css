@@ -1,9 +1,10 @@
-.content {width: 100%; display: flex; justify-content: space-between; padding: 5rem;}
-.content div {display: flex; align-items: center; justify-content: center; gap: 1rem;}
-.content div p {font-size: 14px;}
+.content {width: 100vw; display: flex; justify-content: center; align-items: center; padding: 3rem 0; border-bottom: 1px solid #E6E6E6; margin-bottom: 2rem;}
+.content .boxContent {width: 100%; max-width: 800px; display: flex; justify-content: space-between;}
+.content .boxContent div {display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;}
+.content .boxContent div p {font-size: 14px;}
 
 
 @media (max-width: 868px) {
-  .content {flex-direction: column; align-items: center; justify-content: center; margin-bottom: 0rem; padding: 3rem 0; gap: 2rem; }
-  .content div:nth-child(2) { flex-direction: column;}
+  .content .boxContent {flex-direction: column; align-items: center; justify-content: center; margin-bottom: 0rem; padding: 3rem 0; gap: 2rem; }
+  .content .boxContent div:nth-child(2) { flex-direction: column;}
 }

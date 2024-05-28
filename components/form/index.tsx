@@ -6,8 +6,8 @@ import { formService } from "./service";
 
 import ImgIncorrect from "../../assets/incorrect-icon.png";
 import Emojiicon from "../../assets/emoji.png";
+import FogueteIcon from "../../assets/foguete-emoji.png";
 import Image from "next/image";
-import { Session } from "inspector";
 import InfoComponent from "../info-component";
 
 export default function Form() {
@@ -201,7 +201,7 @@ export default function Form() {
 
         const response = await formService.postDates(dataForm);
         if (response.status === 200) {
-          setSeason(11);
+          setSeason(9);
         } else {
           response.message.non_field_errors.map((item) => {
             if (item.age) {
@@ -420,7 +420,7 @@ export default function Form() {
                   <button className={styles.button_submit}>Proxíma</button>
                   <button
                     className={styles.button_remember}
-                    onClick={() => setSeason(8)}
+                    onClick={() => setSeason(11)}
                   >
                     Já foi nosso aluno?
                   </button>
@@ -1517,6 +1517,28 @@ export default function Form() {
                     sobre as próximas fases até a aula inaugural.
                   </b>
                 </p>
+              </div>
+            </>
+          ) : season === 12 ? (
+            <>
+              <div className={styles.content_error}>
+                <h3>Obrigado</h3>
+                <p>
+                  Ficamos felizes por você desejar continuar estudando com a
+                  gente.
+                </p>
+                <p style={{ marginTop: "2rem" }}>
+                  <b>
+                    Fique atento ao seu Email (ou a caixa de spam) para
+                    novidades. Lembre-se:
+                  </b>
+                </p>
+                <h3 style={{ fontSize: "1.2rem" }}>
+                  Uma vez Vai na Web,
+                  <br />
+                  Sempre Vai na Web!
+                </h3>
+                <Image src={FogueteIcon} alt="" />
               </div>
             </>
           ) : null}

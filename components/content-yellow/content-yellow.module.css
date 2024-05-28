@@ -1,5 +1,5 @@
 .content {background-color: #FFF9E5; width: 100vw; display: flex; align-items: center; justify-content: center; position: relative;}
-.content .box_content {width: 95vw; max-width: 1000px;}
+.content .box_content {width: 100vw; max-width: 1000px;}
 
 .content .triangule_right_top {
   width: 0;
@@ -55,4 +55,8 @@
   left: 0;
   z-index: 1;
   margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .content .box_content {padding: 0 1rem;}
 }

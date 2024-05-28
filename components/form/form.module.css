@@ -1,5 +1,5 @@
 .content { width: 100vw; min-height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; margin-bottom: 5rem; background-color: #FAFAFA;}
-.content .boxContent {max-width: 375px; display: flex; flex-direction: column; justify-content: flex-start; align-items: center;}
+.content .boxContent {width: 100%; max-width: 375px; display: flex; flex-direction: column; justify-content: flex-start; align-items: center;}
 .content h2 {width: 260px; text-align: center;}
 .content form {display: flex; flex-direction: column; justify-content: flex-start; align-items: center; width: 100%; gap: 1rem; margin-top: 2rem; position: relative; height: 100%;  }
 .content form .box_input {display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; width: 100%; margin-bottom: 1rem;}

@@ -331,11 +331,11 @@ export default function Form() {
     }
   };
 
-  //   const verificarEmail = () => {
-  //     if (getValues('email') === getValues('emailReapet')) {
-  //       return true
-  //   } else false
-  // }
+    const verificarEmail = () => {
+      if (getValues('email') !== getValues('emailReapet')) {
+        return false
+    } else return true
+  }
 
   return (
     <section className={styles.content} id="formulario">
@@ -364,13 +364,20 @@ export default function Form() {
                   />
                 </div>
 
-                {/* <div className={styles.box_input}>
+                <div className={styles.box_input}>
                 <label>Repita o Email</label>
-                <input type="email" placeholder="Digite novamente o email" {...register("emailReapet")} required />
+                <input type="email" placeholder="Digite novamente o email" 
+                {...register("emailReapet", {
+                  validate: (match) => {
+                      const emailPass = getValues("email")
+                      return match === emailPass || "E-mails estão divergentes"
+                  }
+                })}
+                required />
               </div>
-              {setTextErr && 
-                  <p>aaaa</p>
-              } */}
+              {
+                  <p>{errors?.emailReapet?.message as any}</p>
+              }
                 <div className={styles.box_input}>
                   <label>CPF</label>
                   <input

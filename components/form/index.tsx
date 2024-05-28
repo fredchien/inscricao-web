@@ -331,11 +331,11 @@ export default function Form() {
     }
   };
 
-    const verificarEmail = () => {
-      if (getValues('email') !== getValues('emailReapet')) {
-        return false
-    } else return true
-  }
+  const verificarEmail = () => {
+    if (getValues("email") !== getValues("emailReapet")) {
+      return false;
+    } else return true;
+  };
 
   return (
     <section className={styles.content} id="formulario">
@@ -364,20 +364,39 @@ export default function Form() {
                   />
                 </div>
 
-                <div className={styles.box_input}>
-                <label>Repita o Email</label>
-                <input type="email" placeholder="Digite novamente o email" 
-                {...register("emailReapet", {
-                  validate: (match) => {
-                      const emailPass = getValues("email")
-                      return match === emailPass || "E-mails estão divergentes"
-                  }
-                })}
-                required />
-              </div>
-              {
-                  <p>{errors?.emailReapet?.message as any}</p>
-              }
+                <div
+                  className={styles.box_input}
+                  style={{ position: "relative" }}
+                >
+                  <label>Repita o Email</label>
+                  <input
+                    type="email"
+                    placeholder="Digite novamente o email"
+                    {...register("emailReapet", {
+                      validate: (match) => {
+                        const emailPass = getValues("email");
+                        return (
+                          match === emailPass || "E-mails estão divergentes"
+                        );
+                      },
+                    })}
+                    required
+                  />
+                  {errors?.emailReapet?.message && (
+                    <p
+                      style={{
+                        position: "absolute",
+                        top: "-0.6rem",
+                        left: "30%",
+                        color: "red",
+                        fontSize: "0.875rem",
+                      }}
+                    >
+                      {String(errors.emailReapet.message)}
+                    </p>
+                  )}
+                </div>
+
                 <div className={styles.box_input}>
                   <label>CPF</label>
                   <input
@@ -396,7 +415,7 @@ export default function Form() {
                   </p>
                 </div>
                 <div
-                  style={{ display: "flex", gap: "1rem", marginTop: "2rem" }}
+                  style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}
                 >
                   <button className={styles.button_submit}>Proxíma</button>
                   <button
@@ -411,7 +430,7 @@ export default function Form() {
                     Preencha todos os campos antes de enviar.
                   </p>
                 )}
-                <p style={{ marginTop: "6rem" }}>
+                <p style={{ marginTop: "4rem" }}>
                   Ao <b>Iniciar</b> a etapa de inscrição você declara que possui
                   no mínimo 16 anos de idade e concorda em compartilhar
                   informações pessoais para efetuar a sua inscrição de acordo

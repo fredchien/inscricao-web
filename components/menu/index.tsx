@@ -7,6 +7,7 @@ export default function MenuComponent() {
     var element = document.getElementById("menu_mobile");
     element.classList.toggle("open");
   };
+
   return (
     <>
       <MenuMobile />

@@ -9,7 +9,7 @@
 .footer .content .imagePactual {}
 .footer .content .gridImages {display: flex; flex-wrap: wrap; gap: 0.7rem; align-items: center; justify-content: center;}
 .footer .content .gridImages .boxGridImages {display: flex; flex-wrap: wrap; gap: 0.7rem; align-items: center; justify-content: center;}
-.footer .content .gridImages .boxGridImages img {width: 105px; height: 105px;}
+.footer .content .gridImages .boxGridImages img {width: 100px; background-color: #fff;}
 .footer .content p {margin-bottom: 0; color: #fff; font-size: 15px; font-weight: 300; padding: 3rem 0;}
 
 .footer .triangule_right_bottom {

@@ -8,16 +8,16 @@ import {
   faSquareTumblr,
   faSquareFacebook,
 } from "@fortawesome/free-brands-svg-icons";
-
-import Implementation from "../../assets/icon-pemdi.png";
 import Pactual from "../../assets/logo-pacto-global-onu.png";
-import Arrecadacao from "../../assets/icon-arrecadacao.png";
-import Educacao from "../../assets//icon-educacao.png";
-import IgualdadeGenero from "../../assets/icon-igualdade.png";
-import Idustria from "../../assets/icon-iii.png";
-import Reducao from "../../assets/icon-reducao.png";
-import TrabalhoEco from "../../assets/icon-tdce.png";
-import CircleColor from "../../assets/icon-ods.png";
+
+import Implementation from "../../assets/logo-pemdi.png";
+import Arrecadacao from "../../assets/logo-erradicao.png";
+import Educacao from "../../assets/logo-educacao.png";
+import IgualdadeGenero from "../../assets/logo-igualdade.png";
+import Idustria from "../../assets/logo-iii.png";
+import Reducao from "../../assets/logo-reducao.png";
+import TrabalhoEco from "../../assets/logo-tdce.png";
+import CircleColor from "../../assets/logo-ods.png";
 
 export default function Footer() {
   return (
@@ -52,7 +52,7 @@ export default function Footer() {
         <div className={styles.gridImages}>
           <Image src={Pactual} className={styles.imagePactual} alt="" />
           <div className={styles.boxGridImages}>
-            <Image src={CircleColor} alt="" />
+            <Image style={{ padding: "10px" }} src={CircleColor} alt="" />
             <Image src={Arrecadacao} alt="" />
             <Image src={Educacao} alt="" />
             <Image src={IgualdadeGenero} alt="" />

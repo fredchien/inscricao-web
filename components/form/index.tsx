@@ -338,7 +338,7 @@ export default function Form() {
   };
 
   return (
-    <section className={styles.content} id="formulario">
+    <section className={styles.content}>
       <div className={styles.boxContent}>
         <form onSubmit={handleSubmit(onSubmit)}>
           {season === 0 ? (

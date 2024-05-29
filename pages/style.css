@@ -5,9 +5,9 @@
 
 html { scroll-behavior: smooth; }
 
-::-webkit-scrollbar { width: 0.75vw; background: #EFF4F8; }
+::-webkit-scrollbar { width: 5px; background: transparent; }
 
-::-webkit-scrollbar-thumb { background: rgb(15, 43, 146); border-radius: 5vw; }
+::-webkit-scrollbar-thumb { background: gray; border-radius: 0; }
 
 html, body { color: #000D25; min-width: 320px; font-size: 16px; line-height: 1.6; background-color: #FFFFFF; font-smoothing: antialiased; }
 
@@ -25,6 +25,6 @@ img { max-width: 100%; height: auto; }
 .navbar-nav .nav-link.active, .navbar-nav .nav-link.show,.nav-link:focus{color: rgb(255, 172, 45);}
 
 main {display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;}
-main .box-main {max-width: 1000px; width: 95vw; display: flex; flex-direction: column; align-items: center; padding: 0 1rem;}
+main .box-main {max-width: 1300px; width: 95vw; display: flex; flex-direction: column; align-items: center; padding: 0 1rem;}
 
 .open {right: 0 !important;}

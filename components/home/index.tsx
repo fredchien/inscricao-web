@@ -20,7 +20,7 @@ export default function Home() {
             ASSISTA AO VÍDEO E<br /> ENTENDA COMO PARTICIPAR
           </p>
         </button>
-        <a href="#formulario">Inscreva-se</a>
+        <a href="#pre-requisitos">Inscreva-se</a>
       </div>
       <div className={styles.box_end}>
         {/* <div style={{ maxWidth: "500px" }}>

@@ -7,4 +7,5 @@
 @media (max-width: 868px) {
   .content .boxContent {flex-direction: column; align-items: center; justify-content: center; margin-bottom: 0rem; padding: 3rem 0; gap: 2rem; }
   .content .boxContent div:nth-child(2) { flex-direction: column;}
+  .content .boxContent div {flex-direction: column;}
 }

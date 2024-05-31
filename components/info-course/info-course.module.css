@@ -1,6 +1,6 @@
-.content {text-align: start; margin-bottom: 10rem; width: 100%;}
-.content .boxTitle {text-align: start;}
-.content .boxTitle h2 {text-align: start;}
+.content {text-align: start; margin: 3rem 0 10rem 0; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+.content .boxTitle {text-align: center; width: 60vw;}
+.content .boxTitle h2 {text-align: center; margin: 0 0 20px 0;}
 .content .content_boxes {display: flex; align-items: center; justify-content: center; gap: 4rem; margin-top: 5rem;}
 .content .box_content {width: 100%;}
 .content .box_content h3 {font-size: 1.6em; font-weight: 700; color: #122F97; margin-bottom: 0.7rem; }
@@ -8,6 +8,7 @@
 .content .box_content p {font-size: 0.9em; color: #1F2127; margin-bottom: 0.7rem;}
 .content .box_content ul {display: flex; flex-wrap: wrap; gap: 1rem; list-style: none; margin: 0 0 0.7rem 0; padding: 0; }
 .content .box_content ul li {border: 1px solid #122F97; color: #122F97; border-radius: 30px; padding: 5px 12px; font-size: 14px;}
+.content .box_content ul li:hover {border: 1px solid #FFF; color: #fff; background-color: #122F97; transition: 0.3s;}
 
 @media (max-width: 868px) {
 .content .content_boxes {display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3rem; margin-top: 5rem;}

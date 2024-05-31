@@ -21,7 +21,9 @@ export interface IDepositionsVideo {
 
 export default function Depositions() {
   const [depositions, setDepositions] = useState<IDepositions[]>([]);
-  const [depositionsVideo, setDepositionsVideo] = useState<IDepositionsVideo[]>([]);
+  const [depositionsVideo, setDepositionsVideo] = useState<IDepositionsVideo[]>(
+    []
+  );
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,7 +31,7 @@ export default function Depositions() {
         await fetchDepositions();
         await fetchDepositionsVideo();
       } catch (error) {
-        console.error('Erro ao buscar:', error);
+        console.error("Erro ao buscar:", error);
       }
     };
     fetchData();
@@ -53,17 +55,16 @@ export default function Depositions() {
     }
   };
 
-  
   function playPause(index: number) {
     var video = document.getElementById(`video${index}`) as HTMLVideoElement;
     var btn = document.getElementById(`play${index}`);
 
     if (video.paused) {
       video.play();
-      btn.classList.add('d-none')
+      btn.classList.add("d-none");
     } else {
       video.pause();
-      btn.classList.remove('d-none')
+      btn.classList.remove("d-none");
     }
   }
 
@@ -77,7 +78,12 @@ export default function Depositions() {
             return (
               <div className={styles.cardDeposition}>
                 <figure>
-                  <Image src={item.image as string} alt="Foto" width={220} height={220}/>
+                  <Image
+                    src={item.image as string}
+                    alt="Foto"
+                    width={220}
+                    height={220}
+                  />
                 </figure>
                 <p className={styles.textName}>{item.nome}</p>
                 <p style={{ marginBottom: "1rem" }}>{item.morada}</p>
@@ -93,10 +99,18 @@ export default function Depositions() {
             return (
               <div className={styles.cardVideo}>
                 <figure className={styles.boxVideo}>
-                  <video autoPlay={false} id={`video${index}`} onClick={() => playPause(index)}>
+                  <video
+                    autoPlay={false}
+                    id={`video${index}`}
+                    onClick={() => playPause(index)}
+                  >
                     <source src={item.video as string} type="video/mp4" />
                   </video>
-                  <i className="fa-solid fa-play" id={`play${index}`} onClick={() => playPause(index)}></i>
+                  <i
+                    className="fa-solid fa-play"
+                    id={`play${index}`}
+                    onClick={() => playPause(index)}
+                  ></i>
                 </figure>
                 <span className={styles.BoxTextsVideo}>
                   <p className={styles.textName}>{item.nome}</p>

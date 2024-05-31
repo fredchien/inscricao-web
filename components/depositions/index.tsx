@@ -38,7 +38,7 @@ export default function Depositions() {
     },
     {
       nome: "Gabriel",
-      video: "../assets/video/Gabriel.mp4",
+      video: "../assets/video/gabriel.mp4",
       texto: "Lorem ipsum, Lorem ipsum, Lorem ipsum",
     },
     {

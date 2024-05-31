@@ -49,13 +49,14 @@ export default function SoftSkillsComponent() {
   return (
     <section className={styles.content}>
       <TitleGradient Children="Receberá aulas sobre Soft skills" />
-      {data.map((item, index) => (
-        <div key={index} className={styles.card}>
-          <Image src={item.image} alt="" className={styles.loadingGif} />
-
-          <p>{item.name}</p>
-        </div>
-      ))}
+      <div className={styles.contentImages}>
+        {data.map((item, index) => (
+          <div key={index} className={styles.card}>
+            <Image src={item.image} alt="" className={styles.loadingGif} />
+            <p>{item.name}</p>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }

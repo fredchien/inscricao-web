@@ -8,16 +8,16 @@ import {
   faSquareTumblr,
   faSquareFacebook,
 } from "@fortawesome/free-brands-svg-icons";
-
-import Implementation from "../../assets/implementation.png";
 import Pactual from "../../assets/logo-pacto-global-onu.png";
-import Arrecadacao from "../../assets/icon-arrecadacao.png";
-import Educacao from "../../assets//icon-educacao.png";
-import IgualdadeGenero from "../../assets/icon-igualdade-genero.png";
-import Idustria from "../../assets/icon-industria-inov.png";
-import Reducao from "../../assets/icon-redeucao.png";
-import TrabalhoEco from "../../assets/icon-trabalho-economico.png";
-import CircleColor from "../../assets/icon-circle-color.png";
+
+import Implementation from "../../assets/logo-pemdi.png";
+import Arrecadacao from "../../assets/logo-erradicao.png";
+import Educacao from "../../assets/logo-educacao.png";
+import IgualdadeGenero from "../../assets/logo-igualdade.png";
+import Idustria from "../../assets/logo-iii.png";
+import Reducao from "../../assets/logo-reducao.png";
+import TrabalhoEco from "../../assets/logo-tdce.png";
+import CircleColor from "../../assets/logo-ods.png";
 
 export default function Footer() {
   return (
@@ -49,16 +49,18 @@ export default function Footer() {
             </a>
           </div>
         </figure>
-        <Image src={Pactual} className={styles.imagePactual} alt="" />
         <div className={styles.gridImages}>
-          <Image src={CircleColor} alt="" />
-          <Image src={Arrecadacao} alt="" />
-          <Image src={Educacao} alt="" />
-          <Image src={IgualdadeGenero} alt="" />
-          <Image src={TrabalhoEco} alt="" />
-          <Image src={Idustria} alt="" />
-          <Image src={Reducao} alt="" />
-          <Image src={Implementation} alt="" />
+          <Image src={Pactual} className={styles.imagePactual} alt="" />
+          <div className={styles.boxGridImages}>
+            <Image style={{ padding: "10px" }} src={CircleColor} alt="" />
+            <Image src={Arrecadacao} alt="" />
+            <Image src={Educacao} alt="" />
+            <Image src={IgualdadeGenero} alt="" />
+            <Image src={TrabalhoEco} alt="" />
+            <Image src={Idustria} alt="" />
+            <Image src={Reducao} alt="" />
+            <Image src={Implementation} alt="" />
+          </div>
         </div>
         <p>2024 © VAI NA WEB | Todos os direitos reservados</p>
       </div>

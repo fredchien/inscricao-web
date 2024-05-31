@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Título do site</title>
+        <title>VNW - Inscreva-se</title>
         <script src="https://kit.fontawesome.com/48a5a2c166.js"></script>
       </Head>
       <Component {...pageProps} />

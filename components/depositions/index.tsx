@@ -1,58 +1,59 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./depositions.module.css";
 
 import IconDepositions from "../../assets/icon-depositions.png";
-import Photo from "../../assets/image-deposition.svg";
 import TitleGradient from "../title-gradient";
 
-export default function Depositions() {
-  const data = [
-    {
-      nome: "Lyslen Miranda, 24 anos",
-      image: Photo,
-      morada: "Valença, BA",
-      texto:
-        "Ao entrar no curso eu não sabia nada sobre desenvolvimento front-end e fiquei muito surpresa ao ver como aprendi rápido sobre diferentes assuntos. Isso se deve a metodologia de ensino aplicada neste projeto, que equilibra perfeitamente teoria e prática, além de passar desafios de projetos reais para aplicarmos os conhecimentos aprendidos. Cada dia que passa sinto que estou mais perto de alcançar meus objetivos.",
-    },
-    {
-      nome: "Deise Sales, 29 anos",
-      image: Photo,
-      morada: "Santa Maria - DF",
-      texto:
-        "Eu acredito que ter encontrado o Vai na Web e cursar a formação em Java foi uma chance única. Queria muito focar meus estudos nesta linguagem e não sabia por onde começar, muito menos tinha condições de pagar por um curso. Finalizei minha formação e estou muito feliz e grata por tudo.",
-    },
-    {
-      nome: "Livia Mabelle, 22 anos",
-      image: Photo,
-      morada: "Barbalha - CE",
-      texto:
-        "Recebi o contato de aprovação do Vai na Web em um dos momentos em que estava mais perdida na vida, diante de tantos “nãos”, em um emprego que não gostava, mentalmente esgotada e sem ânimo para finalizar a faculdade. Quando recebi a notícia, foi como um sinal de esperança, mas muito maior do que eu imaginava. Meu sentimento é de gratidão por tudo que pude aprender durante esses meses e por poder fazer parte disso. Agradeço por todo o apoio que recebi da equipe do Vai na Web.",
-    },
-  ];
+import { DepositionsService } from "./service";
 
-  const dataVideo = [
-    {
-      nome: "Tricia Lisboa, 19 anos",
-      video: "../assets/video/Tricia.mp4",
-      texto: "Belém - PA",
-    },
-    {
-      nome: "Gabriel Silva, 26 anos",
-      video: "../assets/video/gabriel.mp4",
-      texto: "São Paulo-SP",
-    },
-    // {
-    //   nome: "Oriana",
-    //   video: "../assets/video/Oriana.mp4",
-    //   texto: "N/D",
-    // },
-    {
-      nome: "Isael Dorneles Júnior, 31 anos",
-      video: "../assets/video/Isael.mp4",
-      texto: "Mateus Leme, MG",
-    },
-  ];
+export interface IDepositions {
+  nome: String;
+  image: String;
+  morada: String;
+  texto: String;
+}
+export interface IDepositionsVideo {
+  nome: String;
+  video: String;
+  texto: String;
+}
+
+export default function Depositions() {
+  const [depositions, setDepositions] = useState<IDepositions[]>([]);
+  const [depositionsVideo, setDepositionsVideo] = useState<IDepositionsVideo[]>(
+    []
+  );
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        await fetchDepositions();
+        await fetchDepositionsVideo();
+      } catch (error) {
+        console.error("Erro ao buscar:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const fetchDepositions = async () => {
+    try {
+      const response = await DepositionsService.getListDepositions();
+      setDepositions(response?.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const fetchDepositionsVideo = async () => {
+    try {
+      const response = await DepositionsService.getListDepositionsVideo();
+      setDepositionsVideo(response?.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   function playPause(index: number) {
     var video = document.getElementById(`video${index}`) as HTMLVideoElement;
@@ -73,11 +74,16 @@ export default function Depositions() {
         <Image src={IconDepositions} alt="Depoimentos" />
         <TitleGradient Children={"Depoimentos"} />
         <div className={styles.boxCards}>
-          {data.map((item) => {
+          {depositions.map((item) => {
             return (
               <div className={styles.cardDeposition}>
                 <figure>
-                  <Image src={item.image} alt="Foto" />
+                  <Image
+                    src={item.image as string}
+                    alt="Foto"
+                    width={220}
+                    height={220}
+                  />
                 </figure>
                 <p className={styles.textName}>{item.nome}</p>
                 <p style={{ marginBottom: "1rem" }}>{item.morada}</p>
@@ -89,7 +95,7 @@ export default function Depositions() {
           })}
         </div>
         <div className={styles.contentVideo}>
-          {dataVideo.map((item, index) => {
+          {depositionsVideo.map((item, index) => {
             return (
               <div className={styles.cardVideo}>
                 <figure className={styles.boxVideo}>
@@ -98,7 +104,7 @@ export default function Depositions() {
                     id={`video${index}`}
                     onClick={() => playPause(index)}
                   >
-                    <source src={item.video} type="video/mp4" />
+                    <source src={item.video as string} type="video/mp4" />
                   </video>
                   <i
                     className="fa-solid fa-play"

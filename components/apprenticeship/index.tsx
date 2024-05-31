@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import styles from "./apprenticeship.module.css";
 import TitleGradient from "../title-gradient";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import Image from "next/image";
+import backgroundIAP from "../../assets/background-iap.png";
+import backgroundLDP from "../../assets/background-ldp.png";
+import backgroundDFE from "../../assets/background-dfe.png";
 
 export default function Apprenticeship() {
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -10,6 +12,7 @@ export default function Apprenticeship() {
   const data = [
     {
       title: "Introdução à Programação",
+      image: backgroundIAP,
       studies: [
         "• Fundamentos e sintaxe de HTML",
         "• Fundamento e sintaxe de CSS",
@@ -20,6 +23,7 @@ export default function Apprenticeship() {
     },
     {
       title: "Lógica de Programação",
+      image: backgroundLDP,
       studies: [
         "• Algoritmos",
         "• Tipo de dados",
@@ -36,6 +40,7 @@ export default function Apprenticeship() {
     },
     {
       title: "Desenvolvimento Front-end",
+      image: backgroundDFE,
       studies: [
         " Biblioteca x Framework",
         "ﾠ• React",
@@ -51,31 +56,20 @@ export default function Apprenticeship() {
     },
   ];
 
-  const handleDropdown = (index) => {
-    setOpenDropdown(openDropdown === index ? null : index);
-  };
-
   return (
     <section className={styles.content}>
       <TitleGradient Children="Você aprenderá nas aulas técnicas" />
       {data.map((item, index) => (
-        <div key={index} className={styles.dropdown}>
-          <button
-            className={styles.dropdownToggle}
-            onClick={() => handleDropdown(index)}
-          >
-            {item.title}{" "}
-            <span className={openDropdown === index ? styles.rotateArrow : ""}>
-              <FontAwesomeIcon icon={faCaretDown} />
-            </span>
-          </button>
-          {openDropdown === index && (
-            <ul className={styles.dropdownContent}>
-              {item.studies.map((study, studyIndex) => (
-                <li key={studyIndex}>{study}</li>
+        <div key={index} className={styles.module}>
+          <h3>{item.title}</h3>
+          <div>
+            <Image src={item.image} alt={item.title} className={styles.image} />
+            <ul>
+              {item.studies.map((study, index) => (
+                <li key={index}>{study}</li>
               ))}
             </ul>
-          )}
+          </div>
         </div>
       ))}
     </section>

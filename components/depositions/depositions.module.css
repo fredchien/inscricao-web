@@ -1,7 +1,7 @@
 .boxSection { display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100vw;}
 .content { width: 100%; max-width: 1300px; margin-bottom: 8rem; margin-top: 5rem; padding: 0 1rem;}
-.content h2 {color: #FF611E; margin-top: 1rem;}
-.content .boxCards { width: 100%; display: flex; justify-content: space-between; flex-wrap: wrap;}
+.content h2 {  background: #FF611E; background: linear-gradient(to right, #FF611E 5%, #FFAC2D 10%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-align: left; width: 100%; }
+.content .boxCards { width: 100%; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem;}
 .content .boxCards .cardDeposition {width: 31%; min-width: 300px; display: flex; align-items: center; justify-content: flex-start; text-align: center; flex-direction: column; padding: 1.5rem; border: #f7ab38 solid 1px; border-radius: 12px;}
 .content .boxCards .cardDeposition:hover {transition: 0.3s; box-shadow: #E6571B 0 0 4px;}
 .content .boxCards .cardDeposition p {width: 100%; margin: 0;}

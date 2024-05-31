@@ -29,6 +29,45 @@ export default function Depositions() {
         "Recebi o contato de aprovação do Vai na Web em um dos momentos em que estava mais perdida na vida, diante de tantos “nãos”, em um emprego que não gostava, mentalmente esgotada e sem ânimo para finalizar a faculdade. Quando recebi a notícia, foi como um sinal de esperança, mas muito maior do que eu imaginava. Meu sentimento é de gratidão por tudo que pude aprender durante esses meses e por poder fazer parte disso. Agradeço por todo o apoio que recebi da equipe do Vai na Web.",
     },
   ];
+
+  const dataVideo = [
+    {
+      nome: "Tricia",
+      video: "../assets/video/Tricia.mp4",
+      texto: "Lorem ipsum, Lorem ipsum, Lorem ipsum",
+    },
+    {
+      nome: "Gabriel",
+      video: "../assets/video/Gabriel.mp4",
+      texto: "Lorem ipsum, Lorem ipsum, Lorem ipsum",
+    },
+    {
+      nome: "Oriana",
+      video: "../assets/video/Oriana.mp4",
+      texto: "Lorem ipsum, Lorem ipsum, Lorem ipsum",
+    },
+    {
+      nome: "Isael",
+      video: "../assets/video/Isael.mp4",
+      texto: "Lorem ipsum, Lorem ipsum, Lorem ipsum",  
+    },  
+  ];
+
+  
+  
+  function playPause(index: number) {
+    var video = document.getElementById(`video${index}`) as HTMLVideoElement;
+    var btn = document.getElementById(`play${index}`);
+
+    if (video.paused) {
+      video.play();
+      btn.classList.add('d-none')
+    } else {
+      video.pause();
+      btn.classList.remove('d-none')
+    }
+  }
+
   return (
     <div className={styles.boxSection}>
       <section className={styles.content}>
@@ -51,50 +90,22 @@ export default function Depositions() {
           })}
         </div>
         <div className={styles.contentVideo}>
-          <div className={styles.cardVideo}>
-            <figure className={styles.boxVideo}>
-              <video controls autoPlay={false}>
-                <source src="../assets/video/Tricia.mp4" type="video/mp4" />
-              </video>
-            </figure>
-            <span className={styles.BoxTextsVideo}>
-              <p className={styles.textName}>Lorem ipsum, Lorem ipsum</p>
-              <p>Lorem ipsum, Lorem ipsum, Lorem ipsum </p>
-            </span>
-          </div>
-          <div className={styles.cardVideo}>
-            <figure className={styles.boxVideo}>
-              <video controls autoPlay={false}>
-                <source src="../assets/video/Gabriel.mp4" type="video/mp4" />
-              </video>
-            </figure>
-            <span className={styles.BoxTextsVideo}>
-              <p className={styles.textName}>Lorem ipsum, Lorem ipsum</p>
-              <p>Lorem ipsum, Lorem ipsum, Lorem ipsum </p>
-            </span>
-          </div>
-          <div className={styles.cardVideo}>
-            <figure className={styles.boxVideo}>
-              <video controls autoPlay={false}>
-                <source src="../assets/video/Oriana.mp4" type="video/mp4" />
-              </video>
-            </figure>
-            <span className={styles.BoxTextsVideo}>
-              <p className={styles.textName}>Lorem ipsum, Lorem ipsum</p>
-              <p>Lorem ipsum, Lorem ipsum, Lorem ipsum </p>
-            </span>
-          </div>
-          <div className={styles.cardVideo}>
-            <figure className={styles.boxVideo}>
-              <video controls style={{ maxWidth: "200px" }} autoPlay={false}>
-                <source src="../assets/video/Isael.mp4" type="video/mp4" />
-              </video>
-            </figure>
-            <span className={styles.BoxTextsVideo}>
-              <p className={styles.textName}>Lorem ipsum, Lorem ipsum</p>
-              <p>Lorem ipsum, Lorem ipsum, Lorem ipsum </p>
-            </span>
-          </div>
+          {dataVideo.map((item, index) => {
+            return (
+              <div className={styles.cardVideo}>
+                <figure className={styles.boxVideo}>
+                  <video autoPlay={false} id={`video${index}`} onClick={() => playPause(index)}>
+                    <source src={item.video} type="video/mp4" />
+                  </video>
+                  <i className="fa-solid fa-play" id={`play${index}`} onClick={() => playPause(index)}></i>
+                </figure>
+                <span className={styles.BoxTextsVideo}>
+                  <p className={styles.textName}>{item.nome}</p>
+                  <p>{item.texto}</p>
+                </span>
+              </div>
+            );
+          })}
         </div>
       </section>
     </div>

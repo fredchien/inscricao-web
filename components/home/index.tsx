@@ -3,7 +3,7 @@ import Lottie from "lottie-react";
 import Image from "next/image";
 import styles from "./video.module.css";
 import PlayIcon from "../../assets/play-icon.png";
-// import LootieHome from "../../public/assets/lottie/lottie_home.json";
+import LootieHome from "../../public/assets/lottie/lottie_home.json";
 
 export default function Home() {
   const [showVideo, setShowVideo] = useState(false);
@@ -12,15 +12,15 @@ export default function Home() {
     setShowVideo(false);
   };
 
-  const handleVideoClick = (event) => {
-    event.stopPropagation();
-  };
-
   return (
     <section className={styles.content} id="home" onClick={handleClickOutside}>
       {showVideo && (
-        <div className={styles.boxVideo} onClick={handleVideoClick}>
-          <video controls style={{ maxWidth: "1000px" }} autoPlay={false}>
+        <div className={styles.boxVideo} onClick={handleClickOutside}>
+          <video
+            controls
+            autoPlay={false}
+            style={{ borderRadius: "12px", boxShadow: "0px 0 5px #fff" }}
+          >
             <source src="../assets/video/videoteste.mp4" type="video/mp4" />
           </video>
         </div>
@@ -45,9 +45,9 @@ export default function Home() {
         <a href="#pre-requisitos">Inscreva-se</a>
       </div>
       <div className={styles.box_end}>
-        {/* <div style={{ maxWidth: "500px" }}>
+        <div style={{ maxWidth: "500px" }}>
           <Lottie animationData={LootieHome} />
-        </div> */}
+        </div>
       </div>
       <figure className={styles.triangule_right_bottom}></figure>
       <figure className={styles.triangule_left_bottom}></figure>

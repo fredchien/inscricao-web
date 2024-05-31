@@ -33,39 +33,37 @@ export default function Depositions() {
 
   const dataVideo = [
     {
-      nome: "Tricia",
+      nome: "Tricia Lisboa, 19 anos",
       video: "../assets/video/Tricia.mp4",
-      texto: "Lorem ipsum, Lorem ipsum, Lorem ipsum",
+      texto: "Belém - PA",
     },
     {
-      nome: "Gabriel",
+      nome: "Gabriel Silva, 26 anos",
       video: "../assets/video/gabriel.mp4",
-      texto: "Lorem ipsum, Lorem ipsum, Lorem ipsum",
+      texto: "São Paulo-SP",
     },
+    // {
+    //   nome: "Oriana",
+    //   video: "../assets/video/Oriana.mp4",
+    //   texto: "N/D",
+    // },
     {
-      nome: "Oriana",
-      video: "../assets/video/Oriana.mp4",
-      texto: "Lorem ipsum, Lorem ipsum, Lorem ipsum",
-    },
-    {
-      nome: "Isael",
+      nome: "Isael Dorneles Júnior, 31 anos",
       video: "../assets/video/Isael.mp4",
-      texto: "Lorem ipsum, Lorem ipsum, Lorem ipsum",  
-    },  
+      texto: "Mateus Leme, MG",
+    },
   ];
 
-  
-  
   function playPause(index: number) {
     var video = document.getElementById(`video${index}`) as HTMLVideoElement;
     var btn = document.getElementById(`play${index}`);
 
     if (video.paused) {
       video.play();
-      btn.classList.add('d-none')
+      btn.classList.add("d-none");
     } else {
       video.pause();
-      btn.classList.remove('d-none')
+      btn.classList.remove("d-none");
     }
   }
 
@@ -95,10 +93,18 @@ export default function Depositions() {
             return (
               <div className={styles.cardVideo}>
                 <figure className={styles.boxVideo}>
-                  <video autoPlay={false} id={`video${index}`} onClick={() => playPause(index)}>
+                  <video
+                    autoPlay={false}
+                    id={`video${index}`}
+                    onClick={() => playPause(index)}
+                  >
                     <source src={item.video} type="video/mp4" />
                   </video>
-                  <i className="fa-solid fa-play" id={`play${index}`} onClick={() => playPause(index)}></i>
+                  <i
+                    className="fa-solid fa-play"
+                    id={`play${index}`}
+                    onClick={() => playPause(index)}
+                  ></i>
                 </figure>
                 <span className={styles.BoxTextsVideo}>
                   <p className={styles.textName}>{item.nome}</p>

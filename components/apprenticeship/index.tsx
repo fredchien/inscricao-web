@@ -61,9 +61,9 @@ export default function Apprenticeship() {
       <TitleGradient Children="Você aprenderá nas aulas técnicas" />
       {data.map((item, index) => (
         <div key={index} className={styles.module}>
-          <h3>{item.title}</h3>
+          <Image src={item.image} alt={item.title} className={styles.image} />
           <div>
-            <Image src={item.image} alt={item.title} className={styles.image} />
+            <h3>{item.title}</h3>
             <ul>
               {item.studies.map((study, index) => (
                 <li key={index}>{study}</li>

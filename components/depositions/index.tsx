@@ -4,6 +4,7 @@ import styles from "./depositions.module.css";
 
 import IconDepositions from "../../assets/icon-depositions.png";
 import Photo from "../../assets/image-deposition.svg";
+import TitleGradient from "../title-gradient";
 
 export default function Depositions() {
   const data = [
@@ -33,7 +34,7 @@ export default function Depositions() {
     <div className={styles.boxSection}>
       <section className={styles.content}>
         <Image src={IconDepositions} alt="Depoimentos" />
-        <h2>Depoimentos</h2>
+        <TitleGradient Children={"Depoimentos"} />
         <div className={styles.boxCards}>
           {data.map((item) => {
             return (

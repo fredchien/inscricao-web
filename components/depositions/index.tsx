@@ -86,7 +86,7 @@ export default function Depositions() {
                   />
                 </figure>
                 <p className={styles.textName}>{item.nome}</p>
-                <p style={{ marginBottom: "1rem" }}>{item.morada}</p>
+                <p style={{ marginBottom: "0.6rem" }}>{item.morada}</p>
                 <p style={{ fontSize: "0.9rem", textAlign: "start" }}>
                   {item.texto}
                 </p>

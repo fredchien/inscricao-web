@@ -55,11 +55,6 @@ export const DepositionsService = {
         video: "../assets/video/gabriel.mp4",
         texto: "São Paulo-SP",
       },
-      // {
-      // nome: "Oriana",
-      // video: "../assets/video/Oriana.mp4",
-      // texto: "Lorem ipsum, Lorem ipsum, Lorem ipsum",
-      // },
       {
         nome: "Isael Dorneles Júnior, 31 anos",
         video: "../assets/video/Isael.mp4",

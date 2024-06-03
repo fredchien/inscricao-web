@@ -1,7 +1,7 @@
 .content {display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 5rem;}
-.content h2 {text-align: start;}
+.content h2 {text-align: center;}
 .content .contentImages {max-width: 1000px;  width: 100%; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; padding: 2rem;}
 .content .contentImages div {width: 45%; max-width: 200px; height: 200px; margin-bottom: 1rem; border: 1px solid #FFD3AC; border-radius: 12px; display: flex; align-items: center; flex-direction: column; padding: 12px; gap: 1rem;}
-.content .contentImages div img { width: 60px; }
+.content .contentImages div img { width: 60px; height: 60px;}
 .content .contentImages div:nth-child(4) img { width: 104px; height: 60px; }
 .content .contentImages div p {font-size: 15px; font-weight: 400; height: 96px; margin-bottom: 0; text-align: center;}

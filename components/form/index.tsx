@@ -201,7 +201,7 @@ export default function Form() {
 
         const response = await formService.postDates(dataForm);
         if (response.status === 200) {
-          setSeason(9);
+          setSeason(11);
         } else {
           response.message.non_field_errors.map((item) => {
             if (item.age) {

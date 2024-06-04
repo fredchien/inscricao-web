@@ -9,7 +9,7 @@ export const DepositionsService = {
     const depositons = [
       {
         nome: "Lyslen Miranda",
-        image: "../assets/img/image-deposition.svg",
+        image: "/assets/img/lyslen-bg-depositions.png",
         morada: "24 anos / Valença - BA",
         texto:
           "Ao entrar no curso eu não sabia nada sobre desenvolvimento front-end e fiquei muito surpresa ao ver como aprendi rápido sobre diferentes assuntos. Isso se deve a metodologia de ensino aplicada neste projeto, que equilibra perfeitamente teoria e prática, além de passar desafios de projetos reais para aplicarmos os conhecimentos aprendidos. Cada dia que passa sinto que estou mais perto de alcançar meus objetivos.",

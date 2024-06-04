@@ -4,7 +4,7 @@
 .content .boxCards { width: 100%; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem;}
 .content .boxCards .cardDeposition {width: 31%; min-width: 300px; display: flex; align-items: center; justify-content: flex-start; text-align: center; flex-direction: column; padding: 1.5rem; border: #FFD3AC solid 1px; border-radius: 12px; gap: 0.2rem;}
 .content .boxCards .cardDeposition:hover {transition: 0.3s; box-shadow: #E6571B 0 0 4px;}
-.content .boxCards .cardDeposition figure {margin: 0; border-radius: 50%; border: 1px solid #FFD3AC;}
+.content .boxCards .cardDeposition figure {margin: 0; border-radius: 50%; border: 1px solid #FFD3AC; overflow: hidden;}
 .content .boxCards .cardDeposition p {width: 100%; margin: 0;}
 .content .boxCards .cardDeposition .textName {color: #122F97; font-weight: 600; font-size: 18px; margin: 0;}
 .content .contentVideo {display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;}

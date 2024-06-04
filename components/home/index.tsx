@@ -27,9 +27,9 @@ export default function Home() {
       )}
       <div className={styles.box_title}>
         <h1>
-          Desenvolva Novos
+          Formação Desenvolvedor(a)
           <br />
-          Talentos Digitais
+          Front-end + React + VUE
         </h1>
         <button
           onClick={(event) => {
@@ -42,7 +42,7 @@ export default function Home() {
             ASSISTA AO VÍDEO E<br /> ENTENDA COMO PARTICIPAR
           </p>
         </button>
-        <a href="#pre-requisitos">Inscreva-se</a>
+        {/* <a href="#pre-requisitos">Inscreva-se</a> */}
       </div>
       <div className={styles.box_end}>
         <div style={{ maxWidth: "500px" }}>

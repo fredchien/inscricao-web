@@ -71,7 +71,11 @@ export default function Depositions() {
   return (
     <div className={styles.boxSection}>
       <section className={styles.content}>
-        <Image src={IconDepositions} alt="Depoimentos" />
+        <Image
+          src={IconDepositions}
+          style={{ marginBottom: "20px" }}
+          alt="Depoimentos"
+        />
         <TitleGradient Children={"Depoimentos"} />
         <div className={styles.boxCards}>
           {depositions.map((item) => {
@@ -86,10 +90,10 @@ export default function Depositions() {
                   />
                 </figure>
                 <p className={styles.textName}>{item.nome}</p>
-                <p style={{ marginBottom: "0.6rem" }}>{item.morada}</p>
-                <p style={{ fontSize: "0.9rem", textAlign: "start" }}>
-                  {item.texto}
+                <p style={{ marginBottom: "0.6rem", color: "#F3631E" }}>
+                  {item.morada}
                 </p>
+                <p style={{ fontSize: "0.9rem" }}>{item.texto}</p>
               </div>
             );
           })}
@@ -114,7 +118,7 @@ export default function Depositions() {
                 </figure>
                 <span className={styles.BoxTextsVideo}>
                   <p className={styles.textName}>{item.nome}</p>
-                  <p>{item.texto}</p>
+                  <p style={{ color: "#F3631E" }}>{item.texto}</p>
                 </span>
               </div>
             );

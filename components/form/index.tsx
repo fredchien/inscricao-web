@@ -33,6 +33,7 @@ export default function Form() {
   const [validadorCPF, setValidadorCPF] = useState(false);
   const [curso, setCurse] = useState("");
   const [textErr, setTextErr] = useState(false);
+  const [foiAluno, setFoiAluno] = useState<boolean>(null);
   const [errosForm, setErrosForm] = useState<any>({
     age: "",
     have_computer: "",
@@ -156,6 +157,23 @@ export default function Form() {
     return cpf;
   }
 
+  const onSubmitStudents = async () => {
+    const DataFormStudents = {
+      fullname: getValues("fullname"),
+      cpf: getValues("cpf"),
+      email: getValues("email"),
+      course_enrolled: getValues("course_enrolled"),
+      year_enrolled: getValues("year_enrolled"),
+    };
+
+    try {
+      const response = await formService.postDates(DataFormStudents as any);
+      if (response.status === 200) {
+        setSeason(13);
+      }
+    } catch {}
+  };
+
   const onSubmit = async (data) => {
     if (data.student_tecnology.have_computer === "false")
       delete data.student_tecnology.computer_type;
@@ -169,7 +187,7 @@ export default function Form() {
         //   return setTextErr(true)
         // }
         if (!response.data.can_create) {
-          return setSeason(8);
+          return setSeason(9);
         }
       } catch (err) {
         console.log(err);
@@ -201,7 +219,7 @@ export default function Form() {
 
         const response = await formService.postDates(dataForm);
         if (response.status === 200) {
-          setSeason(11);
+          setSeason(12);
         } else {
           response.message.non_field_errors.map((item) => {
             if (item.age) {
@@ -225,11 +243,11 @@ export default function Form() {
               });
             }
           });
-          setSeason(9);
+          setSeason(10);
         }
       } catch (err) {
         console.log(err);
-        return setSeason(9);
+        return setSeason(10);
       }
     }
   };
@@ -238,7 +256,7 @@ export default function Form() {
     "student_tecnology.have_computer",
     "student_tecnology.have_internet",
     "student_socioeconomic_data.live_with_pwd",
-  ]); // Assista aos valores dos campos "option"
+  ]);
 
   useEffect(() => {
     const resetDetails = (option, detail, value) => {
@@ -310,21 +328,33 @@ export default function Form() {
   };
 
   const goNextPage = () => {
+    console.log(foiAluno, "apareceu");
+    if (foiAluno === true) {
+      onSubmitStudents();
+      return;
+    } else {
+      setSeason(season + 1);
+    }
+
     if (idade < 19) {
       if (concordarDadosValue === "nao") {
         setAceitarCompartilhar(true);
       } else {
         setAceitarCompartilhar(false);
-        setSeason(2);
+        setSeason(3);
       }
     } else {
-      setSeason(3);
+      if (concordarDadosValue === "nao") {
+        setAceitarCompartilhar(true);
+      } else {
+        setSeason(4);
+      }
     }
   };
 
   const backFunction = () => {
     if (idade <= 18) {
-      return setSeason(1);
+      return setSeason(2);
     }
     if (idade > 18) {
       return setSeason(season - 2);
@@ -415,12 +445,19 @@ export default function Form() {
                   </p>
                 </div>
                 <div
-                  style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}
+                  style={{
+                    display: "flex",
+                    gap: "1rem",
+                    marginTop: "1rem",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
                 >
-                  <button className={styles.button_submit}>Proxíma</button>
+                  <button className={styles.button_submit}>Iniciar</button>
                   <button
                     className={styles.button_remember}
-                    onClick={() => setSeason(11)}
+                    onClick={() => setSeason(8)}
+                    style={{ display: "none" }}
                   >
                     Já foi nosso aluno?
                   </button>
@@ -430,7 +467,7 @@ export default function Form() {
                     Preencha todos os campos antes de enviar.
                   </p>
                 )}
-                <p style={{ marginTop: "4rem" }}>
+                <p style={{ marginTop: "2rem" }}>
                   Ao <b>Iniciar</b> a etapa de inscrição você declara que possui
                   no mínimo 16 anos de idade e concorda em compartilhar
                   informações pessoais para efetuar a sua inscrição de acordo
@@ -440,6 +477,110 @@ export default function Form() {
               </div>
             </>
           ) : season === 1 ? (
+            <>
+              <div className={styles.box_titleForm}>
+                <div className={styles.circleEtaps}>
+                  <span style={{ background: "#F3631E" }}></span>
+                  <span style={{ background: "#F3631E" }}></span>
+                  <p>1/1</p>
+                  <span style={{ background: "#F3631E" }}></span>
+                  <span style={{ background: "#F3631E" }}></span>
+                </div>
+                <div>
+                  <h3>Cadastrando o seu perfil</h3>
+                  <p>Histórico do aluno</p>
+                </div>
+              </div>
+              <div className={styles.content_form}>
+                <div className={styles.box_input}>
+                  <label>
+                    <p style={{ textAlign: "start" }}>Ja foi nosso aluno?</p>
+                  </label>
+                  <div className={styles.boxOptions}>
+                    <input
+                      required
+                      name="sefoialuno"
+                      type="radio"
+                      id="jafoinossoaluno"
+                      checked={foiAluno === true}
+                      onChange={() => setFoiAluno(true)}
+                    />
+                    <label htmlFor="jafoinossoaluno">sim</label>
+                  </div>
+                  <div className={styles.boxOptions}>
+                    <input
+                      required
+                      name="sefoialuno"
+                      type="radio"
+                      id="naofoialuno"
+                      checked={foiAluno === false}
+                      onChange={() => setFoiAluno(false)}
+                    />
+                    <label htmlFor="naofoialuno">Não</label>
+                  </div>
+                </div>
+                {foiAluno === true && (
+                  <>
+                    <div className={styles.box_input}>
+                      <label>
+                        <p style={{ textAlign: "start" }}>
+                          Em qual curso foi matriculado?
+                        </p>
+                      </label>
+                      <div className={styles.boxOptions}>
+                        <input
+                          required
+                          type="radio"
+                          id="curseFrontEnd"
+                          name="curso"
+                          value="Front-End"
+                          {...register("course_enrolled")}
+                        />
+                        <label htmlFor="curseFrontEnd">Front-End</label>
+                      </div>
+                      <div className={styles.boxOptions}>
+                        <input
+                          required
+                          type="radio"
+                          id="curseBackEnd"
+                          name="curso"
+                          value="Back-End"
+                          {...register("course_enrolled")}
+                        />
+                        <label htmlFor="curseBackEnd">Back-End</label>
+                      </div>
+                    </div>
+                    <div className={styles.box_input}>
+                      <label>Em qual ano foi matriculado?</label>
+                      <input
+                        required
+                        type="text"
+                        placeholder="0000"
+                        style={{ width: "80px" }}
+                        {...register("year_enrolled")}
+                        min="4"
+                        max="4"
+                      />
+                    </div>
+                  </>
+                )}
+              </div>
+              <div className={styles.box_buttons}>
+                <button
+                  className={styles.button_remember}
+                  onClick={() => setSeason(season - 1)}
+                >
+                  Voltar
+                </button>
+                <button
+                  className={styles.button_submit}
+                  onClick={() => goNextPage()}
+                >
+                  Próxima
+                </button>
+              </div>
+            </>
+          ) : season === 2 ? (
             <>
               <div className={styles.box_titleForm}>
                 <div className={styles.circleEtaps}>
@@ -506,7 +647,7 @@ export default function Form() {
                 </button>
               </div>
             </>
-          ) : season === 2 ? (
+          ) : season === 3 ? (
             <>
               <div className={styles.box_titleForm}>
                 <div className={styles.circleEtaps}>
@@ -584,13 +725,13 @@ export default function Form() {
                 </button>
                 <button
                   className={styles.button_submit}
-                  onClick={() => setSeason(2)}
+                  onClick={() => setSeason(3)}
                 >
                   Próxima
                 </button>
               </div>
             </>
-          ) : season === 3 ? (
+          ) : season === 4 ? (
             <>
               <div className={styles.box_titleForm}>
                 <div className={styles.circleEtaps}>
@@ -740,7 +881,7 @@ export default function Form() {
                 <button className={styles.button_submit}>Proxíma</button>
               </div>
             </>
-          ) : season === 4 ? (
+          ) : season === 5 ? (
             <>
               <div className={styles.box_titleForm}>
                 <div className={styles.circleEtaps}>
@@ -907,7 +1048,7 @@ export default function Form() {
                 <button className={styles.button_submit}>Proxíma</button>
               </div>
             </>
-          ) : season === 5 ? (
+          ) : season === 6 ? (
             <>
               <div className={styles.box_titleForm}>
                 <div className={styles.circleEtaps}>
@@ -1134,7 +1275,7 @@ export default function Form() {
                 </button>
               </div>
             </>
-          ) : season === 6 ? (
+          ) : season === 7 ? (
             <>
               <div className={styles.box_titleForm}>
                 <div className={styles.circleEtaps}>
@@ -1236,7 +1377,7 @@ export default function Form() {
                 </button>
               </div>
             </>
-          ) : season === 7 ? (
+          ) : season === 8 ? (
             <>
               <div className={styles.box_titleForm}>
                 <div className={styles.circleEtaps}>
@@ -1353,7 +1494,7 @@ export default function Form() {
                 </button>
               </div>
             </>
-          ) : season === 8 ? (
+          ) : season === 9 ? (
             <>
               <div className={styles.box_titleForm}>
                 <div className={styles.circleEtaps}>
@@ -1363,86 +1504,24 @@ export default function Form() {
                   <span style={{ background: "#F3631E" }}></span>
                   <span style={{ background: "#F3631E" }}></span>
                 </div>
-                <div>
-                  <h3>Cadastrando o seu perfil</h3>
-                  <p>Histórico do aluno</p>
-                </div>
               </div>
               <div className={styles.content_form}>
-                <div className={styles.box_input}>
-                  <label>
-                    <p style={{ textAlign: "start" }}>
-                      Em qual curso foi matriculado?
-                    </p>
-                  </label>
-                  <div className={styles.boxOptions}>
-                    <input
-                      required
-                      type="radio"
-                      id="curseFrontEnd"
-                      name="curso"
-                      value="Front-End"
-                    />
-                    <label htmlFor="type1e2Salarios">Front-End</label>
-                  </div>
-                  <div className={styles.boxOptions}>
-                    <input
-                      required
-                      type="radio"
-                      id="curseFrontEnd"
-                      name="curso"
-                      value="Back-End"
-                    />
-                    <label htmlFor="type1e2Salarios">Back-End</label>
-                  </div>
+                <div className={styles.content_error}>
+                  <h3>
+                    Que legal! Identificamos que você já foi nosso(a) aluno(a).
+                  </h3>
+                  <p>
+                    Agradecemos seu interesse em participar da formação em
+                    front-end. No momento, estamos dando prioridade para
+                    inscrição de novos(as) alunos(as). Seus dados estão
+                    armazenados em nossa base de dados para comunicação de um
+                    próximo curso.
+                  </p>
+                  <Image src={Emojiicon} alt="" />
                 </div>
-                <div className={styles.box_input}>
-                  <label>Em qual ano foi matriculado?</label>
-                  <input
-                    required
-                    type="text"
-                    placeholder="0000"
-                    style={{ width: "80px" }}
-                    id="anoMatriculado"
-                    value={anoMatriculado}
-                    onChange={(e) => setAnoMatriculado(e.target.value)}
-                    min="4"
-                    max="4"
-                  />
-                </div>
-                {validadorCPF && (
-                  <div className={styles.content_error}>
-                    <h3>
-                      Que legal! Identificamos que você já foi nosso(a)
-                      aluno(a).
-                    </h3>
-                    <p>
-                      Agradecemos seu interesse em participar da formação em
-                      front-end. No momento, estamos dando prioridade para
-                      inscrição de novos(as) alunos(as). Seus dados estão
-                      armazenados em nossa base de dados para comunicação de um
-                      próximo curso.
-                    </p>
-                    <Image src={Emojiicon} alt="" />
-                  </div>
-                )}
-              </div>
-              <div className={styles.box_buttons}>
-                <button
-                  onClick={() => setValidadorCPF(true)}
-                  className={styles.button_submit}
-                >
-                  Proxíma
-                </button>
-                <button
-                  className={styles.button_remember}
-                  onClick={() => setSeason(0)}
-                >
-                  Voltar
-                </button>
               </div>
             </>
-          ) : season === 9 ? (
+          ) : season === 10 ? (
             <>
               <div className={styles.content_error}>
                 <h3>
@@ -1484,7 +1563,7 @@ export default function Form() {
                 <Image src={Emojiicon} alt="" />
               </div>
             </>
-          ) : season === 10 ? (
+          ) : season === 11 ? (
             <>
               <div className={styles.content_error}>
                 <h3>
@@ -1499,7 +1578,7 @@ export default function Form() {
                 <Image src={Emojiicon} alt="" />
               </div>
             </>
-          ) : season === 11 ? (
+          ) : season === 12 ? (
             <>
               <div className={styles.content_error}>
                 <h3>
@@ -1513,13 +1592,13 @@ export default function Form() {
                 </p>
                 <p style={{ marginTop: "3rem" }}>
                   <b>
-                    Fique atento ao seu Whatsapp e Email, você será notificado
-                    sobre as próximas fases até a aula inaugural.
+                    Fique atento ao seu Email, você será notificado sobre as
+                    próximas fases até a aula inaugural.
                   </b>
                 </p>
               </div>
             </>
-          ) : season === 12 ? (
+          ) : season === 13 ? (
             <>
               <div className={styles.content_error}>
                 <h3>Obrigado</h3>
@@ -1541,6 +1620,8 @@ export default function Form() {
                 <Image src={FogueteIcon} alt="" />
               </div>
             </>
+          ) : season === 14 ? (
+            <></>
           ) : null}
         </form>
       </div>

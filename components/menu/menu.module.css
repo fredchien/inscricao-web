@@ -13,5 +13,5 @@
 }
 
 @media (max-width: 868px) {
-  .menu {padding: 0 1rem; backdrop-filter: blur(0);}
+  .menu {padding: 0 1rem; backdrop-filter: blur(0); }
 }

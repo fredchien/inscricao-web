@@ -1,11 +1,11 @@
-.content {margin: 4rem 0 6rem 0; width: 100%; padding: 0 1rem; gap: 1.7rem; display: flex; flex-direction: column;}
-.content h2 {text-align: start;}
-.content .module { display: flex; gap: 2rem;}
-.content .module div {display: flex; flex-direction: column; justify-content: center;}
-.content .module img {width: 530px; border-radius: 12px; border: 2px solid #F3631E;}
+.content {margin: 4rem 0 6rem 0; width: 100%; padding: 0 1rem; gap: 5rem; display: flex; flex-direction: column;}
+.content h2 {text-align: start; margin: 5rem 0 0 0; font-size: 2.5rem;}
+.content .module { display: flex; gap: 5rem;}
+.content .module div {display:   flex; flex-direction: column; justify-content: center;}
+.content .module img {width: 100%; max-width: 700px; border-radius: 12px; border: 2px solid #F3631E; object-fit: cover;}
 .content .module img:hover {scale: 1.1; transition: 0.3s;}
 .content .module h3 {margin: 0; color: #122F97; margin-bottom: 1rem; font-size: 20px}
-.content .module div ul {list-style: none; margin: 0; padding: 0; gap: 0.3rem; display: flex; flex-direction: column; font-weight: 400; font-size: 0.9rem;}
+.content .module div ul {list-style: none; margin: 0; padding: 0; gap: 0.3rem; display: flex; flex-direction: column; font-weight: 400; font-size: 1.2rem;}
 
 @media(max-width: 893px) {
   .content .module {flex-direction: column;}

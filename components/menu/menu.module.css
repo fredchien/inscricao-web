@@ -1,12 +1,12 @@
-.menu{position: fixed; width: 100vw; z-index: 9; display: flex; align-items: center; justify-content: center; padding: 0; backdrop-filter: blur(10px);}
-.menu ul {display: flex; align-items: center; gap: 20px}
+.menu{position: fixed; width: 100vw; z-index: 9; display: flex; align-items: center; justify-content: center; padding: 0; backdrop-filter: blur(10px); background-color: #0F2B921A;}
+.menu ul {display: flex; align-items: center; gap: 5rem}
 .menu ul li a{font-size: 16px; color: #E6571B; padding: 0 !important;}
 .menu ul li a:hover{color: rgb(255, 172, 45);}
 .menu ul li:last-child{background: linear-gradient(90deg, #E6571B 1.68%, #E69B29 96.56%); padding: 10px 28px;border-radius: 35px;transition: 0.7s;}
 .menu ul li:last-child:hover{background-color: rgb(255, 97, 30);}
 .menu ul li:last-child:hover a{color: #FFF;}
 .menu ul li:last-child a{color: #fff;}
-.logo img{width: 100px; padding: 4px 12px;}
+.logo img{width: 64.29px; height: 45px;}
 
 .menu .collapse:not(.show) {
   display: flex !important;

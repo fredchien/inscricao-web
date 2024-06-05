@@ -169,7 +169,7 @@ export default function Form() {
     try {
       const response = await formService.postDates(DataFormStudents as any);
       if (response.status === 200) {
-        setSeason(13);
+        return setSeason(13);
       }
     } catch {}
   };
@@ -331,7 +331,7 @@ export default function Form() {
     console.log(foiAluno, "apareceu");
     if (foiAluno === true) {
       onSubmitStudents();
-      return;
+      return setSeason(13);
     } else {
       setSeason(season + 1);
     }

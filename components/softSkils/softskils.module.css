@@ -5,3 +5,9 @@
 .content .contentImages div img { width: 60px; height: 60px;}
 .content .contentImages div:nth-child(4) img { width: 104px; height: 60px; }
 .content .contentImages div p {font-size: 15px; font-weight: 400; margin-bottom: 0; text-align: center;}
+
+
+@media(max-width: 768px) {
+  .content .contentImages {gap: 0.5px; padding: 1rem; }
+  .content .contentImages div {width: 48%;}
+}

@@ -1,17 +1,28 @@
+import { useState } from "react";
 import InfoComponent from "../info-component";
 import MenuMobile from "../menu-mobile";
 import styles from "./menu.module.css";
 
 export default function MenuComponent() {
+  const [colorChange, setColorchange] = useState(false);
   const openMenu = () => {
     var element = document.getElementById("menu_mobile");
     element.classList.toggle("open");
   };
 
+  const changeNavbarColor = () => {
+    if (window.scrollY >= 900) {
+      setColorchange(true);
+    } else {
+      setColorchange(false);
+    }
+  };
+  window.addEventListener("scroll", changeNavbarColor);
+
   return (
     <>
       <MenuMobile />
-      <div className={styles.menu}>
+      <div className={colorChange ? styles.menu : styles.menuScroll}>
         <div
           className="content"
           style={{

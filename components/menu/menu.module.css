@@ -1,17 +1,26 @@
-.menu{position: fixed; width: 100vw; z-index: 9; display: flex; align-items: center; justify-content: center; padding: 0; backdrop-filter: blur(10px); background-color: #0F2B921A;}
+.menu{position: fixed; width: 100vw; z-index: 9; display: flex; align-items: center; justify-content: center; padding: 0; backdrop-filter: blur(10px);}
 .menu ul {display: flex; align-items: center; gap: 5rem}
-.menu ul li a{font-size: 16px; color: #E6571B; padding: 0 !important;}
+.menu ul li a{font-size: 16px; color: #122F97; padding: 0 !important;}
 .menu ul li a:hover{color: rgb(255, 172, 45);}
 .menu ul li:last-child{background: linear-gradient(90deg, #E6571B 1.68%, #E69B29 96.56%); padding: 10px 28px;border-radius: 35px;transition: 0.7s;}
 .menu ul li:last-child:hover{background-color: rgb(255, 97, 30);}
 .menu ul li:last-child:hover a{color: #FFF;}
 .menu ul li:last-child a{color: #fff;}
 .logo img{width: 64.29px; height: 45px;}
-
-.menu .collapse:not(.show) {
+  
+.menuScroll {position: fixed; width: 100vw; z-index: 9; display: flex; align-items: center; justify-content: center; padding: 0; backdrop-filter: blur(10px);}
+.menuScroll  ul {display: flex; align-items: center; gap: 5rem}
+.menuScroll  ul li a{font-size: 16px; color: #fff; padding: 0 !important;}
+.menuScroll  ul li a:hover{color: rgb(255, 172, 45);}
+.menuScroll  ul li:last-child{background: linear-gradient(90deg, #E6571B 1.68%, #E69B29 96.56%); padding: 10px 28px;border-radius: 35px;transition: 0.7s;}
+.menuScroll  ul li:last-child:hover{background-color: rgb(255, 97, 30);}
+.menuScroll  ul li:last-child:hover a{color: #FFF;}
+.menuScroll  ul li:last-child a{color: #fff;}
+.menuScroll  .collapse:not(.show) {
   display: flex !important;
 }
 
 @media (max-width: 868px) {
   .menu {padding: 0 1rem; backdrop-filter: blur(0); }
+  .menuScroll {backdrop-filter: blur(0); padding: 0 1rem;}
 }

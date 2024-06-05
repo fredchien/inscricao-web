@@ -169,7 +169,7 @@ export default function Form() {
     try {
       const response = await formService.postDates(DataFormStudents as any);
       if (response.status === 200) {
-        setSeason(13);
+        setSeason(14);
       }
     } catch {}
   };
@@ -372,6 +372,7 @@ export default function Form() {
       <div className={styles.boxContent}>
         <form onSubmit={handleSubmit(onSubmit)}>
           {season === 0 ? (
+            // Campos: Nome, Email, CPF
             <>
               <TitleGradient Children="Inscreva-se no Vai na Web!" />
               <div className={styles.content_form}>
@@ -467,7 +468,7 @@ export default function Form() {
                     Preencha todos os campos antes de enviar.
                   </p>
                 )}
-                <p style={{ marginTop: "2rem" }}>
+                <p className={styles.textInfo}>
                   Ao <b>Iniciar</b> a etapa de inscrição você declara que possui
                   no mínimo 16 anos de idade e concorda em compartilhar
                   informações pessoais para efetuar a sua inscrição de acordo
@@ -477,6 +478,7 @@ export default function Form() {
               </div>
             </>
           ) : season === 1 ? (
+            // Campos: Ja foi nosso aluno, Curso e Ano
             <>
               <div className={styles.box_titleForm}>
                 <div className={styles.circleEtaps}>
@@ -581,6 +583,7 @@ export default function Form() {
               </div>
             </>
           ) : season === 2 ? (
+            // Campos: Data de nascimento e Idade
             <>
               <div className={styles.box_titleForm}>
                 <div className={styles.circleEtaps}>
@@ -648,6 +651,7 @@ export default function Form() {
               </div>
             </>
           ) : season === 3 ? (
+            // Campos: Resposavel menor de 18
             <>
               <div className={styles.box_titleForm}>
                 <div className={styles.circleEtaps}>
@@ -732,6 +736,7 @@ export default function Form() {
               </div>
             </>
           ) : season === 4 ? (
+            // Campos: Raça/Etnia, Numero de Telefone e Genero
             <>
               <div className={styles.box_titleForm}>
                 <div className={styles.circleEtaps}>
@@ -882,6 +887,7 @@ export default function Form() {
               </div>
             </>
           ) : season === 5 ? (
+            // Campos: Orientação sexual e Deficiencia
             <>
               <div className={styles.box_titleForm}>
                 <div className={styles.circleEtaps}>
@@ -1049,6 +1055,7 @@ export default function Form() {
               </div>
             </>
           ) : season === 6 ? (
+            // Campos: Possui computador e Internet
             <>
               <div className={styles.box_titleForm}>
                 <div className={styles.circleEtaps}>
@@ -1276,6 +1283,7 @@ export default function Form() {
               </div>
             </>
           ) : season === 7 ? (
+            // Campos: Quantas pessoas residen na sua casa e renda familiar
             <>
               <div className={styles.box_titleForm}>
                 <div className={styles.circleEtaps}>
@@ -1378,6 +1386,7 @@ export default function Form() {
               </div>
             </>
           ) : season === 8 ? (
+            // Campos: Morador de Comunidade
             <>
               <div className={styles.box_titleForm}>
                 <div className={styles.circleEtaps}>
@@ -1495,6 +1504,7 @@ export default function Form() {
               </div>
             </>
           ) : season === 9 ? (
+            // CPF ou Email ja consta na base
             <>
               <div className={styles.box_titleForm}>
                 <div className={styles.circleEtaps}>
@@ -1522,6 +1532,7 @@ export default function Form() {
               </div>
             </>
           ) : season === 10 ? (
+            // Não foi aprovado por nao cumprir os requisitos
             <>
               <div className={styles.content_error}>
                 <h3>
@@ -1579,6 +1590,7 @@ export default function Form() {
               </div>
             </>
           ) : season === 12 ? (
+            // Sucesso na inscrição
             <>
               <div className={styles.content_error}>
                 <h3>
@@ -1599,6 +1611,7 @@ export default function Form() {
               </div>
             </>
           ) : season === 13 ? (
+            // ??
             <>
               <div className={styles.content_error}>
                 <h3>Obrigado</h3>
@@ -1621,7 +1634,22 @@ export default function Form() {
               </div>
             </>
           ) : season === 14 ? (
-            <></>
+            // Caso ja tenha sido aluno
+            <>
+              <div className={styles.content_error}>
+                <h3>Opah</h3>
+                <p>No momentos estamos dando prioridade para novos alunos</p>
+                <p style={{ marginTop: "2rem" }}>
+                  <b>
+                    Mas fiquei atento as redes sociais do Vai na Web para
+                    novidades!
+                  </b>
+                </p>
+                <br />
+                <br />
+                <Image src={FogueteIcon} alt="" />
+              </div>
+            </>
           ) : null}
         </form>
       </div>

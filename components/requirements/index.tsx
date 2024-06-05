@@ -7,25 +7,9 @@ import {
   faCircleCheck,
   faCircleXmark,
 } from "@fortawesome/free-solid-svg-icons";
+import { data } from "./service";
 
 export default function Requeriments() {
-  const data = [
-    {
-      prerequisites: [
-        "Ter entre 16 e 35 anos de idade",
-        "Renda familiar até 3 salários mínimos por pessoa",
-        "De qualquer lugar do país",
-        "Disponibilidade de 2 horas por dia, de segunda-feira à sexta-feira",
-        "Possuir computador ou notebook",
-        "Possuir acesso à internet",
-      ],
-      notReally: [
-        "Conhecimento prévio sobre programação ou tecnologia",
-        "Conhecimentos avançados em matemática",
-      ],
-    },
-  ];
-
   return (
     <section className={styles.content} id="pre-requisitos">
       <TitleGradient Children="Deseja se tornar um Desenvolvedor Front-end?" />

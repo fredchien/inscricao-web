@@ -46,3 +46,8 @@
 @media (min-width: 868px) {
   .content .box_title {margin-top: 3rem;}
 }
+
+@media(max-width: 500px) {
+  .content .box_title h1 {font-size: 1.9;}
+  .content .box_end {bottom: -2rem;}
+}

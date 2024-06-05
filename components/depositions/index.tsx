@@ -101,7 +101,7 @@ export default function Depositions() {
         <div className={styles.contentVideo}>
           {depositionsVideo.map((item, index) => {
             return (
-              <div className={styles.cardVideo}>
+              <div className={styles.cardVideo} key={index}>
                 <figure className={styles.boxVideo}>
                   <video
                     autoPlay={false}

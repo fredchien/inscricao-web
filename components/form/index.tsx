@@ -331,7 +331,7 @@ export default function Form() {
     console.log(foiAluno, "apareceu");
     if (foiAluno === true) {
       onSubmitStudents();
-      return;
+      return setSeason(13);
     } else {
       setSeason(season + 1);
     }

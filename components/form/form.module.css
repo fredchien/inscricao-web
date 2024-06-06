@@ -54,7 +54,8 @@ form .content_form {width: 100%; display: flex; flex-direction: column; justify-
 .button_remember {border: 1px solid #F3631E;  background-color: #FAFAFA; color: #F3631E; border-radius: 30px; padding: 10px 30px; font-size: 0.9rem;}
 
 @media (max-width: 1024px) {
-  .content {background: #fff;}
+  .content {background: #fff; box-shadow: 0;}
+  
 }
 
 @media (max-width: 875px) {

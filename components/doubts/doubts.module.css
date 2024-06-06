@@ -1,5 +1,5 @@
 .content {width: 100%; margin-bottom: 5rem; margin-top: 2rem; display: flex; justify-content: space-between; flex-wrap: wrap;}
-.content h2 {text-align: start; margin-bottom: 1rem;}
+.content h2 {text-align: start; margin-bottom: 1rem; background: linear-gradient(to right, #FF611E 5%, #FFAC2D 10%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
 .content .content_dropdowns {display: flex; flex-direction: column; gap: 1rem;}
 .content .content_dropdowns .dropdown { width: 100%; border-radius: 12px; border: 1px solid #D9D9D9; padding: 0.7rem; animation: openDropdown 0.3s ease-in-out forwards; opacity: 0; transform: translateY(-10px);}
 .content .content_dropdowns .dropdown button { width: 100%; padding: 0; display: flex; align-items: center; justify-content: space-between; background-color: transparent; border: 0;}

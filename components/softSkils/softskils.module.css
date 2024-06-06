@@ -1,5 +1,5 @@
 .content {display: flex; flex-wrap: wrap; justify-content: center; margin-bottom: 5rem;}
-.content h2 {text-align: center; margin: 0;}
+.content h2 {text-align: center; margin: 0;  background: #FF611E; background: linear-gradient(to right, #FF611E 40%, #FFAC2D 59%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
 .content .contentImages {max-width: 1000px;  width: 100%; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; padding: 2rem;}
 .content .contentImages div {width: 45%; max-width: 200px; height: 200px; margin-bottom: 1rem; border: 1px solid #FFD3AC; border-radius: 12px; display: flex; align-items: center; flex-direction: column; padding: 12px; justify-content: space-evenly;}
 .content .contentImages div img { width: 60px; height: 60px;}

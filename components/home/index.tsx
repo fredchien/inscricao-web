@@ -42,13 +42,13 @@ export default function Home() {
             ASSISTA AO VÍDEO E<br /> ENTENDA COMO PARTICIPAR
           </p>
         </button>
-        {/* <a href="#pre-requisitos">Inscreva-se</a> */}
+        <a href="#pre-requisitos">Inscreva-se</a>
       </div>
-      <div className={styles.box_end}>
+      {/* <div className={styles.box_end}>
         <div style={{ maxWidth: "500px" }}>
           <Lottie animationData={LootieHome} />
         </div>
-      </div>
+      </div> */}
       <figure className={styles.triangule_right_bottom}></figure>
       <figure className={styles.triangule_left_bottom}></figure>
     </section>

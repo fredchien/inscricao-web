@@ -433,14 +433,14 @@ export default function Form() {
                         );
                       },
                     })}
-                    // onPaste={(e) => {
-                    //   e.preventDefault();
-                    //   return false;
-                    // }}
-                    // onCopy={(e) => {
-                    //   e.preventDefault();
-                    //   return false;
-                    // }}
+                    onPaste={(e) => {
+                      e.preventDefault();
+                      return false;
+                    }}
+                    onCopy={(e) => {
+                      e.preventDefault();
+                      return false;
+                    }}
                     required
                   />
                   {errors?.emailReapet?.message && (
@@ -509,11 +509,11 @@ export default function Form() {
                   </p>
                 )}
                 <p className={styles.textInfo}>
-                  Ao <b>Iniciar</b> a etapa de inscrição você declara que possui
-                  no mínimo 16 anos de idade e concorda em compartilhar
-                  informações pessoais para efetuar a sua inscrição de acordo
-                  com os padrões legais de compartilhamento de dados
-                  (LGPD; Lei n° 13.709/2018).
+                  Ao <b>Iniciar</b> esta etapa, você declara que possui no
+                  mínimo 16 anos de idade e concorda em compartilhar informações
+                  pessoais para efetuar a sua inscrição de acordo com os padrões
+                  legais de compartilhamento de dados (LGPD; Lei n°
+                  13.709/2018).
                 </p>
               </div>
             </>
@@ -691,7 +691,7 @@ export default function Form() {
                 <div className={styles.box_input}>
                   <label>CPF</label>
                   <input
-                    type="number"
+                    type="text"
                     maxLength={11}
                     placeholder="Digite seu CPF (somente números)"
                     onBlur={(e) => {

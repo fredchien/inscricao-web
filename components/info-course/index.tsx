@@ -29,7 +29,7 @@ export default function InfoCourse() {
   return (
     <section className={styles.content}>
       <div className={styles.boxTitle}>
-        <TitleGradient Children={"Boas vindas à Escola Vai na Web"} />
+        <TitleGradient Children={"Boas vindas ao Vai na Web"} />
         <p>
           Um negócio de impacto social que atua na capacitação gratuita em
           tecnologia digital avançada com o objetivo de preparar jovens talentos

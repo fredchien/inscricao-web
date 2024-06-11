@@ -374,14 +374,7 @@ export default function Form() {
     }
   };
 
-  const isDesable = () => {
-    if (
-      (idade < 18 && aceitarCompartilhar === "nao") ||
-      aceitarCompartilhar === null
-    ) {
-      return true;
-    } else return false;
-  };
+  const isDesable = () => idade < 18 && aceitarCompartilhar === "nao";
 
   const verificarEmail = () => {
     if (getValues("email") !== getValues("emailReapet")) {

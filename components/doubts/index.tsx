@@ -43,7 +43,14 @@ export default function DoubtsComponents() {
                 }}
               >
                 {item.studies.map((study, studyIndex) => (
-                  <p key={studyIndex}>{study}</p>
+                  <p key={studyIndex}>
+                    {study}{" "}
+                    {item.link && (
+                      <a href="mailto:escola@vainaweb.com.br">
+                        escola@vainaweb.com.br
+                      </a>
+                    )}
+                  </p>
                 ))}
               </div>
             )}

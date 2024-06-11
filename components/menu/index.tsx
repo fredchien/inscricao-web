@@ -5,6 +5,7 @@ import styles from "./menu.module.css";
 
 export default function MenuComponent() {
   const [colorChange, setColorchange] = useState(false);
+  const [showButton, setShowButton] = useState(false);
   const openMenu = () => {
     var element = document.getElementById("menu_mobile");
     element.classList.toggle("open");
@@ -15,6 +16,12 @@ export default function MenuComponent() {
       setColorchange(true);
     } else {
       setColorchange(false);
+    }
+
+    if (window.scrollY >= 320) {
+      setShowButton(true);
+    } else {
+      setShowButton(false);
     }
   };
   window.addEventListener("scroll", changeNavbarColor);
@@ -73,7 +80,9 @@ export default function MenuComponent() {
                       FAQ
                     </a>
                   </li>
-                  <li className="nav-item">
+                  <li
+                    className={showButton ? styles.navItemOff : styles.navItem}
+                  >
                     <a className="nav-link" href="#pre-requisitos">
                       Inscreva-se
                     </a>

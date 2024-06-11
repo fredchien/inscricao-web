@@ -8,12 +8,14 @@ import ImgIncorrect from "../../assets/incorrect-icon.png";
 import Emojiicon from "../../assets/emoji.png";
 import FogueteIcon from "../../assets/foguete-emoji.png";
 import Image from "next/image";
+import GifLoad from "../../assets/gif-loader.gif";
 import InfoComponent from "../info-component";
 
 export default function Form() {
+  const [loading, setLoading] = useState(false);
   const [season, setSeason] = useState(0);
   const [campos, setCampos] = useState(false);
-  const [aceitarCompartilhar, setAceitarCompartilhar] = useState(false);
+  const [aceitarCompartilhar, setAceitarCompartilhar] = useState(null);
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [emailRepeat, setEmailRepeat] = useState("");
@@ -158,45 +160,55 @@ export default function Form() {
   }
 
   const onSubmitStudents = async () => {
-    const DataFormStudents = {
-      fullname: getValues("fullname"),
-      cpf: getValues("cpf"),
-      email: getValues("email"),
-      course_enrolled: getValues("course_enrolled"),
-      year_enrolled: getValues("year_enrolled"),
-    };
-
-    try {
-      const response = await formService.postDates(DataFormStudents as any);
-      if (response.status === 200) {
-        setSeason(14);
+    if (season === 1) {
+      const DataFormStudents = {
+        fullname: getValues("fullname"),
+        cpf: getValues("cpf"),
+        email: getValues("email"),
+        course_enrolled: getValues("course_enrolled"),
+        year_enrolled: getValues("year_enrolled"),
+      };
+      let response;
+      try {
+        setLoading(true);
+        response = await formService.postDates(DataFormStudents as any);
+        if (response && response.status === 200) {
+          return setSeason(14);
+        } else {
+          return setSeason(season + 1);
+        }
+      } catch (error) {
+        console.error("Erro ao enviar os dados:", error);
+      } finally {
+        setLoading(false);
       }
-    } catch {}
+    }
   };
 
   const onSubmit = async (data) => {
+    if (season === 0) {
+      try {
+        setLoading(true);
+        const response = await formService.gerVerifyCPF(data.cpf, data.email);
+        if (response.data.can_create) {
+          return setSeason(season + 1);
+        } else {
+          return setSeason(9);
+        }
+      } catch (err) {
+        console.log(err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
     if (data.student_tecnology.have_computer === "false")
       delete data.student_tecnology.computer_type;
 
     if (data.student_tecnology.have_internet === "false")
       delete data.student_tecnology.internet_type;
-    if (season === 0) {
-      try {
-        const response = await formService.gerVerifyCPF(data.cpf);
-        // if(!verificarEmail) {
-        //   return setTextErr(true)
-        // }
-        if (!response.data.can_create) {
-          return setSeason(9);
-        }
-      } catch (err) {
-        console.log(err);
-      }
-    }
-    if (season < 7) {
-      return setSeason(season + 1);
-    }
-    if (season === 7) {
+
+    if (season === 8) {
       try {
         const dataForm = {
           ...data,
@@ -218,6 +230,7 @@ export default function Form() {
         };
 
         const response = await formService.postDates(dataForm);
+        setLoading(true);
         if (response.status === 200) {
           setSeason(12);
         } else {
@@ -248,6 +261,8 @@ export default function Form() {
       } catch (err) {
         console.log(err);
         return setSeason(10);
+      } finally {
+        setLoading(false);
       }
     }
   };
@@ -270,13 +285,43 @@ export default function Form() {
     resetDetails(watchOptions[2], "student_socioeconomic_data.cid", "");
   }, [watchOptions, setValue]);
 
-  // non_field_errors
+  const goBackPage = () => {
+    if (season === 4) {
+      if (idade < 18) {
+        setSeason(3);
+      } else {
+        setSeason(2);
+      }
+    } else {
+      setSeason(season - 1);
+    }
+  };
+
+  const goNextPage = () => {
+    if (season === 2) {
+      if (aceitarCompartilhar === "nao") {
+        setAceitarCompartilhar("sim");
+      } else {
+        if (idade < 18) {
+          if (aceitarCompartilhar === "sim") {
+            setAceitarCompartilhar("nao");
+            setSeason(3);
+          } else {
+          }
+        } else {
+          setSeason(4);
+        }
+      }
+    } else {
+      setSeason(season + 1);
+    }
+  };
 
   const verificarIdade = () => {
     if (idade === null) {
       return null;
     }
-    if (idade < 19) {
+    if (idade < 18) {
       return (
         <div>
           <p className={styles.textAge}>
@@ -307,6 +352,7 @@ export default function Form() {
                   {...register("concordarDados", { required: true })}
                   type="radio"
                   id="simResponsavel"
+                  onChange={() => setAceitarCompartilhar("sim")}
                   value="sim"
                 />
                 <label htmlFor="simResponsavel">Sim</label>
@@ -316,6 +362,7 @@ export default function Form() {
                   {...register("concordarDados", { required: true })}
                   type="radio"
                   id="naoResponsavel"
+                  onChange={() => setAceitarCompartilhar("nao")}
                   value="nao"
                 />
                 <label htmlFor="naoResponsavel">Não</label>
@@ -327,38 +374,13 @@ export default function Form() {
     }
   };
 
-  const goNextPage = () => {
-    console.log(foiAluno, "apareceu");
-    if (foiAluno === true) {
-      onSubmitStudents();
-      return setSeason(13);
-    } else {
-      setSeason(season + 1);
-    }
-
-    if (idade < 19) {
-      if (concordarDadosValue === "nao") {
-        setAceitarCompartilhar(true);
-      } else {
-        setAceitarCompartilhar(false);
-        setSeason(3);
-      }
-    } else {
-      if (concordarDadosValue === "nao") {
-        setAceitarCompartilhar(true);
-      } else {
-        setSeason(4);
-      }
-    }
-  };
-
-  const backFunction = () => {
-    if (idade <= 18) {
-      return setSeason(2);
-    }
-    if (idade > 18) {
-      return setSeason(season - 2);
-    }
+  const isDesable = () => {
+    if (
+      (idade < 18 && aceitarCompartilhar === "nao") ||
+      aceitarCompartilhar === null
+    ) {
+      return true;
+    } else return false;
   };
 
   const verificarEmail = () => {
@@ -380,7 +402,7 @@ export default function Form() {
                   <label>Qual é o seu nome?</label>
                   <input
                     type="text"
-                    placeholder="Digite o seu nome ou apelido"
+                    placeholder="Digite seu nome completo"
                     {...register("fullname")}
                     required
                   />
@@ -411,6 +433,14 @@ export default function Form() {
                         );
                       },
                     })}
+                    // onPaste={(e) => {
+                    //   e.preventDefault();
+                    //   return false;
+                    // }}
+                    // onCopy={(e) => {
+                    //   e.preventDefault();
+                    //   return false;
+                    // }}
                     required
                   />
                   {errors?.emailReapet?.message && (
@@ -454,7 +484,17 @@ export default function Form() {
                     justifyContent: "center",
                   }}
                 >
-                  <button className={styles.button_submit}>Iniciar</button>
+                  <button className={styles.button_submit} disabled={loading}>
+                    {loading ? (
+                      <Image
+                        src={GifLoad}
+                        style={{ width: "20px", height: "20px" }}
+                        alt=""
+                      />
+                    ) : (
+                      "Enviar"
+                    )}
+                  </button>
                   <button
                     className={styles.button_remember}
                     onClick={() => setSeason(8)}
@@ -567,20 +607,6 @@ export default function Form() {
                   </>
                 )}
               </div>
-              <div className={styles.box_buttons}>
-                <button
-                  className={styles.button_remember}
-                  onClick={() => setSeason(season - 1)}
-                >
-                  Voltar
-                </button>
-                <button
-                  className={styles.button_submit}
-                  onClick={() => goNextPage()}
-                >
-                  Próxima
-                </button>
-              </div>
             </>
           ) : season === 2 ? (
             // Campos: Data de nascimento e Idade
@@ -634,21 +660,6 @@ export default function Form() {
                   {verificarIdade()}
                 </div>
               </div>
-              <div className={styles.box_buttons}>
-                <button
-                  className={styles.button_remember}
-                  onClick={() => setSeason(season - 1)}
-                >
-                  Voltar
-                </button>
-                <button
-                  className={styles.button_submit}
-                  onClick={goNextPage}
-                  disabled={idade < 19 && concordarDadosValue !== "sim"}
-                >
-                  Próxima
-                </button>
-              </div>
             </>
           ) : season === 3 ? (
             // Campos: Resposavel menor de 18
@@ -681,7 +692,12 @@ export default function Form() {
                   <label>CPF</label>
                   <input
                     type="number"
-                    placeholder="000.000.000-00"
+                    maxLength={11}
+                    placeholder="Digite seu CPF (somente números)"
+                    onBlur={(e) => {
+                      let value = formatCPF(e.target.value);
+                      setValue("cpf", value);
+                    }}
                     {...register("student_responsible.cpf")}
                     required
                   />
@@ -719,20 +735,6 @@ export default function Form() {
                     required
                   />
                 </div>
-              </div>
-              <div className={styles.box_buttons}>
-                <button
-                  className={styles.button_remember}
-                  onClick={() => setSeason(1)}
-                >
-                  Voltar
-                </button>
-                <button
-                  className={styles.button_submit}
-                  onClick={() => setSeason(3)}
-                >
-                  Próxima
-                </button>
               </div>
             </>
           ) : season === 4 ? (
@@ -875,15 +877,6 @@ export default function Form() {
                     <label htmlFor="naoBinario">Mulher Trans</label>
                   </div>
                 </div>
-              </div>
-              <div className={styles.box_buttons}>
-                <button
-                  className={styles.button_remember}
-                  onClick={() => backFunction()}
-                >
-                  Voltar
-                </button>
-                <button className={styles.button_submit}>Proxíma</button>
               </div>
             </>
           ) : season === 5 ? (
@@ -1043,15 +1036,6 @@ export default function Form() {
                     />
                   </div>
                 )}
-              </div>
-              <div className={styles.box_buttons}>
-                <button
-                  className={styles.button_remember}
-                  onClick={() => setSeason(season - 1)}
-                >
-                  Voltar
-                </button>
-                <button className={styles.button_submit}>Proxíma</button>
               </div>
             </>
           ) : season === 6 ? (
@@ -1267,20 +1251,6 @@ export default function Form() {
                   </div>
                 )}
               </div>
-              <div className={styles.box_buttons}>
-                <button
-                  className={styles.button_remember}
-                  onClick={() => setSeason(season - 2)}
-                >
-                  Voltar
-                </button>
-                <button
-                  className={styles.button_submit}
-                  onClick={() => setSeason(season + 1)}
-                >
-                  Proxíma
-                </button>
-              </div>
             </>
           ) : season === 7 ? (
             // Campos: Quantas pessoas residen na sua casa e renda familiar
@@ -1369,20 +1339,6 @@ export default function Form() {
                     </label>
                   </div>
                 </div>
-              </div>
-              <div className={styles.box_buttons}>
-                <button
-                  className={styles.button_remember}
-                  onClick={() => setSeason(season - 2)}
-                >
-                  Voltar
-                </button>
-                <button
-                  className={styles.button_submit}
-                  onClick={() => setSeason(season + 1)}
-                >
-                  Proxíma
-                </button>
               </div>
             </>
           ) : season === 8 ? (
@@ -1491,17 +1447,6 @@ export default function Form() {
                   </select>
                 </div>
               </div>
-              <div className={styles.box_buttons}>
-                <button
-                  className={styles.button_remember}
-                  onClick={() => setSeason(season - 1)}
-                >
-                  Voltar
-                </button>
-                <button className={styles.button_submit} type="submit">
-                  Enviar
-                </button>
-              </div>
             </>
           ) : season === 9 ? (
             // CPF ou Email ja consta na base
@@ -1517,16 +1462,13 @@ export default function Form() {
               </div>
               <div className={styles.content_form}>
                 <div className={styles.content_error}>
-                  <h3>
-                    Que legal! Identificamos que você já foi nosso(a) aluno(a).
-                  </h3>
+                  <h3>Identificamos que você já fez o cadastro</h3>
                   <p>
-                    Agradecemos seu interesse em participar da formação em
-                    front-end. No momento, estamos dando prioridade para
-                    inscrição de novos(as) alunos(as). Seus dados estão
-                    armazenados em nossa base de dados para comunicação de um
-                    próximo curso.
+                    Seus dados já estão em nosso sistema. Por favor, verifique a
+                    mensagem que foi enviada para o seu e-mail, incluindo a
+                    caixa de spam.
                   </p>
+                  <br />
                   <Image src={Emojiicon} alt="" />
                 </div>
               </div>
@@ -1597,11 +1539,6 @@ export default function Form() {
                   Parabéns! <br />
                   Inscrição realizada com sucesso.
                 </h3>
-                <p>
-                  Estamos orgulhosos por você escolher fazer parte do Vai na
-                  Web. Você está prestes a embarcar numa jornada incrível de
-                  aprendizagem contínua.
-                </p>
                 <p style={{ marginTop: "3rem" }}>
                   <b>
                     Fique atento ao seu Email, você será notificado sobre as
@@ -1634,16 +1571,16 @@ export default function Form() {
               </div>
             </>
           ) : season === 14 ? (
-            // Caso ja tenha sido aluno
+            // Caso confirme que ja  foi aluno no formulario
             <>
               <div className={styles.content_error}>
-                <h3>Opah</h3>
-                <p>No momentos estamos dando prioridade para novos alunos</p>
-                <p style={{ marginTop: "2rem" }}>
-                  <b>
-                    Mas fiquei atento as redes sociais do Vai na Web para
-                    novidades!
-                  </b>
+                <h3>
+                  Que legal! Identificamos que você já foi nosso(a) aluno(a).
+                </h3>
+                <p>
+                  Identificamos que você já foi nosso (a) aluno (a) Ajuste no
+                  último parágrafo: Seus dados estão armazenados em nossa base
+                  de dados para comunicações futuras.
                 </p>
                 <br />
                 <br />
@@ -1651,6 +1588,63 @@ export default function Form() {
               </div>
             </>
           ) : null}
+
+          {season <= 8 && season !== 0 && (
+            <div className={styles.box_buttons}>
+              <button className={styles.button_remember} onClick={goBackPage}>
+                Voltar
+              </button>
+              {season >= 3 && season <= 7 && (
+                <button
+                  type="button"
+                  disabled={loading}
+                  className={styles.button_submit}
+                  onClick={goNextPage}
+                >
+                  Próxima
+                </button>
+              )}
+
+              {season === 2 && (
+                <button
+                  type="button"
+                  disabled={isDesable()}
+                  className={styles.button_submit}
+                  onClick={goNextPage}
+                  style={{
+                    opacity:
+                      aceitarCompartilhar === "nao"
+                        ? "0.2"
+                        : aceitarCompartilhar === null
+                        ? "0.2"
+                        : "1.0",
+                  }}
+                >
+                  Próxima
+                </button>
+              )}
+
+              {season === 1 && (
+                <button
+                  className={styles.button_submit}
+                  onClick={foiAluno ? onSubmitStudents : goNextPage}
+                  disabled={loading}
+                >
+                  Enviar
+                </button>
+              )}
+
+              {season === 8 && (
+                <button
+                  className={styles.button_submit}
+                  type="submit"
+                  disabled={loading}
+                >
+                  Enviar
+                </button>
+              )}
+            </div>
+          )}
         </form>
       </div>
     </section>

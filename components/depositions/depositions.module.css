@@ -2,19 +2,19 @@
 .content { width: 100%; max-width: 1300px; margin-bottom: 8rem; margin-top: 5rem; padding: 0 1rem;}
 .content h2 {  background: #FF611E; background: linear-gradient(to right, #FF611E 5%, #FFAC2D 10%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-align: left; width: 100%; }
 .content .boxCards { width: 100%; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem;}
-.content .boxCards .cardDeposition {width: 31%; min-width: 300px; display: flex; align-items: center; justify-content: flex-start; text-align: center; flex-direction: column; padding: 1.5rem; border: #FFD3AC solid 1px; border-radius: 12px; gap: 0.2rem;}
+.content .boxCards .cardDeposition {width: 31%; min-width: 300px; display: flex; align-items: center; justify-content: flex-start;  flex-direction: column; padding: 1.5rem; border: #FFD3AC solid 1px; border-radius: 12px; gap: 0.2rem;}
 .content .boxCards .cardDeposition:hover {transition: 0.3s; box-shadow: #E6571B 0 0 4px;}
 .content .boxCards .cardDeposition figure {margin: 0; border-radius: 50%; border: 1px solid #FFD3AC; overflow: hidden;}
 .content .boxCards .cardDeposition p {width: 100%; margin: 0;}
-.content .boxCards .cardDeposition .textName {color: #122F97; font-weight: 600; font-size: 18px; margin: 0;}
+.content .boxCards .cardDeposition .textName {color: #122F97; font-weight: 600; font-size: 18px; margin: 0; width: 100%; text-align: center;}
 .content .contentVideo {display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;}
-.content .contentVideo .cardVideo {text-align: center; display: flex; flex-direction: column;  align-items: center; width: 31%; min-width: 300px; padding: 1; border: 1px solid #FFD3AC; border-radius: 12px; padding: 1.5rem; gap: 1rem;}
+.content .contentVideo .cardVideo { display: flex; flex-direction: column;  align-items: center; width: 31%; min-width: 300px; padding: 1; border: 1px solid #FFD3AC; border-radius: 12px; padding: 1.5rem; gap: 1rem;}
 .content .contentVideo .cardVideo:hover {transition: 0.3s; box-shadow: #E6571B 0 0 4px;}
 .content .contentVideo .cardVideo .boxVideo {margin: 0; width: 200px; overflow: hidden; border-radius: 50%;position: relative;display: flex;align-items: center;justify-content: center; border: 1px solid #FFD3AC;}
 .content .contentVideo .cardVideo .boxVideo i{color: #fff;font-size: 50px;position: absolute;}
 .content .contentVideo .cardVideo .boxVideo video {margin: 0; padding: 0; width: 100%; height: 100%; border-radius: 50%;}
 .content .contentVideo .cardVideo p {margin: 0; padding: 0}
-.content .contentVideo .cardVideo .textName {color: #122F97; font-weight: 600; font-size: 18px;}
+.content .contentVideo .cardVideo .textName {color: #122F97; font-weight: 600; font-size: 18px; width: 100%; text-align: center;}
 
 
 @media(max-width: 768px) {

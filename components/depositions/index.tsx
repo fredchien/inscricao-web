@@ -6,6 +6,7 @@ import IconDepositions from "../../assets/icon-depositions.png";
 import TitleGradient from "../title-gradient";
 
 import { DepositionsService } from "./service";
+import { faWeight } from "@fortawesome/free-solid-svg-icons";
 
 export interface IDepositions {
   nome: String;
@@ -90,10 +91,20 @@ export default function Depositions() {
                   />
                 </figure>
                 <p className={styles.textName}>{item.nome}</p>
-                <p style={{ marginBottom: "0.6rem", color: "#F3631E" }}>
+                <p
+                  className={styles.textName}
+                  style={{
+                    marginBottom: "0.6rem",
+                    color: "#F3631E",
+                    fontWeight: "400",
+                    fontSize: "16px",
+                  }}
+                >
                   {item.morada}
                 </p>
-                <p style={{ fontSize: "0.9rem" }}>{item.texto}</p>
+                <p style={{ fontSize: "0.9rem", textAlign: "justify" }}>
+                  {item.texto}
+                </p>
               </div>
             );
           })}
@@ -118,7 +129,17 @@ export default function Depositions() {
                 </figure>
                 <span className={styles.BoxTextsVideo}>
                   <p className={styles.textName}>{item.nome}</p>
-                  <p style={{ color: "#F3631E" }}>{item.texto}</p>
+                  <p
+                    className={styles.textName}
+                    style={{
+                      marginBottom: "0.6rem",
+                      color: "#F3631E",
+                      fontWeight: "400",
+                      fontSize: "16px",
+                    }}
+                  >
+                    {item.texto}
+                  </p>
                 </span>
               </div>
             );

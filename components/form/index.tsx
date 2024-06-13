@@ -495,6 +495,14 @@ export default function Form() {
                       type="email"
                       placeholder="Digite o seu melhor email"
                       {...register("email")}
+                      onPaste={(e) => {
+                        e.preventDefault();
+                        return false;
+                      }}
+                      onCopy={(e) => {
+                        e.preventDefault();
+                        return false;
+                      }}
                       required
                     />
                   </div>
@@ -515,14 +523,14 @@ export default function Form() {
                           );
                         },
                       })}
-                      // onPaste={(e) => {
-                      //   e.preventDefault();
-                      //   return false;
-                      // }}
-                      // onCopy={(e) => {
-                      //   e.preventDefault();
-                      //   return false;
-                      // }}
+                      onPaste={(e) => {
+                        e.preventDefault();
+                        return false;
+                      }}
+                      onCopy={(e) => {
+                        e.preventDefault();
+                        return false;
+                      }}
                       required
                     />
                     {errors?.emailReapet?.message && (

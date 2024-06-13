@@ -67,7 +67,7 @@ export default function InfoCourse() {
           <p>
             E qualquer outro elemento gráfico, que dê vida às aplicações web.
           </p>
-          {/* <div ref={lottieTwo} style={{ width: '100%', height: '300px' }} /> */}
+          <a href="#pre-requisitos">Quero me inscrever</a>
         </div>
       </div>
     </section>

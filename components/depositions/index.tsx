@@ -97,14 +97,11 @@ export default function Depositions() {
                     marginBottom: "0.6rem",
                     color: "#F3631E",
                     fontWeight: "400",
-                    fontSize: "16px",
                   }}
                 >
                   {item.morada}
                 </p>
-                <p style={{ fontSize: "0.9rem", textAlign: "justify" }}>
-                  {item.texto}
-                </p>
+                <p style={{ textAlign: "justify" }}>{item.texto}</p>
               </div>
             );
           })}
@@ -135,7 +132,6 @@ export default function Depositions() {
                       marginBottom: "0.6rem",
                       color: "#F3631E",
                       fontWeight: "400",
-                      fontSize: "16px",
                     }}
                   >
                     {item.texto}

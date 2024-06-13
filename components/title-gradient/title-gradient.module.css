@@ -1,3 +1,3 @@
-.content  { background: #FF611E; background: linear-gradient(to right, #FF611E 10%, #FFAC2D 30%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-align: center; width: 100%;}
+.content  { background: #FF611E; background: linear-gradient(to right, #FF611E 10%, #FFAC2D 30%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-align: center; width: 100%; font-size: 34px !important;}
 
 

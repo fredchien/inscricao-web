@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import InfoComponent from "../info-component";
 import MenuMobile from "../menu-mobile";
 import styles from "./menu.module.css";
@@ -6,6 +6,9 @@ import styles from "./menu.module.css";
 export default function MenuComponent() {
   const [colorChange, setColorchange] = useState(false);
   const [showButton, setShowButton] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState(null);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
   const openMenu = () => {
     var element = document.getElementById("menu_mobile");
     element.classList.toggle("open");
@@ -23,13 +26,30 @@ export default function MenuComponent() {
     } else {
       setShowButton(false);
     }
+
+    if (window.scrollY > lastScrollY) {
+      setScrollDirection("down");
+    } else if (window.scrollY < lastScrollY) {
+      setScrollDirection("up");
+    }
+    setLastScrollY(window.scrollY);
   };
-  window.addEventListener("scroll", changeNavbarColor);
+
+  useEffect(() => {
+    window.addEventListener("scroll", changeNavbarColor);
+    return () => {
+      window.removeEventListener("scroll", changeNavbarColor);
+    };
+  }, [lastScrollY]);
 
   return (
     <>
       <MenuMobile />
-      <div className={colorChange ? styles.menu : styles.menuScroll}>
+      <div
+        className={`${colorChange ? styles.menu : styles.menuScroll} ${
+          scrollDirection === "down" ? styles.scrollDown : styles.scrollUp
+        }`}
+      >
         <div
           className="content"
           style={{

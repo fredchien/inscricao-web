@@ -15,6 +15,7 @@ export default function SoftSkillsComponent() {
           </div>
         ))}
       </div>
+      <a href="#pre-requisitos">Quero me inscrever</a>
     </section>
   );
 }

@@ -14,6 +14,16 @@ export default function Home() {
 
   return (
     <section className={styles.content} id="home" onClick={handleClickOutside}>
+      <div className={styles.videoBackground}>
+        <video
+          autoPlay
+          loop
+          muted
+          style={{ borderRadius: "12px", boxShadow: "0px 0 5px #fff" }}
+        >
+          <source src="../assets/video/bgTeste.mp4" type="video/mp4" />
+        </video>
+      </div>
       {showVideo && (
         <div className={styles.boxVideo} onClick={handleClickOutside}>
           <video
@@ -21,7 +31,10 @@ export default function Home() {
             autoPlay={false}
             style={{ borderRadius: "12px", boxShadow: "0px 0 5px #fff" }}
           >
-            <source src="../assets/video/videoteste.mp4" type="video/mp4" />
+            <source
+              src="../assets/video/VideoInstitucional.mp4"
+              type="video/mp4"
+            />
           </video>
         </div>
       )}
@@ -44,11 +57,6 @@ export default function Home() {
         </button>
         <a href="#pre-requisitos">Inscreva-se</a>
       </div>
-      {/* <div className={styles.box_end}>
-        <div style={{ maxWidth: "500px" }}>
-          <Lottie animationData={LootieHome} />
-        </div>
-      </div> */}
       <figure className={styles.triangule_right_bottom}></figure>
       <figure className={styles.triangule_left_bottom}></figure>
     </section>

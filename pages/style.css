@@ -14,7 +14,7 @@ html, body { color: #000D25; min-width: 320px; font-size: 16px; line-height: 1.6
 body { background: #FFFFFF; overflow-x: hidden; position: relative; font-family: 'Inter', sans-serif; }
 
 strong { font-weight: 700; }
-
+p {font-size: 16px;}
 h1, h2, h3, h4, h5, h6 { margin-top: 0; margin-bottom: 30px; font-weight: 700; line-height: 1.4; }
 h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong { font-weight: 900; }
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small { color: inherit; font-size: 70%; font-weight: inherit; }

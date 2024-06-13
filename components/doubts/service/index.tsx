@@ -8,7 +8,7 @@ export const data = [
   {
     title: "Não recebi o email com as informações sobre o processo",
     studies: [
-      "Certifique-se de que o email é o mesmo que foi informado no momento da inscrição. Caso realmente não tenha recebido, encaminhe um email para:",
+      "Certifique-se de que o email é o mesmo que foi informado no momento da inscrição. Caso realmente não tenha recebido, verifique a sua caixa de spam. Se ainda assim não encontrar o email, encaminhe uma mensagem para:",
     ],
     link: "escola@vainaweb.com.br",
   },

@@ -827,7 +827,7 @@ export default function Form() {
                       type="text"
                       id="phone"
                       name="phone"
-                      maxLength="15"
+                        maxLength={15}
                       required
                       onChange={handlePhoneInput}
                     />

@@ -31,14 +31,19 @@ export default function InfoCourse() {
       <div className={styles.boxTitle}>
         <TitleGradient Children={"Boas vindas ao Vai na Web"} />
         <p>
-          Um negócio de impacto social que atua na capacitação gratuita em
-          tecnologia digital avançada com o objetivo de preparar jovens talentos
-          de favelas e periferias para a economia digital.
+          Um negócio de impacto social que atua na capacitação gratuita em  
+          <span>tecnologia digital avançada</span> com o objetivo de preparar
+          jovens talentos de favelas e periferias para a economia digital.
+          <br />
           <br />
           Por meio dos nossos programas, promovemos a inclusão no mercado de
           trabalho, gerando renda e fomentando o empreendedorismo, com o
-          objetivo de facilitar a inserção em carreiras sustentáveis e com
-          potencial de crescimento no setor de tecnologia.
+          objetivo de{" "}
+          <span>
+            facilitar a inserção em carreiras sustentáveis e com potencial de
+            crescimento no setor de tecnologia
+          </span>
+          .
         </p>
       </div>
       <div className={styles.content_boxes}>

@@ -3,13 +3,18 @@ import InfoComponent from "../info-component";
 import MenuMobile from "../menu-mobile";
 import styles from "./menu.module.css";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark, faBars } from "@fortawesome/free-solid-svg-icons";
+
 export default function MenuComponent() {
   const [colorChange, setColorchange] = useState(false);
   const [showButton, setShowButton] = useState(false);
   const [scrollDirection, setScrollDirection] = useState(null);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
 
   const openMenu = () => {
+    setIsOpen(!isOpen);
     var element = document.getElementById("menu_mobile");
     element.classList.toggle("open");
   };
@@ -44,7 +49,7 @@ export default function MenuComponent() {
 
   return (
     <>
-      <MenuMobile />
+      <MenuMobile openMenu={openMenu} />
       <div
         className={`${colorChange ? styles.menu : styles.menuScroll} ${
           scrollDirection === "down" ? styles.scrollDown : styles.scrollUp
@@ -78,7 +83,14 @@ export default function MenuComponent() {
                 aria-label="Toggle navigation"
                 onClick={() => openMenu()}
               >
-                <span className="navbar-toggler-icon"></span>
+                {isOpen ? (
+                  <FontAwesomeIcon
+                    icon={faXmark}
+                    className="fa-solid fa-xmark"
+                  />
+                ) : (
+                  <FontAwesomeIcon icon={faBars} className="fa-solid fa-bars" />
+                )}
               </button>
               <div
                 className="collapse navbar-collapse justify-content-end"

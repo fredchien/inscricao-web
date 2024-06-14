@@ -61,10 +61,12 @@ form .content_form {width: 100%; display: flex; flex-direction: column; justify-
 }
 
 @media (max-width: 875px) {
-  .content .boxContent {width: 100%; padding: 0; box-shadow: none;}
-  .content .boxContent form {padding: 0 1rem; max-height: 90vh;}
+  
+  .content .boxContent {width: 100%; padding: 0; box-shadow: none; height: auto;}
+  .content .boxContent form {padding: 0 1rem; max-height: 100vh;}
   .content .boxContent form .content_form { overflow: auto;}
   .content form .box_input label {margin-bottom: 5px;}
+  .content form .contentInputs {padding: 0;}
   .content p {font-size: 0.9rem; margin: 0;}
   form .content_form {padding-bottom: 0; gap: 0.7rem;}
   .content .textInfo {margin-top: 1rem; font-size: 0.8rem;}

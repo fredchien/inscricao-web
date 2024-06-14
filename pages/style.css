@@ -18,13 +18,15 @@ p {font-size: 16px;}
 h1, h2, h3, h4, h5, h6 { margin-top: 0; margin-bottom: 30px; font-weight: 700; line-height: 1.4; }
 h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong { font-weight: 900; }
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small { color: inherit; font-size: 70%; font-weight: inherit; }
-p {font-weight: 400;}
+p {font-weight: 400; letter-spacing: 0.5px}
 
 img { max-width: 100%; height: auto; }
 
 .navbar-nav .nav-link.active, .navbar-nav .nav-link.show,.nav-link:focus{color: rgb(255, 172, 45);}
-
+.navbar-toggler {background-color: #122f97; position: relative; display: flex; justify-content: center; align-items: center; width: 3rem; height: 3rem; color: #fff; font-size: 2rem; z-index: 10; outline: transparent !important;}
 main {display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;}
 main .box-main {max-width: 1300px; width: 95vw; display: flex; flex-direction: column; align-items: center; padding: 0 1rem;}
-
 .open {right: 0 !important;}
+.modal-dialog {max-width: 1000px; background-color: transparent;}
+.modal-content {width: 100%; display: flex; align-items: center; justify-content: center; position: relative; background-color: transparent;}
+.boxVideo {background-color: red  !important;}

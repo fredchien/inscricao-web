@@ -8,8 +8,9 @@ export const data = [
     image: backgroundIAP,
     studies: [
       "Fundamentos e sintaxe de HTML",
-      "Fundamento e sintaxe de CSS",
-      "Semântica e acessibilidade",
+      "Fundamentos e sintaxe de CSS",
+      "Semântica",
+      "Acessibilidade",
       "Git e Github",
       "Responsividade",
     ],
@@ -19,8 +20,7 @@ export const data = [
     image: backgroundLDP,
     studies: [
       "Algoritmos",
-      "Tipo de dados",
-      "Estruturas de dados",
+      "Estruturas e tipos de dados",
       "JavaScript",
       [
         "Sintaxe, Variáveis, Operadores",

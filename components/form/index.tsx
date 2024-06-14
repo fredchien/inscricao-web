@@ -6,6 +6,7 @@ import { formService } from "./service";
 
 import ImgIncorrect from "../../assets/incorrect-icon.png";
 import Emojiicon from "../../assets/emoji.png";
+import SucessIcon from "../../assets/secess-emoji.svg";
 import FogueteIcon from "../../assets/foguete-emoji.png";
 import Image from "next/image";
 import GifLoad from "../../assets/gif-loader.gif";
@@ -309,8 +310,6 @@ export default function Form() {
     }
   };
 
-  console.log(season, "season");
-
   const watchOptions = watch([
     "student_tecnology.have_computer",
     "student_tecnology.have_internet",
@@ -330,7 +329,6 @@ export default function Form() {
   }, [watchOptions, setValue]);
 
   const goBackPage = () => {
-    console.log("chegou aqui");
     if (idade < 18) {
       setSeason(season - 1);
     } else {
@@ -1775,6 +1773,9 @@ export default function Form() {
                       próximas fases até a aula inaugural.
                     </b>
                   </p>
+                  <br />
+                  <br />
+                  <Image src={SucessIcon} alt="" />
                 </div>
               </>
             ) : season === 13 ? (
@@ -1790,7 +1791,7 @@ export default function Form() {
                       sua inscrição neste site.
                     </b>
                   </p>
-                  {/* <Image src={FogueteIcon} alt="" /> */}
+                  <Image src={Emojiicon} alt="" />
                 </div>
               </>
             ) : season === 14 ? (
@@ -1801,9 +1802,11 @@ export default function Form() {
                     Que legal! Identificamos que você já foi nosso(a) aluno(a).
                   </h3>
                   <p>
-                    Identificamos que você já foi nosso (a) aluno (a) Ajuste no
-                    último parágrafo: Seus dados estão armazenados em nossa base
-                    de dados para comunicações futuras.
+                    Agradecemos seu interesse em participar da formação em
+                    front-end. No momento, estamos dando prioridade para
+                    inscrição de novos(as) alunos(as). Seus dados estão
+                    armazenados em nossa base de dados para comunicações
+                    futuras.
                   </p>
                   <br />
                   <br />

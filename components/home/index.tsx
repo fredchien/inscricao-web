@@ -36,7 +36,7 @@ export default function Home() {
           muted
           style={{ borderRadius: "12px", boxShadow: "0px 0 5px #fff" }}
         >
-          <source src="../assets/video/bgTeste.mp4" type="video/mp4" />
+          <source src="../assets/video/LPbackground.mp4" type="video/mp4" />
         </video>
       </div>
       <Modal

@@ -56,7 +56,7 @@ export default function Home() {
             marginTop: "5rem",
           }}
         >
-          <source src="../assets/video/VideoEscolaVnW.mp4" type="video/mp4" />
+          <source src="../assets/video/EscolaVainaWeb.mp4" type="video/mp4" />
         </video>
       </Modal>
       <div className={styles.box_title}>

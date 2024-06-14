@@ -65,7 +65,7 @@ export default function Home() {
           <br />
           Front-end + React + VUE
         </h1>
-        <button variant="primary" onClick={showPlayVideo}>
+        <button onClick={showPlayVideo}>
           <Image src={PlayIcon} alt="Play Icon" />
           <p>
             ASSISTA AO VÍDEO E<br /> ENTENDA COMO PARTICIPAR

@@ -5,6 +5,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import IconWpp from "../../assets/icon-wpp.png";
+import Student from "../../assets/faqStudent.png";
 import Image from "next/image";
 import { data } from "./service";
 
@@ -80,6 +81,7 @@ export default function DoubtsComponents() {
           </span>
         </span>
       </div>
+      <Image src={Student} alt="" />
     </section>
   );
 }

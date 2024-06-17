@@ -1700,8 +1700,7 @@ export default function Form() {
               <>
                 <div className={styles.content_error}>
                   <h3>
-                    Nesse momento você não está apto para inscrever-se devido a
-                    não atender aos seguintes requisitos mínimos:
+                  Nesse momento você não foi aprovado para esse curso devido a não atender aos requisitos mínimos:
                   </h3>
                   <div className={styles.boxList}>
                     {errosForm.age !== "" && (

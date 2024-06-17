@@ -39,4 +39,5 @@
 
 @media (max-width: 868px) {
   .content img {display: none;}
+  .content .content_dropdowns {height: auto;}
 }

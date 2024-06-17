@@ -1710,7 +1710,7 @@ export default function Form() {
                       caixa de spam.
                     </p>
                     <br />
-                    <Image src={Emojiicon} alt="" />
+                    <span>😉</span>
                   </div>
                 </div>
               </>
@@ -1753,10 +1753,11 @@ export default function Form() {
                     Você poderá se candidatar novamente para um próximo curso.
                     Fique atento(a) e siga o <b>@VainaWeb</b> nas redes sociais.
                   </p>
-                  <Image src={Emojiicon} alt="" />
+                  <span>😊</span>
                 </div>
               </>
             ) : season === 11 ? (
+              // Ja foi nosso aluno
               <>
                 <div className={styles.content_error}>
                   <h3>
@@ -1769,7 +1770,7 @@ export default function Form() {
                     armazenados em nossa base de dados para comunicação de um
                     próximo curso.
                   </p>
-                  <Image src={Emojiicon} alt="" />
+                  <span>🙂</span>
                 </div>
               </>
             ) : season === 12 ? (
@@ -1793,7 +1794,7 @@ export default function Form() {
                   </p>
                   <br />
                   <br />
-                  <Image src={SucessIcon} alt="" />
+                  <span>🤩</span>
                 </div>
               </>
             ) : season === 13 ? (
@@ -1809,7 +1810,7 @@ export default function Form() {
                       sua inscrição neste site.
                     </b>
                   </p>
-                  <Image src={Emojiicon} alt="" />
+                  <span>🙁</span>
                 </div>
               </>
             ) : season === 14 ? (
@@ -1828,7 +1829,7 @@ export default function Form() {
                   </p>
                   <br />
                   <br />
-                  <Image src={FogueteIcon} alt="" />
+                  <span>🫡</span>
                 </div>
               </>
             ) : null}

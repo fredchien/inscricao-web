@@ -46,6 +46,7 @@ form .content_form {width: 100%; display: flex; flex-direction: column; justify-
 
 
 .content .content_error {text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;}
+.content .content_error span {display: flex; font-size: 3rem;}
 .content .content_error .boxList { display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 1.3rem; margin-bottom: 2rem;}
 .content .content_error .boxList span {display: flex; gap: 1rem; align-items: center; text-align: start;}
 .content .content_error h3 {background: linear-gradient(to right, #FF611E 29%, #FFAC2D 30%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; width: 100%; text-align: center;}

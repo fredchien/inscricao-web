@@ -567,7 +567,14 @@ export default function Form() {
                       type="text"
                       maxLength={11}
                       placeholder="Digite seu CPF (somente números)"
-                      {...register("cpf")}
+                      {...register("cpf", {
+                        validate: (match) => {
+                          const cpfPass = getValues("cpf");
+                          return (
+                            cpfPass.length === 14 || "CPF inválido"
+                          );
+                        },
+                      })}
                       onBlur={(e) => {
                         let value = formatCPF(e.target.value);
                         setValue("cpf", value);

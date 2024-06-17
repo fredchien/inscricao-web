@@ -468,6 +468,21 @@ export default function Form() {
     event.target.value = input;
   }
 
+  function handlePhoneInputStudent(event) {
+    let input = event.target.value;
+    input = input.replace(/\D/g, "");
+
+    if (input.length <= 10) {
+      input = input.replace(/^(\d{2})(\d)/g, "($1) $2");
+      input = input.replace(/(\d{4})(\d)/, "$1-$2");
+    } else {
+      input = input.replace(/^(\d{2})(\d)/g, "($1) $2");
+      input = input.replace(/(\d{5})(\d)/, "$1-$2");
+    }
+
+    event.target.value = input;
+  }
+
   return (
     <section className={styles.content}>
       <div className={styles.boxContent}>
@@ -960,10 +975,14 @@ export default function Form() {
                       WhatsApp)
                     </label>
                     <input
-                      type="number"
-                      placeholder="Digite o DDD e o número"
+                      placeholder="(00) 00000-0000"
+                      type="text"
+                      id="phone"
+                      name="phone"
+                      maxLength={15}
                       {...register("phone")}
                       required
+                      onChange={handlePhoneInputStudent}
                     />
                   </div>
 
@@ -1691,7 +1710,7 @@ export default function Form() {
                       caixa de spam.
                     </p>
                     <br />
-                    <Image src={Emojiicon} alt="" />
+                    <span>😉</span>
                   </div>
                 </div>
               </>
@@ -1734,10 +1753,11 @@ export default function Form() {
                     Você poderá se candidatar novamente para um próximo curso.
                     Fique atento(a) e siga o <b>@VainaWeb</b> nas redes sociais.
                   </p>
-                  <Image src={Emojiicon} alt="" />
+                  <span>😊</span>
                 </div>
               </>
             ) : season === 11 ? (
+              // Ja foi nosso aluno
               <>
                 <div className={styles.content_error}>
                   <h3>
@@ -1750,7 +1770,7 @@ export default function Form() {
                     armazenados em nossa base de dados para comunicação de um
                     próximo curso.
                   </p>
-                  <Image src={Emojiicon} alt="" />
+                  <span>🙂</span>
                 </div>
               </>
             ) : season === 12 ? (
@@ -1774,7 +1794,7 @@ export default function Form() {
                   </p>
                   <br />
                   <br />
-                  <Image src={SucessIcon} alt="" />
+                  <span>🤩</span>
                 </div>
               </>
             ) : season === 13 ? (
@@ -1790,7 +1810,7 @@ export default function Form() {
                       sua inscrição neste site.
                     </b>
                   </p>
-                  <Image src={Emojiicon} alt="" />
+                  <span>🙁</span>
                 </div>
               </>
             ) : season === 14 ? (
@@ -1809,7 +1829,7 @@ export default function Form() {
                   </p>
                   <br />
                   <br />
-                  <Image src={FogueteIcon} alt="" />
+                  <span>🫡</span>
                 </div>
               </>
             ) : null}

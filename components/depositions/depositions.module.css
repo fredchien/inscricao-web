@@ -7,7 +7,7 @@
 .content .boxCards .cardDeposition figure {margin: 0; border-radius: 50%; border: 1px solid #FFD3AC; overflow: hidden;}
 .content .boxCards .cardDeposition p {width: 100%; margin: 0; font-size: 18px;}
 .content .boxCards .cardDeposition .textName {color: #122F97; font-weight: 600; font-size: 18px; margin: 0; width: 100%; text-align: center;}
-.content .contentVideo {display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;}
+.content .contentVideo {display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap;}
 .content .contentVideo .cardVideo { display: flex; flex-direction: column;  align-items: center; width: 31%; min-width: 300px; padding: 1; border: 1px solid #FFD3AC; border-radius: 12px; padding: 1.5rem; gap: 1rem;}
 .content .contentVideo .cardVideo:hover {transition: 0.3s; box-shadow: #E6571B 0 0 4px;}
 .content .contentVideo .cardVideo .boxVideo {margin: 0; width: 200px; overflow: hidden; border-radius: 50%;position: relative;display: flex;align-items: center;justify-content: center; border: 1px solid #FFD3AC;}

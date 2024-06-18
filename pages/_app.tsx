@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import Script from "next/script";
 import "../pages/style.css";
 import Head from "next/head";
 
@@ -15,6 +16,21 @@ function MyApp({ Component, pageProps }) {
         ></link>
         <script src="https://kit.fontawesome.com/48a5a2c166.js"></script>
       </Head>
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=G-NM4JM6216S`}
+      />
+
+      <Script strategy="afterInteractive">
+        {`
+           window.dataLayer = window.dataLayer || [];
+           function gtag(){dataLayer.push(arguments);}
+           gtag('js', new Date());
+         
+           gtag('config', 'G-NM4JM6216S' ,{
+            page_path: window.location.pathname});
+         `}
+      </Script>
       <Component {...pageProps} />
     </>
   );

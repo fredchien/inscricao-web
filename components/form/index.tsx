@@ -12,6 +12,12 @@ import Image from "next/image";
 import GifLoad from "../../assets/gif-loader.gif";
 import InfoComponent from "../info-component";
 
+
+import Faixa from "../../assets/faixa.png"
+import Encerradas from "../../assets/EncerradasMobile.png";
+import EncerradasDesk from "../../assets/EncerradasDesktop.png";
+
+
 export default function Form() {
   const [loading, setLoading] = useState(false);
   const [season, setSeason] = useState(0);
@@ -485,6 +491,10 @@ export default function Form() {
 
   return (
     <section className={styles.content}>
+      <Image src={Faixa} alt=""  className={styles.faixa_top}/>
+      <Image src={Encerradas} alt=""  className={styles.img_encerr}/>
+      <Image src={EncerradasDesk} alt=""  className={styles.img_encerr_desk}/>
+
       <div className={styles.boxContent}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.contentInputs}>
@@ -1894,6 +1904,7 @@ export default function Form() {
           )} */}
         </form>
       </div>
+      <Image src={Faixa} alt=""  className={styles.faixa_botton}/>
     </section>
   );
 }

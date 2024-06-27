@@ -20,7 +20,7 @@ import EncerradasDesk from "../../assets/EncerradasDesktop.png";
 
 export default function Form() {
   const [loading, setLoading] = useState(false);
-  const [season, setSeason] = useState(0);
+  const [season, setSeason] = useState(-1);
   const [campos, setCampos] = useState(false);
   const [haveDocuments, setHaveDocuments] = useState(null);
   const [aceitarCompartilhar, setAceitarCompartilhar] = useState(null);

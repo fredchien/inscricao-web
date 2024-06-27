@@ -5,12 +5,18 @@ import { useForm } from "react-hook-form";
 import { formService } from "./service";
 
 import ImgIncorrect from "../../assets/incorrect-icon.png";
-import Emojiicon from "../../assets/emoji.png";
-import SucessIcon from "../../assets/secess-emoji.svg";
+import SucessIcon from "../../assets/susess-emoji.png";
+import PiskIcon from "../../assets/pisk-emoji.png";
 import FogueteIcon from "../../assets/foguete-emoji.png";
 import Image from "next/image";
 import GifLoad from "../../assets/gif-loader.gif";
 import InfoComponent from "../info-component";
+
+
+import Faixa from "../../assets/faixa.png"
+import Encerradas from "../../assets/EncerradasMobile.png";
+import EncerradasDesk from "../../assets/EncerradasDesktop.png";
+
 
 export default function Form() {
   const [loading, setLoading] = useState(false);
@@ -485,6 +491,10 @@ export default function Form() {
 
   return (
     <section className={styles.content}>
+      <Image src={Faixa} alt=""  className={styles.faixa_top}/>
+      <Image src={Encerradas} alt=""  className={styles.img_encerr}/>
+      <Image src={EncerradasDesk} alt=""  className={styles.img_encerr_desk}/>
+
       <div className={styles.boxContent}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.contentInputs}>
@@ -1717,7 +1727,7 @@ export default function Form() {
                       caixa de spam.
                     </p>
                     <br />
-                    <span>😉</span>
+                    <Image src={PiskIcon}  alt="emoji"/>
                   </div>
                 </div>
               </>
@@ -1760,7 +1770,7 @@ export default function Form() {
                     Você poderá se candidatar novamente para um próximo curso.
                     Fique atento(a) e siga o <b>@VainaWeb</b> nas redes sociais.
                   </p>
-                  <span>😊</span>
+                  <Image src={PiskIcon}  alt="emoji"/>
                 </div>
               </>
             ) : season === 11 ? (
@@ -1801,7 +1811,7 @@ export default function Form() {
                   </p>
                   <br />
                   <br />
-                  <span>🤩</span>
+                  <Image src={SucessIcon}  alt="emoji"/>
                 </div>
               </>
             ) : season === 13 ? (
@@ -1817,7 +1827,7 @@ export default function Form() {
                       sua inscrição neste site.
                     </b>
                   </p>
-                  <span>🙁</span>
+                  <Image src={PiskIcon}  alt="emoji"/>
                 </div>
               </>
             ) : season === 14 ? (
@@ -1836,7 +1846,7 @@ export default function Form() {
                   </p>
                   <br />
                   <br />
-                  <span>🫡</span>
+                  <Image src={PiskIcon}  alt="emoji"/>
                 </div>
               </>
             ) : null}
@@ -1894,6 +1904,7 @@ export default function Form() {
           )} */}
         </form>
       </div>
+      <Image src={Faixa} alt=""  className={styles.faixa_botton}/>
     </section>
   );
 }

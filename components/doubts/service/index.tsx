@@ -14,9 +14,9 @@ export const data = [
     link: "escola@vainaweb.com.br",
   },
   {
-    title: "Por que preciso mandar a documentação. O processo é confiável?",
+    title: "Por que preciso mandar a documentação? O processo é confiável?",
     studies: [
-      <>{'O envio da documentação é a etapa final do processo seletivo para quem foi aprovado na segunda etapa do processo. Os documentos solicitados deverão ser encaminhados para o email:'}<a href="mailto:escola@vainaweb.com.br">escola@vainaweb.com.br</a>
+      <>{'O envio da documentação é a etapa final do processo seletivo para quem foi aprovado na segunda fase do processo. Os documentos solicitados deverão ser encaminhados para o email:'}<a href="mailto:escola@vainaweb.com.br">escola@vainaweb.com.br</a>
       <br/>
       {'Os dados estão protegidos pela LGPD - Lei Geral de Proteção de Dados Pessoais - Lei nº 13.709/2018 e não serão compartilhados com terceiros, com exceção do time de gestão do Vai na Web.'}
       </>

@@ -20,30 +20,31 @@ import EncerradasDesk from "../../assets/EncerradasDesktop.png";
 
 export default function Form() {
   const [loading, setLoading] = useState(false);
-  const [season, setSeason] = useState(-1);
+  const [season, setSeason] = useState(0);
   const [campos, setCampos] = useState(false);
   const [haveDocuments, setHaveDocuments] = useState(null);
   const [aceitarCompartilhar, setAceitarCompartilhar] = useState(null);
   const [isDesable, setIsDesable] = useState(false);
-  const [nome, setNome] = useState("");
-  const [email, setEmail] = useState("");
-  const [emailRepeat, setEmailRepeat] = useState("");
-  const [cpf, setCpf] = useState("");
+  // const [nome, setNome] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [emailRepeat, setEmailRepeat] = useState("");
+  // const [cpf, setCpf] = useState("");
   const [idade, setIdade] = useState(null);
-  const [genero, setGenero] = useState("");
-  const [possuiComputador, setPossuiComputador] = useState("");
-  const [tipoComputador, setTipoComputador] = useState("");
-  const [possuiDeficiencia, setPossuiDeficiencia] = useState("");
-  const [tipoDeficiencia, setTipoDeficiencia] = useState("");
-  const [possuiInternet, setPossuiInternet] = useState("");
-  const [velocidadeInternet, setVelocidadeInternet] = useState("");
-  const [quantidadePessoas, setQuantidadePessoas] = useState("");
-  const [moradorComunidade, setMoradorComunidade] = useState("");
-  const [rendaFamiliar, setRendaFamiliar] = useState("");
-  const [anoMatriculado, setAnoMatriculado] = useState("");
-  const [validadorCPF, setValidadorCPF] = useState(false);
-  const [curso, setCurse] = useState("");
-  const [textErr, setTextErr] = useState(false);
+  // const [genero, setGenero] = useState("");
+  // const [possuiComputador, setPossuiComputador] = useState("");
+  // const [tipoComputador, setTipoComputador] = useState("");
+  // const [possuiDeficiencia, setPossuiDeficiencia] = useState("");
+  // const [tipoDeficiencia, setTipoDeficiencia] = useState("");
+  // const [possuiInternet, setPossuiInternet] = useState("");
+  // const [velocidadeInternet, setVelocidadeInternet] = useState("");
+  // const [quantidadePessoas, setQuantidadePessoas] = useState("");
+  // const [moradorComunidade, setMoradorComunidade] = useState("");
+  // const [rendaFamiliar, setRendaFamiliar] = useState("");
+  // const [anoMatriculado, setAnoMatriculado] = useState("");
+  // const [validadorCPF, setValidadorCPF] = useState(false);
+  // const [curso, setCurse] = useState("");
+  // const [textErr, setTextErr] = useState(false);
+  const [requiredInput, setRequiredInput] = useState(true);
   const [mensageDeError, setMensageDeError] = useState(false);
   const [foiAluno, setFoiAluno] = useState<boolean>(null);
   const [errosForm, setErrosForm] = useState<any>({
@@ -86,6 +87,8 @@ export default function Form() {
         address: {
           city: null,
           state: null,
+          postal_code: null,
+          district: null,
         },
       },
       student_tecnology: {
@@ -104,14 +107,15 @@ export default function Form() {
     },
   });
 
-  const [states, setStates] = useState<string[]>([]);
-  const [citys, setCitys] = useState<string[]>([]);
+  // const [states, setStates] = useState<string[]>([]);
+  // const [citys, setCitys] = useState<string[]>([]);
 
   const birthDate = watch("birth_date");
   const haveComputer = watch("student_tecnology.have_computer");
   const havePDW = watch("student_socioeconomic_data.live_with_pwd");
   const haveInternet = watch("student_tecnology.have_internet");
-  const State = watch("student_address.address.state");
+  // const State = watch("student_address.address.state");
+  const cep = watch("student_address.address.postal_code");
   const isCommunity = watch("student_socioeconomic_data.live_in_community");
 
   const concordarDadosValue = watch("haveDocuments");
@@ -135,30 +139,52 @@ export default function Form() {
     }
   }, [birthDate]);
 
-  const fatchState = async () => {
-    const response = await fetch(
-      "https://servicodados.ibge.gov.br/api/v1/localidades/estados"
-    ).then((res) => res.json());
-    const states = response.map((state) => state.sigla);
-    setStates(states);
-  };
+  // const fatchState = async () => {
+  //   const response = await fetch(
+  //     "https://servicodados.ibge.gov.br/api/v1/localidades/estados"
+  //   ).then((res) => res.json());
+  //   const states = response.map((state) => state.sigla);
+  //   setStates(states);
+  // };
+
+  // useEffect(() => {
+  //   fatchState();
+  // }, []);
+
+  // const fatchCity = async () => {
+  //   if (State) {
+  //     const response = await fetch(
+  //       `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${State}/municipios`
+  //     ).then((res) => res.json());
+  //     const citys = response.map((city) => city.nome);
+  //     setCitys(citys);
+  //   }
+  // };
+  // useEffect(() => {
+  //   fatchCity();
+  // }, [State]);
 
   useEffect(() => {
-    fatchState();
-  }, []);
-
-  const fatchCity = async () => {
-    if (State) {
-      const response = await fetch(
-        `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${State}/municipios`
-      ).then((res) => res.json());
-      const citys = response.map((city) => city.nome);
-      setCitys(citys);
+    if (cep && cep.length === 8) {
+      fetchCEP(cep);
     }
-  };
-  useEffect(() => {
-    fatchCity();
-  }, [State]);
+  }, [cep]);
+
+  const fetchCEP = async (cep) => {
+    try {
+      const response = await fetch(
+        `https://viacep.com.br/ws/${cep}/json/`
+      ).then((res) => res.json());
+      const { localidade, uf, bairro } = response;
+      setValue("student_address.address.city", localidade);
+      setValue("student_address.address.state", uf);
+      setValue("student_address.address.district", bairro);
+    } catch (error) {
+      console.error("Erro ao buscar o CEP", error);
+    }finally{
+      setRequiredInput(false);
+    }
+  }
 
   function formatCPF(cpf) {
     cpf = cpf.replace(/\D/g, "");
@@ -215,7 +241,7 @@ export default function Form() {
     }
 
     if (season === 2) {
-      if (idade > 18) {
+      if (idade >= 18) {
         return setSeason(season + 2);
       }
       if (haveDocuments === null || aceitarCompartilhar === null) {
@@ -302,6 +328,11 @@ export default function Form() {
             if (item.income_range) {
               setErrosForm((prevState: any) => {
                 return { ...prevState, income_range: item.income_range };
+              });
+            }
+            if (item.bairro) {
+              setErrosForm((prevState: any) => {
+                return { ...prevState, bairro: item.bairro };
               });
             }
           });
@@ -491,9 +522,9 @@ export default function Form() {
 
   return (
     <section className={styles.content}>
-      <Image src={Faixa} alt=""  className={styles.faixa_top}/>
+      {/* <Image src={Faixa} alt=""  className={styles.faixa_top}/>
       <Image src={Encerradas} alt=""  className={styles.img_encerr}/>
-      <Image src={EncerradasDesk} alt=""  className={styles.img_encerr_desk}/>
+      <Image src={EncerradasDesk} alt=""  className={styles.img_encerr_desk}/> */}
 
       <div className={styles.boxContent}>
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -518,14 +549,14 @@ export default function Form() {
                       type="email"
                       placeholder="Digite o seu melhor email"
                       {...register("email")}
-                      onPaste={(e) => {
-                        e.preventDefault();
-                        return false;
-                      }}
-                      onCopy={(e) => {
-                        e.preventDefault();
-                        return false;
-                      }}
+                      // onPaste={(e) => {
+                      //   e.preventDefault();
+                      //   return false;
+                      // }}
+                      // onCopy={(e) => {
+                      //   e.preventDefault();
+                      //   return false;
+                      // }}
                       required
                     />
                   </div>
@@ -546,14 +577,14 @@ export default function Form() {
                           );
                         },
                       })}
-                      onPaste={(e) => {
-                        e.preventDefault();
-                        return false;
-                      }}
-                      onCopy={(e) => {
-                        e.preventDefault();
-                        return false;
-                      }}
+                      // onPaste={(e) => {
+                      //   e.preventDefault();
+                      //   return false;
+                      // }}
+                      // onCopy={(e) => {
+                      //   e.preventDefault();
+                      //   return false;
+                      // }}
                       required
                     />
                     {errors?.emailReapet?.message && (
@@ -1667,30 +1698,52 @@ export default function Form() {
                     className={styles.box_input}
                     style={{ marginBottom: "1rem" }}
                   >
+                    <label htmlFor="typeCidade">Qual é o seu CEP?</label>
+                    <input
+                        type="text"
+                        placeholder="Digite o seu CEP"
+                        {...register("student_address.address.postal_code")}
+                        required
+                      />
+                  </div>
+                  <div
+                    className={styles.box_input}
+                    style={{ marginBottom: "1rem" }}
+                  >
                     <label htmlFor="typeCidade">Qual é o seu estado?</label>
-                    <select
-                      {...register("student_address.address.state")}
-                      required
-                    >
-                      {states?.map((item) => (
-                        <option key={item}>{item}</option>
-                      ))}
-                    </select>
+                    <input
+                        type="text"
+                        placeholder="Digite o seu Estado"
+                        {...register("student_address.address.state")}
+                        required
+                        disabled={requiredInput}
+                      />
                   </div>
                   <div
                     className={styles.box_input}
                     style={{ marginBottom: "1rem" }}
                   >
                     <label htmlFor="typeEstado">Qual é a sua cidade?</label>
-                    <select
-                      {...register("student_address.address.city")}
-                      disabled={State === undefined}
-                      required
-                    >
-                      {citys.map((item) => (
-                        <option key={item}>{item}</option>
-                      ))}
-                    </select>
+                    <input
+                        type="text"
+                        placeholder="Digite a sua cidade"
+                        {...register("student_address.address.city")}
+                        required
+                        disabled={requiredInput}
+                      />
+                  </div>
+                  <div
+                    className={styles.box_input}
+                    style={{ marginBottom: "1rem" }}
+                  >
+                    <label htmlFor="typeEstado">Qual é seu bairro?</label>
+                    <input
+                        type="text"
+                        placeholder="Digite seu bairro"
+                        {...register("student_address.address.district")}
+                        required
+                        disabled={requiredInput}
+                      />
                   </div>
                 </div>
                 <div className={styles.box_buttons}>
@@ -1761,6 +1814,12 @@ export default function Form() {
                       <span>
                         <Image src={ImgIncorrect} alt="" />
                         {errosForm?.have_computer}
+                      </span>
+                    )}
+                    {errosForm.bairro !== "" && (
+                      <span>
+                        <Image src={ImgIncorrect} alt="" />
+                        {errosForm?.bairro}
                       </span>
                     )}
                   </div>
@@ -1904,7 +1963,7 @@ export default function Form() {
           )} */}
         </form>
       </div>
-      <Image src={Faixa} alt=""  className={styles.faixa_botton}/>
+      {/* <Image src={Faixa} alt=""  className={styles.faixa_botton}/> */}
     </section>
   );
 }

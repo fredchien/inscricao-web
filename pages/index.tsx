@@ -15,6 +15,7 @@ import Requeriments from "../components/requirements";
 import Form from "../components/form";
 import NewPaterns from "../components/newParterns";
 import ContentYellow from "../components/content-yellow";
+import Information from "../components/information";
 
 export default function Page() {
   const [isLoading, setIsLoading] = useState(true);
@@ -47,6 +48,7 @@ export default function Page() {
               <ContentYellow />
               <Depositions />
               <Requeriments />
+              <Information />
               <Form />
               <DoubtsComponents />
             </div>

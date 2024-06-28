@@ -1,0 +1,29 @@
+.information {
+    height: 80px;
+    width: 100vw;
+    background: linear-gradient(to right, #FF611E, #FFAC2D);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+  }
+  .information h3 {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 700;
+    color: #FFE79F;
+    letter-spacing: 5px;
+    position: absolute;
+    margin: 0;
+    white-space: nowrap;
+  /*   movimento */
+   animation: moveText 25s linear infinite;
+  }
+  @keyframes moveText {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }

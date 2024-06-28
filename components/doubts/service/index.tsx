@@ -2,7 +2,8 @@ export const data = [
   {
     title: "Por que a minha inscrição não foi aprovada?",
     studies: [
-      "Porque estamos priorizando a inscrição de novos alunos ou você não cumpriu um ou mais dos requisitos  obrigatórios.",
+      "Porque estamos priorizando a inscrição de novos alunos ou você não cumpriu um ou mais dos requisitos obrigatórios.",
+      <><b>{'IMPORTANTE: As vagas para o curso tem capacidade limitada. Mas, não desista! Fique de olho nas nossas redes sociais, pois abriremos novas turmas em breve.'}</b></>
     ],
   },
   {
@@ -11,6 +12,15 @@ export const data = [
       "Certifique-se de que o email é o mesmo que foi informado no momento da inscrição. Caso realmente não tenha recebido, verifique a sua caixa de spam. Se ainda assim não encontrar o email, encaminhe uma mensagem para:",
     ],
     link: "escola@vainaweb.com.br",
+  },
+  {
+    title: "Por que preciso mandar a documentação. O processo é confiável?",
+    studies: [
+      <>{'O envio da documentação é a etapa final do processo seletivo para quem foi aprovado na segunda etapa do processo. Os documentos solicitados deverão ser encaminhados para o email:'}<a href="mailto:escola@vainaweb.com.br">escola@vainaweb.com.br</a>
+      <br/>
+      {'Os dados estão protegidos pela LGPD - Lei Geral de Proteção de Dados Pessoais - Lei nº 13.709/2018 e não serão compartilhados com terceiros, com exceção do time de gestão do Vai na Web.'}
+      </>
+    ],
   },
   {
     title: "O curso é pago?",

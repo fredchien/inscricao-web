@@ -522,11 +522,18 @@ export default function Form() {
 
   return (
     <section className={styles.content}>
-      <Image src={Faixa} alt=""  className={styles.faixa_top}/>
+      {/* <Image src={Faixa} alt=""  className={styles.faixa_top}/>
       <Image src={Encerradas} alt=""  className={styles.img_encerr}/>
-      <Image src={EncerradasDesk} alt=""  className={styles.img_encerr_desk}/>
+      <Image src={EncerradasDesk} alt=""  className={styles.img_encerr_desk}/> */}
 
       <div className={styles.boxContent}>
+      <div style={{width: "100%",display: "flex",flexDirection: "column",alignItems: "center",marginTop: "100px"}}>
+        <TitleGradient Children="Inscrições Encerradas"/>
+        <p style={{margin: 30}}>Confira aqui a <b>Lista de aprovados(as)</b></p>
+        <a href="../assets/lista_aprovados.pdf" target="_blank">
+          <button className={styles.button_submit}>Acessar lista</button>
+        </a>
+      </div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.contentInputs}>
             {season === 0 ? (
@@ -1963,7 +1970,7 @@ export default function Form() {
           )} */}
         </form>
       </div>
-      <Image src={Faixa} alt=""  className={styles.faixa_botton}/>
+      {/* <Image src={Faixa} alt=""  className={styles.faixa_botton}/> */}
     </section>
   );
 }

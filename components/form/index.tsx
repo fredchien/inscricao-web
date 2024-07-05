@@ -20,7 +20,7 @@ import EncerradasDesk from "../../assets/EncerradasDesktop.png";
 
 export default function Form() {
   const [loading, setLoading] = useState(false);
-  const [season, setSeason] = useState(0);
+  const [season, setSeason] = useState(-1);
   const [campos, setCampos] = useState(false);
   const [haveDocuments, setHaveDocuments] = useState(null);
   const [aceitarCompartilhar, setAceitarCompartilhar] = useState(null);
@@ -522,9 +522,9 @@ export default function Form() {
 
   return (
     <section className={styles.content}>
-      {/* <Image src={Faixa} alt=""  className={styles.faixa_top}/>
+      <Image src={Faixa} alt=""  className={styles.faixa_top}/>
       <Image src={Encerradas} alt=""  className={styles.img_encerr}/>
-      <Image src={EncerradasDesk} alt=""  className={styles.img_encerr_desk}/> */}
+      <Image src={EncerradasDesk} alt=""  className={styles.img_encerr_desk}/>
 
       <div className={styles.boxContent}>
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -1963,7 +1963,7 @@ export default function Form() {
           )} */}
         </form>
       </div>
-      {/* <Image src={Faixa} alt=""  className={styles.faixa_botton}/> */}
+      <Image src={Faixa} alt=""  className={styles.faixa_botton}/>
     </section>
   );
 }

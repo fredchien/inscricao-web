@@ -48,7 +48,7 @@ export default function Page() {
               <ContentYellow />
               <Depositions />
               <Requeriments />
-              <Information />
+              {/* <Information /> */}
               <Form />
               <DoubtsComponents />
             </div>

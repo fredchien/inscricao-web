@@ -22,8 +22,8 @@ import CircleColor from "../../assets/logo-ods.png";
 export default function Footer() {
   return (
     <footer className={styles.footer}>
-      <figure className={styles.triangule_right_bottom}></figure>
-      <figure className={styles.triangule_left_bottom}></figure>
+      {/* <figure className={styles.triangule_right_bottom}></figure>
+      <figure className={styles.triangule_left_bottom}></figure> */}
       <div className={styles.content}>
         <figure>
           <img

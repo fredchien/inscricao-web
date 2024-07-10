@@ -34,7 +34,7 @@ export default function Page() {
         <Loading />
       ) : (
         <div>
-          <MenuComponent />
+          {/* <MenuComponent /> */}
           <Home />
           <main>
             <div className="box-main">
@@ -45,12 +45,12 @@ export default function Page() {
               {/* <SliderButtons /> */}
               {/* <Apprenticeship />
               <SoftSkillsComponent /> */}
-              <ContentYellow />
+              {/* <ContentYellow /> */}
               <Depositions />
-              <Requeriments />
+              {/* <Requeriments /> */}
               {/* <Information /> */}
               <Form />
-              <DoubtsComponents />
+              {/* <DoubtsComponents /> */}
             </div>
           </main>
           <Footer />

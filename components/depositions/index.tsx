@@ -95,7 +95,7 @@ export default function Depositions() {
                   className={styles.textName}
                   style={{
                     marginBottom: "0.6rem",
-                    color: "#F3631E",
+                    color: "#b3165c",
                     fontWeight: "400",
                   }}
                 >
@@ -130,7 +130,7 @@ export default function Depositions() {
                     className={styles.textName}
                     style={{
                       marginBottom: "0.6rem",
-                      color: "#F3631E",
+                      color: "#b3165c",
                       fontWeight: "400",
                     }}
                   >

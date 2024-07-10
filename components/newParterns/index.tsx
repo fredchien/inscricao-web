@@ -10,7 +10,7 @@ export default function NewPaterns() {
     <section className={styles.content}>
       <div className={styles.boxContent}>
         <div>
-          <p style={{ color: "#F6A528" }}>Realização</p>
+          <p style={{ color: "#006ef9" }}>Realização</p>
           <figure>
             <Image
               src={LogoVnw}
@@ -21,7 +21,7 @@ export default function NewPaterns() {
           </figure>
         </div>
         <div>
-          <p style={{ color: "#F3631E" }}>Apoio</p>
+          <p style={{ color: "#006ef9" }}>Apoio</p>
           <Image src={LogoLoreal} style={{ width: "194px" }} alt="" />
         </div>
       </div>

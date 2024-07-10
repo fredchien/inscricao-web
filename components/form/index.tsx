@@ -221,7 +221,7 @@ export default function Form() {
                   </div>
                   <div className={styles.box_input}>
                     <label>
-                      Qual é sua área de interesse (Você pode escolher mais de uma)
+                      Qual é sua área de interesse
                     </label>
                     <div
                       className={styles.boxOptions}
